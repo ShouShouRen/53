@@ -47,63 +47,25 @@ try {
     //     // header("Refresh:1;url=index.php");
     //     // return;
     // }
-
-    // if ($user == "" and $pw == "") {
-    //     echo "請填入帳號密碼";
-    //     return;
-    // } else if ($row["user"] != $user and $row["pw"] != $pw) {
-    //     echo "帳號密碼錯誤";
-    //     return;
-    // } else if ($row["user"] != $user) {
-    //     echo "帳號錯誤";
-    //     return;
-    // } else if ($row["pw"] != $pw) {
-    //     echo "密碼錯誤";
-    //     return;
-    // }else{
-    //     $_SESSION["AUTH"] = $row;
-
-    // }
-
-
-
-
-    // if (!$row) {
-    //     if ($user == "" or $pw == "") {
-    //         echo "帳號密碼不能為空";
-    //     } else {
-    //         echo "帳號密碼錯誤";
-    //     }
-    // } else if ($row["user"] != $user) {
-    //     echo "帳號錯誤";
-    // } else if ($row["pw"] != $pw) {
-    //     echo "密碼錯誤";
-    // }
-
-
-
-
-
-    // if (!$row) {
-    //     if ($user === "" or $pw == "") {
-    //         echo "帳號密碼不能為空";
-    //     } else if ($row["user"] != $user and $row["pw"] != $pw) {
-    //         echo "帳號密碼錯誤";
-    //         return;
-    //     }
-    // } else if ($row["user"] != $user) {
-    //     echo "帳號錯誤";
-    // } else if ($row["pw"] != $pw) {
-    //     echo "密碼錯誤";
-    // } else {
-    //     $_SESSION["AUTH"] = $row;
-    //     // header("Location:")
-    // }
-
+    function login_attempts()
+    {
+        if (!isset($_SESSION["login_attempts"])) {
+            $_SESSION['login_attempts'] = 0;
+        }
+        $_SESSION["login_attempts"]++;
+        if ($_SESSION["login_attempts"] > 3) {
+            echo "連續誤錯 3 次";
+            unset($_SESSION["login_attempts"]);
+            header("Location: error.php");
+            return;
+        }
+    }
     if (!$row) {
         if ($user == "" or $pw == "") {
+            login_attempts();
             echo "帳號密碼不能為空";
         } else {
+            login_attempts();
             echo "帳號密碼錯誤";
             header("Refresh:1;url=index.php");
         }
@@ -111,9 +73,11 @@ try {
     }
 
     if ($row["user"] != $user) {
+        login_attempts();
         echo "帳號錯誤";
         header("Refresh:1;url=index.php");
     } else if ($row["pw"] != $pw) {
+        login_attempts();
         echo "密碼錯誤";
         header("Refresh:1;url=index.php");
     } else {
