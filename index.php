@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/index.css">
-    <title>Document</title>
+    <style>
+
+    </style>
+    <title>咖啡商品展示系統-會員登入</title>
 </head>
 
 <body>
@@ -17,13 +23,30 @@
                 <div class="login_card p-5 rounded-lg">
                     <h2>咖啡商品展示系統-會員登入</h2>
                     <form action="auth.php" method="POST">
-                        <label for="">帳號</label>
-                        <input type="text" name="user" class="form-control my-2" require>
-                        <label for="">密碼</label>
-                        <input type="password" name="pw" class="form-control my-2" require>
+                        <div>
+                            <label for="">帳號:</label>
+                            <input type="text" name="user" class="form-control my-2" require>
+                        </div>
+                        <div>
+                            <label for="">密碼:</label>
+                            <input type="password" name="pw" class="form-control my-2" require>
+
+                        </div>
+                        <div class="my-2">
+                            <label for="">驗證碼:</label>
+                        </div>
+                        <div class="ml-5">
+                            <div class="d-inline-block">
+                                <div id="pics"></div>
+                                <div id="captcha" class="my-2"></div>
+                            </div>
+            
+                        </div>
                         <div class="row justify-content-between mx-1 my-4">
-                            <input type="reset" class="btn btn-outline-dark" value="清除">
+                            <!-- <input type="reset" class="btn btn-outline-dark" value="清除"> -->
+                            <div class="btn btn-success" onclick="recaptcha()">重新產生</div>
                             <input type="submit" class="btn btn-dark" value="登入">
+
                         </div>
                     </form>
                 </div>
@@ -31,5 +54,7 @@
         </div>
     </div>
 </body>
+<script src="./js/jquery-3.6.3.min.js"></script>
+<script src="./js/recaptcha.js"></script>
 
 </html>

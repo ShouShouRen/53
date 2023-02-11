@@ -29,3 +29,24 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.ans-area {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+}
+
+#pics {
+  display: inline-block;
+}
+
+#captcha {
+  background: #fff;
+  font-family: "Arial";
+  font-size: 30px;
+  border: 1px solid gray;
+  width: 170px;
+  height: 44px;
+  display: flex;
+}
