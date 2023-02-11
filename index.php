@@ -22,7 +22,7 @@
             <div class="d-center">
                 <div class="login_card p-5 rounded-lg">
                     <h2>咖啡商品展示系統-會員登入</h2>
-                    <form action="auth.php" method="POST">
+                    <form action="login_check.php" method="POST">
                         <div>
                             <label for="">帳號:</label>
                             <input type="text" name="user" class="form-control my-2" require>
