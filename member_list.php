@@ -20,36 +20,8 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/member_list.css">
     <title>Document</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Noto Sans TC", sans-serif;
-            background: linear-gradient(0deg,
-                    slateblue 0%,
-                    royalblue 100%);
-            height: 100vh;
-        }
-
-        .table {
-            background: white;
-            margin-bottom: 0;
-        }
-
-        .border-start {
-            border-left: 10px solid #fff;
-            padding-left: 10px;
-        }
-
-        .wrapper {
-            padding-top: 70px;
-        }
-    </style>
 </head>
 
 <body>
