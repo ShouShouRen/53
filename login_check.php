@@ -35,11 +35,11 @@ try {
     if ($row["user"] != $user) {
         login_attempts();
         echo "帳號錯誤";
-        // header("Refresh:1;url=index.php");
+        header("Refresh:1;url=index.php");
     } else if ($row["pw"] != $pw) {
         login_attempts();
         echo "密碼錯誤";
-        // header("Refresh:1;url=index.php");
+        header("Refresh:1;url=index.php");
     } else {
         $_SESSION["AUTH"] = $row;
         header("Location:coffee.php");
