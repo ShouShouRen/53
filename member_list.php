@@ -136,48 +136,71 @@ try {
                                 <?php if ($row["id"] == 1) { ?>
                                     <!-- 隱藏修改的連結 -->
                                 <?php } else { ?>
-                                    <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#edit" href="member_edit.php?id=<?php echo $row["id"] ?>">修改</a>
+                                    <!-- <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#edit" href="member_edit.php?id=<?php echo $row["id"] ?>">修改</a> -->
+
+                                    <!-- Button trigger modal -->
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Launch demo modal
+                                    </button> -->
+
                                     <!-- Modal -->
-                                    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+                                    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="editLabel">新增使用者</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="container-sm">
-                                                        <div class="d-center">
-                                                            <div class="wrapper px-5 py-4">
-                                                                <form action="member_store.php" method="POST">
-                                                                    <?php foreach ($result as $row) { ?>
-                                                                        <div class="py-2">
-                                                                            <label for="">使用者帳號</label>
-                                                                            <input class="form-control w-50" type="text" name="user" value="<?= $row["user"]; ?>">
-                                                                        </div>
-                                                                        <div class="py-2">
-                                                                            <label for="">使用者名稱</label>
-                                                                            <input class="form-control w-50" type="text" name="user_name" value="<?= $row["user_name"]; ?>">
-                                                                        </div>
-                                                                        <div class="py-2">
-                                                                            <label for="">使用者密碼</label>
-                                                                            <input class="form-control w-50" type="text" name="pw" value="<?= $row["pw"] ?>">
-                                                                        </div>
-                                                                        <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
-                                                                    <?php } ?>
-                                                                    <div class="my-3">
-                                                                        <input type="submit" value="確認修改" class="btn btn-primary">
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+ -->
+
+ <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
+
+                                    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="py-2">
+                                                            <label for="name">使用者帳號</label>
+                                                            <input class="form-control w-50" type="text" id="name" name="user">
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <label for="user_name">使用者名稱</label>
+                                                            <input class="form-control w-50" type="text" id="user_name" name="user_name">
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <label for="pw">使用者密碼</label>
+                                                            <input class="form-control w-50" type="text" id="pw" name="pw">
+                                                        </div>
+                                                        <input type="hidden" name="id" id="id">
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                                    <button type="button" class="btn btn-primary" id="save">儲存修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 <?php } ?>
                             </td>
                         </tr>
@@ -188,7 +211,8 @@ try {
     </div>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="./asset/bootstrap.js"></script>
+<script src="./js/jquery-3.6.3.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/member.js"></script>
 
 </html>
