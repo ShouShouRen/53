@@ -180,7 +180,7 @@ try {
                                                     <form>
                                                         <div class="py-2">
                                                             <label for="name">使用者帳號</label>
-                                                            <input class="form-control w-50" type="text" id="name" name="user">
+                                                            <input class="form-control w-50" type="text" id="user" name="user">
                                                         </div>
                                                         <div class="py-2">
                                                             <label for="user_name">使用者名稱</label>
