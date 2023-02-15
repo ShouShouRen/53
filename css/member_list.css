@@ -27,3 +27,6 @@ body {
 .wrapper {
   padding-top: 70px;
 }
+.logo{
+  max-width: 80px;
+}

@@ -23,11 +23,10 @@ try {
     <link rel="stylesheet" href="./css/member_list.css">
     <title>會員管理後台管理模組</title>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="coffee.php">咖啡商品展示系統- 管理者頁面</a>
+            <a class="navbar-brand" href="coffee.php"><img src="./logo.png" class="logo" alt=""> 咖啡商品展示系統- 管理者頁面</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
