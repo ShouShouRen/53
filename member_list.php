@@ -137,7 +137,6 @@ try {
                                     <!-- 隱藏修改的連結 -->
                                 <?php } else { ?>
                                     <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
-
                                     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -171,7 +170,6 @@ try {
                                             </div>
                                         </div>
                                     </div>
-
                                 <?php } ?>
                             </td>
                         </tr>
@@ -180,7 +178,6 @@ try {
             </div>
         </div>
     </div>
-
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
