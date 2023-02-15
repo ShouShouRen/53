@@ -9,7 +9,7 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 $("#user").val(response[0].user);
                 $("#user_name").val(response[0].user_name);
                 $("#pw").val(response[0].pw);
