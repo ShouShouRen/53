@@ -69,9 +69,10 @@ try {
             <div class="p-4 bg-white rounded-lg t-shadow">
                 <table class="table">
                     <tr>
-                        <th>id</th>
+                        <!-- <th>id</th> -->
                         <th>使用者帳號</th>
                         <th>使用者名稱</th>
+                        <th>使用者編號</th>
                         <th>使用者權限</th>
                         <th>動作</th>
                     </tr>
@@ -109,9 +110,11 @@ try {
                     </div>
                     <?php while ($row = $stmt->fetch()) { ?>
                         <tr>
-                            <td><?php echo $row["id"]; ?></td>
+                            <!-- <td><?php #echo $row["id"]; 
+                                        ?></td> -->
                             <td><?php echo $row["user"]; ?></td>
                             <td><?php echo $row["user_name"]; ?></td>
+                            <td><?php echo $row["user_id"]; ?></td>
                             <td><?php
                                 switch ($row["role"]) {
                                     case 0:
@@ -137,6 +140,7 @@ try {
                                     <!-- 隱藏修改的連結 -->
                                 <?php } else { ?>
                                     <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
+                                    <a class="btn btn-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
                                     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
