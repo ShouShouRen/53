@@ -24,7 +24,7 @@ try {
     <title>會員管理後台管理模組</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="coffee.php"><img src="./logo.png" class="logo" alt=""> 咖啡商品展示系統- 管理者頁面</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,7 @@ try {
                         <th>使用者名稱</th>
                         <th>使用者編號</th>
                         <th>使用者權限</th>
-                        <th>動作</th>
+                        <th>切換權限</th>
                     </tr>
                     <!-- Modal -->
                     <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">

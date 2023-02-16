@@ -18,7 +18,7 @@ if (!isset($_SESSION["AUTH"])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="javascript:;">咖啡商品展示系統-
                 <?php
