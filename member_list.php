@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["AUTH"]) || $_SESSION["AUTH"]["role"] != 0) {
-    header("Location: index.php");
+    header("Location: login.php");
 }
 try {
     require_once("pdo.php");

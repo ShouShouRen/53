@@ -37,4 +37,4 @@ if ($user === 'admin') {
 $sql = "INSERT INTO users(user, user_name, pw, user_id) VALUES (?, ?, ?, ?)";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user, $user_name, $pw, $user_id]);
-header("Refresh:1;url=index.php");
+header("Refresh:1;url=login.php");

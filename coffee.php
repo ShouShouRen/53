@@ -2,7 +2,7 @@
 require_once("pdo.php");
 session_start();
 if (!isset($_SESSION["AUTH"])) {
-    header("Location: index.php");
+    header("Location: login.php");
 }
 
 ?>
