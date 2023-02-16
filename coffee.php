@@ -14,13 +14,18 @@ if (!isset($_SESSION["AUTH"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        .logo{
+            max-width: 60px;
+        }
+    </style>
     <title>Document</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="javascript:;">咖啡商品展示系統-
+    <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo" alt="">咖啡商品展示系統-
                 <?php
                 if ($_SESSION["AUTH"]["role"] == 0) {
                     echo '管理者頁面';
