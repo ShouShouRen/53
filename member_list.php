@@ -23,9 +23,9 @@ try {
     <link rel="stylesheet" href="./css/fontawesome.min.css">
     <link rel="stylesheet" href="./css/member_list.css">
     <title>會員管理後台管理模組</title>
-<script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/jquery-3.6.3.min.js"></script>
 
-<script src="./js/member.js"></script>
+    <script src="./js/member.js"></script>
 
 </head>
 
@@ -65,9 +65,6 @@ try {
         <div class="wrapper">
             <div class="row align-items-center justify-content-between mb-3">
                 <h5 class="font-weight-bolder text-center text-white border-start">會員管理後台管理模組</h5>
-                <div class="d-flex">
-                        
-                </div>
                 <?php
                 if ($_SESSION["AUTH"]["role"] == 0) {
                     echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer" >新增使用者</button>';
@@ -187,48 +184,60 @@ try {
                     <?php } ?>
                 </table>
             </div>
+            <div class="d-flex text-white py-3">
+                <button onclick="setTime()" class="btn btn-sm btn-primary">設定</button>
+                <input type="number" id="timeInput" value="60">
+                <span id="countdown">60 秒</span>
+                <button onclick="resetTime()">重新計時</button>
+            </div>
         </div>
     </div>
 </body>
 <script src="./js/bootstrap.js"></script>
 <script>
-    // var timeleft = 60; 
-    // var timer = setInterval(function() {
-    //     document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //     timeleft -= 1;
-    //     if (timeleft < 0) {
-    //         clearInterval(timer);
-    //         if (confirm("是否繼續操作？")) {
-    //             timeleft = document.getElementById("timeInput").value;
-    //             timer = setInterval(function() {
-    //                 document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //                 timeleft -= 1;
-    //                 if (timeleft < 0) {
-    //                     clearInterval(timer);
-    //                     alert("已自動登出系統");
-    //                     window.location.href = "logout.php";
-    //                 }
-    //             }, 1000);
-    //         } else {
-    //             alert("已自動登出系統");
-    //             window.location.href = "logout.php";
-    //         }
-    //     }
-    // }, 1000);
+    var timeleft = 60;
+    var timer;
 
-    // function resetTime() {
-    //     clearInterval(timer);
-    //     timeleft = 60;
-    //     timer = setInterval(function() {
-    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //         timeleft -= 1;
-    //         if (timeleft < 0) {
-    //             clearInterval(timer);
-    //             alert("已自動登出系統");
-    //             window.location.href = "logout.php";
-    //         }
-    //     }, 1000);
-    // }
+    function setTime() {
+        timeleft = parseInt(document.getElementById("timeInput").value);
+        clearInterval(timer);
+        timer = setInterval(function() {
+            document.getElementById("countdown").innerHTML = timeleft + " 秒";
+            timeleft -= 1;
+            if (timeleft < 0) {
+                clearInterval(timer);
+                if (confirm("是否繼續操作？")) {
+                    timeleft = parseInt(document.getElementById("timeInput").value);
+                    timer = setInterval(function() {
+                        document.getElementById("countdown").innerHTML = timeleft + " 秒";
+                        timeleft -= 1;
+                        if (timeleft < 0) {
+                            clearInterval(timer);
+                            alert("已自動登出系統");
+                            window.location.href = "logout.php";
+                        }
+                    }, 1000);
+                } else {
+                    alert("已自動登出系統");
+                    window.location.href = "logout.php";
+                }
+            }
+        }, 1000);
+    }
+
+    function resetTime() {
+        clearInterval(timer);
+        timeleft = parseInt(document.getElementById("timeInput").value);
+        timer = setInterval(function() {
+            document.getElementById("countdown").innerHTML = timeleft + " 秒";
+            timeleft -= 1;
+            if (timeleft < 0) {
+                clearInterval(timer);
+                alert("已自動登出系統");
+                window.location.href = "logout.php";
+            }
+        }, 1000);
+    }
 </script>
 
 </html>
