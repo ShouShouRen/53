@@ -42,7 +42,7 @@ try {
         header("Refresh:1;url=login.php");
     } else {
         $_SESSION["AUTH"] = $row;
-        header("Location:coffee.php");
+        header("Location:index.php");
         // if ($row["role"] == '1') {
         //     header("Location:coffee-user.php");
         // } else {

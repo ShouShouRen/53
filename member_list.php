@@ -32,24 +32,24 @@ try {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="coffee.php"><img src="./logo.png" class="logo" alt=""> 咖啡商品展示系統- 管理者頁面</a>
+            <a class="navbar-brand" href="index.php"><img src="./logo.png" class="logo" alt=""> 咖啡商品展示系統- 管理者頁面</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
                     <li class="nav-item">
-                        <a href="coffee.php" class="nav-link">回上一頁</a>
+                        <a href="index.php" class="nav-link">回上一頁</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <div class="nav-link">
                             <?php
-                            if (isset($_SESSION["AUTH"])) {
-                                echo $_SESSION["AUTH"]["user"] . "你好";
-                            }
-                            ?>
+                            // if (isset($_SESSION["AUTH"])) {
+                            //     echo $_SESSION["AUTH"]["user"] . "你好";
+                            // }
+                            // ?>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <?php
                         if (isset($_SESSION["AUTH"])) {
@@ -184,9 +184,9 @@ try {
                     <?php } ?>
                 </table>
             </div>
-            <div class="d-flex text-white py-3">
+            <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
                 <button onclick="setTime()" class="btn btn-sm btn-primary">設定</button>
-                <input type="number" id="timeInput" value="60">
+                <input type="number" id="timeInput" value="60" class="form-control w-25">
                 <span id="countdown">60 秒</span>
                 <button onclick="resetTime()" class="btn btn-sm btn-primary">重新計時</button>
             </div>
@@ -281,6 +281,7 @@ try {
             }
         }, 1000);
     }
+    setTime();
 </script>
 
 </html>

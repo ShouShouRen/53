@@ -15,7 +15,7 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <style>
-        .logo{
+        .logo {
             max-width: 60px;
         }
     </style>
@@ -24,7 +24,7 @@ if (!isset($_SESSION["AUTH"])) {
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+        <div class="container-fluid">
             <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo" alt="">咖啡商品展示系統-
                 <?php
                 if ($_SESSION["AUTH"]["role"] == 0) {
@@ -33,29 +33,42 @@ if (!isset($_SESSION["AUTH"])) {
                     echo '一般使用者頁面';
                 }
                 ?></a>
-            <ul class="navbar-nav">
+            <!-- <ul class="navbar-nav">
                 <li class="nav-item">
                     <?php
-                    if ($_SESSION["AUTH"]["role"] == 0) {
-                        echo '<a class="nav-link" href="member_list.php">會員管理</a>';
-                    }
+                    // if ($_SESSION["AUTH"]["role"] == 0) {
+                    //     echo '<a class="nav-link" href="member_list.php">會員管理</a>';
+                    // }
                     ?>
                 </li>
-            </ul>
+            </ul> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
-
                     <li class="nav-item">
                         <div class="nav-link">
                             <?php
-                            if (isset($_SESSION["AUTH"])) {
-                                echo $_SESSION["AUTH"]["user"] . "你好";
-                            }
+                            // if (isset($_SESSION["AUTH"])) {
+                            //     echo $_SESSION["AUTH"]["user"] . "你好";
+                            // }
                             ?>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="create.php">上架商品</a>';
+                        }
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
+                        }
+                        ?>
                     </li>
                     <li class="nav-item">
                         <?php
