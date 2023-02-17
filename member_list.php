@@ -188,30 +188,73 @@ try {
                 <button onclick="setTime()" class="btn btn-sm btn-primary">設定</button>
                 <input type="number" id="timeInput" value="60">
                 <span id="countdown">60 秒</span>
-                <button onclick="resetTime()">重新計時</button>
+                <button onclick="resetTime()" class="btn btn-sm btn-primary">重新計時</button>
             </div>
         </div>
     </div>
 </body>
 <script src="./js/bootstrap.js"></script>
 <script>
+    // var timeleft = 60;
+    // var timer;
+
+    // function setTime() {
+    //     timeleft = parseInt(document.getElementById("timeInput").value);
+    //     clearInterval(timer);
+    //     timer = setInterval(function() {
+    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //         timeleft -= 1;
+    //         if (timeleft < 0) {
+    //             clearInterval(timer);
+    //             if (confirm("是否繼續操作？")) {
+    //                 timeleft = parseInt(document.getElementById("timeInput").value);
+    //                 timer = setInterval(function() {
+    //                     document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //                     timeleft -= 1;
+    //                     if (timeleft < 0) {
+    //                         clearInterval(timer);
+    //                         alert("已自動登出系統");
+    //                         window.location.href = "logout.php";
+    //                     }
+    //                 }, 1000);
+    //             } else {
+    //                 alert("已自動登出系統");
+    //                 window.location.href = "logout.php";
+    //             }
+    //         }
+    //     }, 1000);
+    // }
+
+    // function resetTime() {
+    //     clearInterval(timer);
+    //     timeleft = parseInt(document.getElementById("timeInput").value);
+    //     timer = setInterval(function() {
+    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //         timeleft -= 1;
+    //         if (timeleft < 0) {
+    //             clearInterval(timer);
+    //             alert("已自動登出系統");
+    //             window.location.href = "logout.php";
+    //         }
+    //     }, 1000);
+    // }
     var timeleft = 60;
     var timer;
 
     function setTime() {
         timeleft = parseInt(document.getElementById("timeInput").value);
         clearInterval(timer);
-        timer = setInterval(function() {
+        timer = setInterval(function(){
             document.getElementById("countdown").innerHTML = timeleft + " 秒";
             timeleft -= 1;
-            if (timeleft < 0) {
+            if (timeleft < 0){
                 clearInterval(timer);
-                if (confirm("是否繼續操作？")) {
+                if (confirm("是否繼續操作？")){
                     timeleft = parseInt(document.getElementById("timeInput").value);
-                    timer = setInterval(function() {
+                    timer = setInterval(function(){
                         document.getElementById("countdown").innerHTML = timeleft + " 秒";
                         timeleft -= 1;
-                        if (timeleft < 0) {
+                        if (timeleft < 0){
                             clearInterval(timer);
                             alert("已自動登出系統");
                             window.location.href = "logout.php";
@@ -228,10 +271,10 @@ try {
     function resetTime() {
         clearInterval(timer);
         timeleft = parseInt(document.getElementById("timeInput").value);
-        timer = setInterval(function() {
+        timer = setInterval(function(){
             document.getElementById("countdown").innerHTML = timeleft + " 秒";
             timeleft -= 1;
-            if (timeleft < 0) {
+            if (timeleft < 0){
                 clearInterval(timer);
                 alert("已自動登出系統");
                 window.location.href = "logout.php";
