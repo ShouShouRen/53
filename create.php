@@ -53,7 +53,7 @@ if (!isset($_SESSION["AUTH"])) {
             <div class="col-4">
                 <div class="card p-3">
                     <div class="card-img-top w-100 bg-secondary h-200"></div>
-                    <div class="card-body">
+                    <div class="p-2">
                         <h5 class="card-title product-name">商品1</h5>
                         <p class="card-text product-description">這是商品1的描述。</p>
                         <div class="product-details">
@@ -68,15 +68,21 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
             <div class="col-6">
                 <div class="card p-3">
-                    <div class="row no-gutters">
+                    <div class="row">
                         <div class="col-md-5">
-                        <div class="card-img-top w-100 bg-secondary h-200"></div>
+                            <div class="card-img-top w-100 bg-secondary h-100"></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <div class="p-2">
+                                <h5 class="card-title product-name">商品1</h5>
+                                <p class="card-text product-description">這是商品1的描述。</p>
+                                <div class="product-details">
+                                    <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
+                                    <p class="card-text"><small class="text-muted">費用：$100</small></p>
+                                </div>
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-primary product-link ">了解更多</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +94,6 @@ if (!isset($_SESSION["AUTH"])) {
                 <button type="submit" class="btn btn-primary">下一步</button>
             </form>
         </div>
-    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
