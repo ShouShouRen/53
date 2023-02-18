@@ -10,23 +10,9 @@ body {
   height: 100vh;
 }
 
-.product-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-.product-image {
-  width: 100%;
+.h-200 {
   height: 200px;
-  background-color: #979797;
 }
-
 .product-name {
   font-size: 18px;
   font-weight: bold;
@@ -43,7 +29,3 @@ body {
   margin: 10px 0;
 }
 
-.product-link {
-  font-size: 14px;
-  text-align: right;
-}

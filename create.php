@@ -39,40 +39,55 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container py-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">選擇版型</a></li>
+                <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
                 <li class="breadcrumb-item"><a href="#">填寫資料</a></li>
                 <li class="breadcrumb-item"><a href="#">預覽</a></li>
                 <li class="breadcrumb-item"><a href="#">確認送出</a></li>
             </ol>
         </nav>
-        <div class="product-card">
-            <div class="product-image"></div>
-            <div class="product-name">商品1</div>
-            <div class="product-description">這是商品1的描述。</div>
-            <div class="product-details">
-                <span>發佈日期：2023年2月15日</span>
-                <br>
-                <span>費用：$100</span>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="card p-3">
+                    <div class="card-img-top w-100 bg-secondary h-200"></div>
+                    <div class="card-body">
+                        <h5 class="card-title product-name">商品1</h5>
+                        <p class="card-text product-description">這是商品1的描述。</p>
+                        <div class="product-details">
+                            <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
+                            <p class="card-text"><small class="text-muted">費用：$100</small></p>
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="btn btn-primary product-link ">了解更多</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="product-link"><a href="#">了解更多</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image"></div>
-            <div class="product-name">商品2</div>
-            <div class="product-description">這是商品2的描述。</div>
-            <div class="product-details">
-                <span>發佈日期：2023年2月15日</span>
-                <br>
-                <span>費用：$200</span>
+            <div class="col-6">
+                <div class="card p-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                        <div class="card-img-top w-100 bg-secondary h-200"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="product-link"><a href="#">了解更多</a></div>
         </div>
-        <form>
-            <button type="submit" class="btn btn-primary">下一步</button>
-        </form>
+        <div class="row justify-content-end pt-5">
+            <form>
+                <button type="submit" class="btn btn-primary">下一步</button>
+            </form>
+        </div>
     </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
