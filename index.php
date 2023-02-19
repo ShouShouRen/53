@@ -29,19 +29,19 @@ try {
             max-width: 60px;
         }
     </style>
-    <title>Document</title>
+    <title>商店首頁</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo" alt="">咖啡商品展示系統-
+            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo mx-3" alt="">咖啡商品展示系統
                 <?php
-                if ($_SESSION["AUTH"]["role"] == 0) {
-                    echo '管理者頁面';
-                } else {
-                    echo '一般使用者頁面';
-                }
+                // if ($_SESSION["AUTH"]["role"] == 0) {
+                //     echo '管理者頁面';
+                // } else {
+                //     echo '一般使用者頁面';
+                // }
                 ?></a>
             <!-- <ul class="navbar-nav">
                 <li class="nav-item">
@@ -83,7 +83,7 @@ try {
                     <li class="nav-item">
                         <?php
                         if (isset($_SESSION["AUTH"])) {
-                            echo '<a class="nav-link" href="logout.php">登出</a>';
+                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
                         }
                         ?>
                     </li>
@@ -92,7 +92,7 @@ try {
         </div>
     </nav>
     <div class="container">
-        <div class="row justify-content-between">
+        <div class="row justify-content-between py-4">
             <div class="col-4">
                 <?php foreach ($result as $row) { ?>
                     <div class="card p-3" id="card-1" data-id="1">

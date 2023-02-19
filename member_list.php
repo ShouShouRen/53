@@ -30,30 +30,57 @@ try {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="./logo.png" class="logo" alt=""> 咖啡商品展示系統- 管理者頁面</a>
+            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo mx-3" alt="">咖啡商品展示系統
+                <?php
+                // if ($_SESSION["AUTH"]["role"] == 0) {
+                //     echo '管理者頁面';
+                // } else {
+                //     echo '一般使用者頁面';
+                // }
+                ?></a>
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item">
+                    <?php
+                    // if ($_SESSION["AUTH"]["role"] == 0) {
+                    //     echo '<a class="nav-link" href="member_list.php">會員管理</a>';
+                    // }
+                    ?>
+                </li>
+            </ul> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link">回上一頁</a>
-                    </li>
-                    <!-- <li class="nav-item">
                         <div class="nav-link">
                             <?php
                             // if (isset($_SESSION["AUTH"])) {
                             //     echo $_SESSION["AUTH"]["user"] . "你好";
                             // }
-                            // ?>
+                            ?>
                         </div>
-                    </li> -->
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="create.php">上架商品</a>';
+                        }
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
+                        }
+                        ?>
+                    </li>
                     <li class="nav-item">
                         <?php
                         if (isset($_SESSION["AUTH"])) {
-                            echo '<a class="nav-link" href="logout.php">登出</a>';
+                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
                         }
                         ?>
                     </li>
@@ -63,22 +90,28 @@ try {
     </nav>
     <div class="container">
         <div class="wrapper">
-            <div class="row align-items-center justify-content-between mb-3">
-                <h5 class="font-weight-bolder text-center text-white border-start">會員管理後台管理模組</h5>
-                <?php
-                if ($_SESSION["AUTH"]["role"] == 0) {
-                    echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer" >新增使用者</button>';
-                }
-                ?>
+            <div class="row align-items-center justify-content-between">
+                <h5 class="font-weight-bolder text-center text-white border-start">會員管理</h5>
+                <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
+                    <input type="number" id="timeInput" value="60" class="form-control w-25">
+                    <button onclick="setTime()" class="btn btn-sm btn-md-lg btn-outline-light">設定</button>
+                <span id="countdown">60 秒</span>
+                <button onclick="resetTime()" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
+            </div>
             </div>
             <div class="p-4 bg-white rounded-lg t-shadow">
+            <?php
+                if ($_SESSION["AUTH"]["role"] == 0) {
+                    echo '<button class="btn btn-sm btn-warning mb-3" data-toggle="modal" data-target="#adduer" >新增使用者</button>';
+                }
+                ?>
                 <table class="table">
                     <tr>
+                        <th>使用者編號</th>
                         <th>使用者帳號</th>
                         <th>使用者名稱</th>
-                        <th>使用者編號</th>
                         <th>使用者權限</th>
-                        <th>切換權限</th>
+                        <th>操作</th>
                     </tr>
                     <!-- Modal -->
                     <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
@@ -116,9 +149,9 @@ try {
                         <tr>
                             <!-- <td><?php #echo $row["id"]; 
                                         ?></td> -->
+                            <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
                             <td><?php echo $row["user_name"]; ?></td>
-                            <td><?php echo $row["user_id"]; ?></td>
                             <td><?php
                                 switch ($row["role"]) {
                                     case 0:
@@ -129,22 +162,21 @@ try {
                                         echo "一般使用者";
                                         break;
                                 }
-                                ?></td>
+                                ?>    
+                            </td>
                             <td>
                                 <?php if ($row["id"] == 1) { ?>
                                     <!-- 隱藏切換權限的連結 -->
                                 <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
                                     <span class="text-secondary">切換權限</span>
                                 <?php } else { ?>
-                                    <a href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">切換權限</a>
+                                    <a class="btn btn-outline-secondary" href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
                                 <?php } ?>
-                            </td>
-                            <td>
                                 <?php if ($row["id"] == 1) { ?>
                                     <!-- 隱藏修改的連結 -->
                                 <?php } else { ?>
                                     <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
-                                    <a class="btn btn-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
+                                    <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
                                     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -183,12 +215,6 @@ try {
                         </tr>
                     <?php } ?>
                 </table>
-            </div>
-            <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
-                <button onclick="setTime()" class="btn btn-sm btn-primary">設定</button>
-                <input type="number" id="timeInput" value="60" class="form-control w-25">
-                <span id="countdown">60 秒</span>
-                <button onclick="resetTime()" class="btn btn-sm btn-primary">重新計時</button>
             </div>
         </div>
     </div>

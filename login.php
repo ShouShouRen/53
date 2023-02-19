@@ -18,8 +18,11 @@ session_start();
         <div class="position-relative">
             <div class="d-center">
                 <div class="login_card p-5 rounded-lg">
-                    <h2>咖啡商品展示系統-會員登入</h2>
-                    <form action="login_check.php" method="POST">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <img src="logo.png" class="w-25" alt="">
+                        <h2>咖啡商品展示系統</h2>
+                    </div>
+                    <form action="login_check.php" method="POST" class="pt-4">
                         <div>
                             <label for="">帳號:</label>
                             <input type="text" name="user" class="form-control my-2" require>

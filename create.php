@@ -64,6 +64,8 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                 </div>
+                <label for="">請選擇</label>
+                <input type="radio" name="card01" id="">
             </div>
             <div class="col-6">
                 <div class="card p-3" id="card-2" data-id="2">
@@ -85,6 +87,8 @@ if (!isset($_SESSION["AUTH"])) {
                             </div>
                         </div>
                     </div>
+                    <label for="">請選擇</label>
+                    <input type="radio" name="card01" id="">
                 </div>
             </div>
         </div>
