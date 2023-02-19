@@ -5,6 +5,7 @@ if (!isset($_SESSION["AUTH"])) {
     header("Location: login.php");
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +45,11 @@ if (!isset($_SESSION["AUTH"])) {
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
                 <li class="breadcrumb-item"><a href="input.php">填寫資料</a></li>
-                <li class="breadcrumb-item"><a href="#">預覽</a></li>
-                <li class="breadcrumb-item"><a href="#">確認送出</a></li>
+                <li class="breadcrumb-item"><a href="preview.php">預覽</a></li>
+                <li class="breadcrumb-item"><a href="store.php">確認送出</a></li>
             </ol>
         </nav>
-        <div class="row">
+        <div class="row justify-content-between">
             <div class="col-4">
                 <div class="card p-3" id="card-1" data-id="1">
                     <div class="card-img-top w-100 bg-secondary h-200"></div>
@@ -60,33 +61,45 @@ if (!isset($_SESSION["AUTH"])) {
                             <p class="card-text"><small class="text-muted">費用：$100</small></p>
                         </div>
                         <div class="text-right">
-                            <a href="#" class="btn btn-primary product-link ">了解更多</a>
+                            <a href="#" class="btn btn-primary product-link ">相關連結</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="card p-3" id="card-2" data-id="2">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="card-img-top w-100 bg-secondary h-100"></div>
+                <form action="store.php" method="POST" enctype="multipart/form-data">
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="text-center my-5">填寫資料</h4>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">商品標題:</label>
+                            <input type="text" class="form-control w-75" name="product_name">
                         </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                <h5 class="card-title product-name">商品1</h5>
-                                <p class="card-text product-description">這是商品1的描述。</p>
-                                <div class="product-details">
-                                    <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
-                                    <p class="card-text"><small class="text-muted">費用：$100</small></p>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#" class="btn btn-primary product-link ">了解更多</a>
-                                </div>
-                            </div>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">商品描述:</label>
+                            <textarea name="product_des" class="form-control w-75"></textarea>
                         </div>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">發布日期:</label>
+                            <input type="datetime-local" class="form-control w-75" name="time">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">圖片:</label>
+                            <input type="file" name="images">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">費用:</label>
+                            <input type="text" class="form-control w-75" name="price">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <label for="">相關連結:</label>
+                            <input type="text" class="form-control w-75" name="links">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="送出">
                     </div>
-                </div>
+                </form>
+
             </div>
+
         </div>
         <div class="row justify-content-end pt-5">
             <form>
@@ -97,18 +110,7 @@ if (!isset($_SESSION["AUTH"])) {
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script>
-    $("#card-1,#card-2").click(function() {
-        let card_id = $(this).data("id");
-        console.log(card_id);
-        $.ajax({
-            url: 'input.php',
-            type: 'GET',
-            data: {
-                id: card_id
-            },
-            dataType: 'json',
-        })
-    })
+
 </script>
 
 </html>

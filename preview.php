@@ -1,5 +1,14 @@
 <?php
 require_once("pdo.php");
+try{
+    extract($_GET);
+    $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 session_start();
 if (!isset($_SESSION["AUTH"])) {
     header("Location: login.php");
@@ -44,48 +53,28 @@ if (!isset($_SESSION["AUTH"])) {
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
                 <li class="breadcrumb-item"><a href="input.php">填寫資料</a></li>
-                <li class="breadcrumb-item"><a href="#">預覽</a></li>
-                <li class="breadcrumb-item"><a href="#">確認送出</a></li>
+                <li class="breadcrumb-item"><a href="preview.php">預覽</a></li>
+                <li class="breadcrumb-item"><a href="store.php">確認送出</a></li>
             </ol>
         </nav>
-        <div class="row">
+        <div class="row justify-content-between">
             <div class="col-4">
+                <?php  foreach ($result as $row) { ?>
                 <div class="card p-3" id="card-1" data-id="1">
-                    <div class="card-img-top w-100 bg-secondary h-200"></div>
+                    <!-- <div class="card-img-top w-100 bg-secondary h-200"></div> -->
                     <div class="p-2">
-                        <h5 class="card-title product-name">商品1</h5>
-                        <p class="card-text product-description">這是商品1的描述。</p>
+                        <h5 class="card-title product-name"><?php echo $row["product_name"]?></h5>
+                        <p class="card-text product-description"><?php echo $row["product_des"]?></p>
                         <div class="product-details">
-                            <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
+                            <p class="card-text"><small class="text-muted"><?echo $row["time"]?></small></p>
                             <p class="card-text"><small class="text-muted">費用：$100</small></p>
                         </div>
                         <div class="text-right">
-                            <a href="#" class="btn btn-primary product-link ">了解更多</a>
+                            <a href="#" class="btn btn-primary product-link ">相關連結</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="card p-3" id="card-2" data-id="2">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="card-img-top w-100 bg-secondary h-100"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                <h5 class="card-title product-name">商品1</h5>
-                                <p class="card-text product-description">這是商品1的描述。</p>
-                                <div class="product-details">
-                                    <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
-                                    <p class="card-text"><small class="text-muted">費用：$100</small></p>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#" class="btn btn-primary product-link ">了解更多</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
         <div class="row justify-content-end pt-5">
@@ -97,18 +86,7 @@ if (!isset($_SESSION["AUTH"])) {
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script>
-    $("#card-1,#card-2").click(function() {
-        let card_id = $(this).data("id");
-        console.log(card_id);
-        $.ajax({
-            url: 'input.php',
-            type: 'GET',
-            data: {
-                id: card_id
-            },
-            dataType: 'json',
-        })
-    })
+
 </script>
 
 </html>
