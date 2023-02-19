@@ -10,8 +10,12 @@ body {
   height: 100vh;
 }
 
-.h-200 {
-  height: 200px;
+.h-300{
+  height: 300px;
+}
+
+.h-160 {
+  height: 140px;
 }
 .product-name {
   font-size: 18px;

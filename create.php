@@ -25,6 +25,9 @@ if (!isset($_SESSION["AUTH"])) {
         li {
             list-style: none;
         }
+        a:hover{
+            text-decoration: none;
+        }
         .actived{
             color: #ffc107 !important;
         }
@@ -51,14 +54,14 @@ if (!isset($_SESSION["AUTH"])) {
     <div class="container py-3">
         <nav class="list-s">
             <ol class="d-flex text-white">
-                <li><a class="text-white px-1 actived" href="create.php">選擇版型</a>&gt;</li> 
-                <li><a class="text-white px-1" href="input.php">填寫資料</a> &gt;</li>
-                <li><a class="text-white px-1" href="preview.php">預覽</a> &gt;</li>
-                <li><a class="text-white px-1" href="confirm.php">確認送出</a></li>
+                <li><a id="click" class="text-white px-1 actived" href="create.php">選擇版型</a>&gt;</li> 
+                <li><a id="click" class="text-white px-1" href="input.php">填寫資料</a> &gt;</li>
+                <li><a id="click" class="text-white px-1" href="preview.php">預覽</a> &gt;</li>
+                <li><a id="click" class="text-white px-1" href="confirm.php">確認送出</a></li>
             </ol>
         </nav>
         <div class="row">
-            <div class="col-4">
+            <!-- <div class="col-4">
                 <div class="card p-3" id="card-1" data-id="1">
                     <div class="card-img-top w-100 bg-secondary h-200"></div>
                     <div class="p-2">
@@ -98,6 +101,29 @@ if (!isset($_SESSION["AUTH"])) {
                     </div>
                     <label for="">請選擇</label>
                     <input type="radio" name="card01" id="">
+                </div>
+            </div> -->
+            <div class="col-6">
+                <div class="bg-white rounded-lg h-300">
+                    <div class="row">
+                        <div class="p-3 w-100">
+                            <div class="col-6 h-100">
+                                <div class="w-100 bg-secondary h-160">
+                                </div>
+                                <div class="w-100 bg-secondary h-25">連結</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="w-100 bg-warning h-25">
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white rounded-lg">
+                    wef
                 </div>
             </div>
         </div>
