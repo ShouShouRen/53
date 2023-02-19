@@ -4,6 +4,15 @@ session_start();
 if (!isset($_SESSION["AUTH"])) {
     header("Location: login.php");
 }
+require_once("pdo.php");
+try {
+    extract($_GET);
+    $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +23,7 @@ if (!isset($_SESSION["AUTH"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/index.css">
     <style>
         .logo {
             max-width: 60px;
@@ -81,6 +91,29 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <?php foreach ($result as $row) { ?>
+                    <div class="card p-3" id="card-1" data-id="1">
+                        <!-- <div class="card-img-top w-100 bg-secondary h-200"></div> -->
+                        <img src="./images/<?php echo $row["images"] ?>" class="w-100 h-200" alt="">
+                        <div class="p-2">
+                            <h5 class="card-title product-name">商品名稱:<?php echo $row["product_name"] ?></h5>
+                            <p class="card-text product-description">商品描述:<?php echo $row["product_des"] ?></p>
+                            <div class="product-details">
+                                <p class="card-text"><small class="text-muted"><? echo $row["time"] ?></small></p>
+                                <p class="card-text"><small class="text-muted">價格:<?php echo $row["price"] ?> 元</small></p>
+                            </div>
+                            <div class="text-right">
+                                <a href="#" class="product-link ">相關連結：<?php echo $row["links"] ?></a>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
