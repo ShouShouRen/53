@@ -4,8 +4,6 @@ session_start();
 if (!isset($_SESSION["AUTH"])) {
     header("Location: login.php");
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,36 +40,15 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+            <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
                 <li class="breadcrumb-item"><a href="input.php">填寫資料</a></li>
                 <li class="breadcrumb-item"><a href="preview.php">預覽</a></li>
                 <li class="breadcrumb-item"><a href="confirm.php">確認送出</a></li>
             </ol>
         </nav>
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="card p-3" id="card-1" data-id="1">
-                    <div class="card-img-top w-100 bg-secondary h-200"></div>
-                    <div class="p-2">
-                        <h5 class="card-title product-name">商品1</h5>
-                        <p class="card-text product-description">這是商品1的描述。</p>
-                        <div class="product-details">
-                            <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
-                            <p class="card-text"><small class="text-muted">費用：$100</small></p>
-                        </div>
-                        <div class="text-right">
-                            <a href="#" class="btn btn-primary product-link ">相關連結</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-end pt-5">
-            <form>
-                <a href="input.php" class="btn btn-primary">下一步</a>
-            </form>
-        </div>
+        <a href="store.php" class="btn btn-warning">確認送出</a>
+    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>

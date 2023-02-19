@@ -44,8 +44,8 @@ if (!isset($_SESSION["AUTH"])) {
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
                 <li class="breadcrumb-item"><a href="input.php">填寫資料</a></li>
-                <li class="breadcrumb-item"><a href="#">預覽</a></li>
-                <li class="breadcrumb-item"><a href="#">確認送出</a></li>
+                <li class="breadcrumb-item"><a href="preview.php">預覽</a></li>
+                <li class="breadcrumb-item"><a href="confirm.php">確認送出</a></li>
             </ol>
         </nav>
         <div class="row">
