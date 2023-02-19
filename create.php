@@ -19,6 +19,15 @@ if (!isset($_SESSION["AUTH"])) {
         .logo {
             max-width: 60px;
         }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+        .actived{
+            color: #ffc107 !important;
+        }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
 </head>
@@ -40,12 +49,12 @@ if (!isset($_SESSION["AUTH"])) {
         </div>
     </nav>
     <div class="container py-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="create.php">選擇版型</a></li>
-                <li class="breadcrumb-item"><a href="input.php">填寫資料</a></li>
-                <li class="breadcrumb-item"><a href="preview.php">預覽</a></li>
-                <li class="breadcrumb-item"><a href="confirm.php">確認送出</a></li>
+        <nav class="list-s">
+            <ol class="d-flex text-white">
+                <li><a class="text-white px-1 actived" href="create.php">選擇版型</a>&gt;</li> 
+                <li><a class="text-white px-1" href="input.php">填寫資料</a> &gt;</li>
+                <li><a class="text-white px-1" href="preview.php">預覽</a> &gt;</li>
+                <li><a class="text-white px-1" href="confirm.php">確認送出</a></li>
             </ol>
         </nav>
         <div class="row">

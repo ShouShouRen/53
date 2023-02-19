@@ -18,9 +18,9 @@ session_start();
         <div class="position-relative">
             <div class="d-center">
                 <div class="login_card p-5 rounded-lg">
-                    <div class="d-flex justify-content-start align-items-center">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
                         <img src="logo.png" class="w-25" alt="">
-                        <h2>咖啡商品展示系統</h2>
+                        <h2 class="p-3">咖啡商品展示系統</h2>
                     </div>
                     <form action="login_check.php" method="POST" class="pt-4">
                         <div>
@@ -44,8 +44,8 @@ session_start();
                         </div>
                         <div class="row justify-content-between mx-1 my-4">
                             <!-- <input type="reset" class="btn btn-outline-dark" value="清除"> -->
-                            <div class="btn btn-success" onclick="recaptcha()">重新產生</div>
-                            <input type="submit" class="btn btn-dark" value="確認登入">
+                            <div class="btn btn-outline-light" onclick="recaptcha()">重新產生</div>
+                            <input type="submit" class="btn btn-light" value="確認登入">
                         </div>
                     </form>
                 </div>
