@@ -25,10 +25,12 @@ if (!isset($_SESSION["AUTH"])) {
         li {
             list-style: none;
         }
-        a:hover{
+
+        a:hover {
             text-decoration: none;
         }
-        .actived{
+
+        .actived {
             color: #ffc107 !important;
         }
     </style>
@@ -38,71 +40,41 @@ if (!isset($_SESSION["AUTH"])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo" alt="">咖啡商品展示系統-上架商品</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="./logos.png" class="logo mx-3" alt="">
+                <span>咖啡商品展示系統</span>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link">離開</a>
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="create.php">上架商品</a>';
+                        }
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if ($_SESSION["AUTH"]["role"] == 0) {
+                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
+                        }
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        if (isset($_SESSION["AUTH"])) {
+                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
-        </div>
     </nav>
     <div class="container py-3">
-        <nav class="list-s">
-            <ol class="d-flex text-white">
-                <li><a id="click" class="text-white px-1 actived" href="create.php">選擇版型</a>&gt;</li> 
-                <li><a id="click" class="text-white px-1" href="input.php">填寫資料</a> &gt;</li>
-                <li><a id="click" class="text-white px-1" href="preview.php">預覽</a> &gt;</li>
-                <li><a id="click" class="text-white px-1" href="confirm.php">確認送出</a></li>
-            </ol>
-        </nav>
         <div class="row">
-            <!-- <div class="col-4">
-                <div class="card p-3" id="card-1" data-id="1">
-                    <div class="card-img-top w-100 bg-secondary h-200"></div>
-                    <div class="p-2">
-                        <h5 class="card-title product-name">商品1</h5>
-                        <p class="card-text product-description">這是商品1的描述。</p>
-                        <div class="product-details">
-                            <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
-                            <p class="card-text"><small class="text-muted">費用：$100</small></p>
-                        </div>
-                        <div class="text-right">
-                            <a href="#" class="btn btn-primary product-link ">了解更多</a>
-                        </div>
-                    </div>
-                </div>
-                <label for="">請選擇</label>
-                <input type="radio" name="card01" id="">
-            </div>
-            <div class="col-6">
-                <div class="card p-3" id="card-2" data-id="2">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="card-img-top w-100 bg-secondary h-100"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                <h5 class="card-title product-name">商品1</h5>
-                                <p class="card-text product-description">這是商品1的描述。</p>
-                                <div class="product-details">
-                                    <p class="card-text"><small class="text-muted">發佈日期：2023年2月15日</small></p>
-                                    <p class="card-text"><small class="text-muted">費用：$100</small></p>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#" class="btn btn-primary product-link ">了解更多</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <label for="">請選擇</label>
-                    <input type="radio" name="card01" id="">
-                </div>
-            </div> -->
             <div class="col-6">
                 <div class="bg-white rounded-lg h-300">
                     <div class="row">
@@ -114,7 +86,7 @@ if (!isset($_SESSION["AUTH"])) {
                             </div>
                             <div class="col-6">
                                 <div class="w-100 bg-warning h-25">
-    
+
                                 </div>
                             </div>
                         </div>
@@ -123,7 +95,7 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
             <div class="col-6">
                 <div class="bg-white rounded-lg">
-                    wef
+
                 </div>
             </div>
         </div>
@@ -132,6 +104,7 @@ if (!isset($_SESSION["AUTH"])) {
                 <a href="input.php" class="btn btn-primary">下一步</a>
             </form>
         </div>
+    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>

@@ -32,7 +32,7 @@ try {
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo mx-3" alt="">咖啡商品展示系統
+            <a class="navbar-brand" href="index.php"><img src="./logos.png" class="logo mx-3" alt="">咖啡商品展示系統
                 <?php
                 // if ($_SESSION["AUTH"]["role"] == 0) {
                 //     echo '管理者頁面';

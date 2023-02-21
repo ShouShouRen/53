@@ -35,37 +35,15 @@ try {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:;"><img src="./logo.png" class="logo mx-3" alt="">咖啡商品展示系統
-                <?php
-                // if ($_SESSION["AUTH"]["role"] == 0) {
-                //     echo '管理者頁面';
-                // } else {
-                //     echo '一般使用者頁面';
-                // }
-                ?></a>
-            <!-- <ul class="navbar-nav">
-                <li class="nav-item">
-                    <?php
-                    // if ($_SESSION["AUTH"]["role"] == 0) {
-                    //     echo '<a class="nav-link" href="member_list.php">會員管理</a>';
-                    // }
-                    ?>
-                </li>
-            </ul> -->
+            <a class="navbar-brand" href="index.php">
+                <img src="./logos.png" class="logo mx-3" alt="">
+                <span>咖啡商品展示系統</span>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
-                    <li class="nav-item">
-                        <div class="nav-link">
-                            <?php
-                            // if (isset($_SESSION["AUTH"])) {
-                            //     echo $_SESSION["AUTH"]["user"] . "你好";
-                            // }
-                            ?>
-                        </div>
-                    </li>
                     <li class="nav-item">
                         <?php
                         if ($_SESSION["AUTH"]["role"] == 0) {
@@ -89,7 +67,6 @@ try {
                     </li>
                 </ul>
             </div>
-        </div>
     </nav>
     <div class="container">
         <div class="row justify-content-between py-4">

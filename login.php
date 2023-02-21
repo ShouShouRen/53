@@ -19,7 +19,7 @@ session_start();
             <div class="d-center">
                 <div class="login_card p-5 rounded-lg">
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <img src="logo.png" class="w-25" alt="">
+                        <img src="logos.png" class="w-25" alt="">
                         <h2 class="p-3">咖啡商品展示系統</h2>
                     </div>
                     <form action="login_check.php" method="POST" class="pt-4">
