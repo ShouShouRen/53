@@ -19,20 +19,6 @@ if (!isset($_SESSION["AUTH"])) {
         .logo {
             max-width: 60px;
         }
-
-        ul,
-        ol,
-        li {
-            list-style: none;
-        }
-
-        a:hover {
-            text-decoration: none;
-        }
-
-        .actived {
-            color: #ffc107 !important;
-        }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
 </head>
@@ -75,7 +61,31 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <div class="row">
+            <div class="bg-white p-3 rounded-lg">
 
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">選擇版型</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">填寫資料</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat modi harum magnam repellendus nulla tempore, illum explicabo quos, recusandae, facilis ipsam! Facilis minus odio quis, magnam quae ratione? Unde, error!</p>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maiores sint sed, illum adipisci ab, enim dolorem nobis ipsum, quas doloremque. Voluptatibus voluptatem atque ratione fuga repudiandae odio vero voluptate!</p>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row justify-content-end pt-5">
             <form>
