@@ -24,6 +24,7 @@ try {
         if ($user == "" or $pw == "") {
             login_attempts();
             echo "帳號密碼不能為空";
+            header("Refresh:1;url=login.php");
         } else {
             login_attempts();
             echo "帳號密碼錯誤";
@@ -42,7 +43,7 @@ try {
         header("Refresh:1;url=login.php");
     } else {
         $_SESSION["AUTH"] = $row;
-        header("Location:index.php");
+        header("Location:login_check-2.php");
         // if ($row["role"] == '1') {
         //     header("Location:coffee-user.php");
         // } else {
