@@ -30,7 +30,7 @@ try {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="./logos.png" class="logo mx-3" alt="">咖啡商品展示系統
                 <?php
@@ -95,12 +95,12 @@ try {
                 <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
                     <input type="number" id="timeInput" value="60" class="form-control w-25">
                     <button onclick="setTime()" class="btn btn-sm btn-md-lg btn-outline-light">設定</button>
-                <span id="countdown">60 秒</span>
-                <button onclick="resetTime()" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
-            </div>
+                    <span id="countdown">60 秒</span>
+                    <button onclick="resetTime()" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
+                </div>
             </div>
             <div class="p-4 bg-white rounded-lg t-shadow">
-            <?php
+                <?php
                 if ($_SESSION["AUTH"]["role"] == 0) {
                     echo '<button class="btn btn-sm btn-warning mb-3" data-toggle="modal" data-target="#adduer" >新增使用者</button>';
                 }
@@ -109,6 +109,7 @@ try {
                     <tr>
                         <th>使用者編號</th>
                         <th>使用者帳號</th>
+                        <th>使用者密碼</th>
                         <th>使用者名稱</th>
                         <th>使用者權限</th>
                         <th>操作</th>
@@ -151,6 +152,7 @@ try {
                                         ?></td> -->
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
+                            <td><?php echo $row["pw"]?></td>
                             <td><?php echo $row["user_name"]; ?></td>
                             <td><?php
                                 switch ($row["role"]) {
@@ -162,7 +164,7 @@ try {
                                         echo "一般使用者";
                                         break;
                                 }
-                                ?>    
+                                ?>
                             </td>
                             <td>
                                 <?php if ($row["id"] == 1) { ?>
@@ -221,66 +223,23 @@ try {
 </body>
 <script src="./js/bootstrap.js"></script>
 <script>
-    // var timeleft = 60;
-    // var timer;
-
-    // function setTime() {
-    //     timeleft = parseInt(document.getElementById("timeInput").value);
-    //     clearInterval(timer);
-    //     timer = setInterval(function() {
-    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //         timeleft -= 1;
-    //         if (timeleft < 0) {
-    //             clearInterval(timer);
-    //             if (confirm("是否繼續操作？")) {
-    //                 timeleft = parseInt(document.getElementById("timeInput").value);
-    //                 timer = setInterval(function() {
-    //                     document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //                     timeleft -= 1;
-    //                     if (timeleft < 0) {
-    //                         clearInterval(timer);
-    //                         alert("已自動登出系統");
-    //                         window.location.href = "logout.php";
-    //                     }
-    //                 }, 1000);
-    //             } else {
-    //                 alert("已自動登出系統");
-    //                 window.location.href = "logout.php";
-    //             }
-    //         }
-    //     }, 1000);
-    // }
-
-    // function resetTime() {
-    //     clearInterval(timer);
-    //     timeleft = parseInt(document.getElementById("timeInput").value);
-    //     timer = setInterval(function() {
-    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //         timeleft -= 1;
-    //         if (timeleft < 0) {
-    //             clearInterval(timer);
-    //             alert("已自動登出系統");
-    //             window.location.href = "logout.php";
-    //         }
-    //     }, 1000);
-    // }
     var timeleft = 60;
     var timer;
 
     function setTime() {
         timeleft = parseInt(document.getElementById("timeInput").value);
         clearInterval(timer);
-        timer = setInterval(function(){
+        timer = setInterval(function() {
             document.getElementById("countdown").innerHTML = timeleft + " 秒";
             timeleft -= 1;
-            if (timeleft < 0){
+            if (timeleft < 0) {
                 clearInterval(timer);
-                if (confirm("是否繼續操作？")){
+                if (confirm("是否繼續操作？")) {
                     timeleft = parseInt(document.getElementById("timeInput").value);
-                    timer = setInterval(function(){
+                    timer = setInterval(function() {
                         document.getElementById("countdown").innerHTML = timeleft + " 秒";
                         timeleft -= 1;
-                        if (timeleft < 0){
+                        if (timeleft < 0) {
                             clearInterval(timer);
                             alert("已自動登出系統");
                             window.location.href = "logout.php";
@@ -297,10 +256,10 @@ try {
     function resetTime() {
         clearInterval(timer);
         timeleft = parseInt(document.getElementById("timeInput").value);
-        timer = setInterval(function(){
+        timer = setInterval(function() {
             document.getElementById("countdown").innerHTML = timeleft + " 秒";
             timeleft -= 1;
-            if (timeleft < 0){
+            if (timeleft < 0) {
                 clearInterval(timer);
                 alert("已自動登出系統");
                 window.location.href = "logout.php";
