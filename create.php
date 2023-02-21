@@ -61,8 +61,7 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <div class="row">
-            <div class="bg-white p-3 rounded-lg">
-
+            <div class="bg-white p-3 rounded-lg" style="min-height: 600px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">選擇版型</a>
