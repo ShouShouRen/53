@@ -75,29 +75,7 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <div class="row">
-            <div class="col-6">
-                <div class="bg-white rounded-lg h-300">
-                    <div class="row">
-                        <div class="p-3 w-100">
-                            <div class="col-6 h-100">
-                                <div class="w-100 bg-secondary h-160">
-                                </div>
-                                <div class="w-100 bg-secondary h-25">連結</div>
-                            </div>
-                            <div class="col-6">
-                                <div class="w-100 bg-warning h-25">
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="bg-white rounded-lg">
-
-                </div>
-            </div>
         </div>
         <div class="row justify-content-end pt-5">
             <form>
@@ -108,19 +86,5 @@ if (!isset($_SESSION["AUTH"])) {
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
-<script>
-    $("#card-1,#card-2").click(function() {
-        let card_id = $(this).data("id");
-        console.log(card_id);
-        $.ajax({
-            url: 'input.php',
-            type: 'GET',
-            data: {
-                id: card_id
-            },
-            dataType: 'json',
-        })
-    })
-</script>
 
 </html>
