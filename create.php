@@ -16,8 +16,26 @@ if (!isset($_SESSION["AUTH"])) {
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/create.css">
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         .logo {
             max-width: 60px;
+        }
+
+        .tab-pane {
+            min-width: 1140px;
+        }
+
+        .h-20 {
+            height: 20%;
+        }
+
+        .h-30{
+            height: 30%;
         }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
@@ -61,35 +79,97 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <div class="row">
-            <div class="bg-white p-3 rounded-lg" style="min-height: 600px;">
+            <div class="bg-white p-3 rounded-lg" style="min-height: 700px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">選擇版型</a>
+                        <a class="nav-link active" id="chose-tab" data-toggle="tab" href="#chose" role="tab" aria-controls="chose" aria-selected="true">選擇版型</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">填寫資料</a>
+                        <a class="nav-link" id="input-tab" data-toggle="tab" href="#input" role="tab" aria-controls="input" aria-selected="false">填寫資料</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                        <a class="nav-link" id="preview-tab" data-toggle="tab" href="#preview" role="tab" aria-controls="preview" aria-selected="false">預覽</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="submit-tab" data-toggle="tab" href="#submit" role="tab" aria-controls="submit" aria-selected="false">確定</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat modi harum magnam repellendus nulla tempore, illum explicabo quos, recusandae, facilis ipsam! Facilis minus odio quis, magnam quae ratione? Unde, error!</p>
+                    <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
+                        <div class="container">
+                            <div class="row pt-2">
+                                <div class="col-6 d-flex" style="min-height: 300px">
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                            <p>圖片</p>
+                                        </div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
+                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex" style="min-height: 300px">
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                            <p>圖片</p>
+                                        </div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
+                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-2">
+                                <div class="col-6 d-flex" style="min-height: 300px">
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                            <p>圖片</p>
+                                        </div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
+                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex" style="min-height: 300px">
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                            <p>圖片</p>
+                                        </div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-dark p-3">
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
+                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
+                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maiores sint sed, illum adipisci ab, enim dolorem nobis ipsum, quas doloremque. Voluptatibus voluptatem atque ratione fuga repudiandae odio vero voluptate!</p>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
+                    </div>
+                    <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-end pt-5">
-            <form>
-                <a href="input.php" class="btn btn-primary">下一步</a>
-            </form>
         </div>
     </div>
 </body>

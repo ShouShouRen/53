@@ -28,7 +28,7 @@
         }
 
         td.selected {
-            background-color: #fff;
+            background-color: #ffffff;
         }
 
         .d-center {
@@ -54,7 +54,7 @@
                 </tr>
             </table>
             <p class="py-3 m-0 text-white">請選擇兩個相鄰的格子，以連成一條水平或垂直線。</p>
-            <button id="validate" class="btn btn-outline-white">驗證</button>
+            <button id="validate" class="btn btn-outline-light">驗證</button>
         </div>
     </div>
 </body>
