@@ -34,8 +34,24 @@ if (!isset($_SESSION["AUTH"])) {
             height: 20%;
         }
 
-        .h-30{
+        .h-30 {
             height: 30%;
+        }
+
+        .bg-back {
+            background-color: #E2A391;
+        }
+
+        .bg-1 {
+            background-color: #261C24;
+        }
+
+        .bg-2 {
+            background-color: #A1838B;
+        }
+
+        .bg-3 {
+            background-color: #CF8D9B;
         }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
@@ -79,7 +95,7 @@ if (!isset($_SESSION["AUTH"])) {
     </nav>
     <div class="container py-3">
         <div class="row">
-            <div class="bg-white p-3 rounded-lg" style="min-height: 700px;">
+            <div class="bg-white p-3 rounded-lg shadow-lg" style="min-height: 780px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="chose-tab" data-toggle="tab" href="#chose" role="tab" aria-controls="chose" aria-selected="true">選擇版型</a>
@@ -96,67 +112,93 @@ if (!isset($_SESSION["AUTH"])) {
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
-                        <div class="container">
+                        <div class="container my-3">
                             <div class="row pt-2">
                                 <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                             <p>圖片</p>
                                         </div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
+                                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                     </div>
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
-                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                     </div>
                                 </div>
                                 <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
+                                        <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                             <p>圖片</p>
                                         </div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
                                     </div>
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
-                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <p class="text-center m-0">
+                                        請選擇版型1: <input type="radio" class="" name="template" id="template1">
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p for="" class="text-center m-0">
+                                        請選擇版型2: <input type="radio" class="" name="template" id="template2">
+                                    </p>
+                                </div>
+                            </div>
+
                             <div class="row pt-2">
                                 <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                             <p>圖片</p>
                                         </div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
-                                    </div>
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
-                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
+                                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                     </div>
                                 </div>
                                 <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-75 d-flex align-items-center justify-content-center">
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                    </div>
+                                    <div class="col-6 h-100 bg-back p-3">
+                                        <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結</div>
+                                        <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                             <p>圖片</p>
                                         </div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">相關連結</div>
-                                    </div>
-                                    <div class="col-6 h-100 bg-dark p-3">
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">商品名稱</div>
-                                        <div class="bg-secondary w-100 h-30 mt-1 py-4 text-center">商品簡介</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">發布日期</div>
-                                        <div class="bg-secondary w-100 h-20 mt-1 py-3 text-center">費用</div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <p class="text-center m-0">
+                                        請選擇版型3: <input type="radio" class="" name="template" id="template3">
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p for="" class="text-center m-0">
+                                        請選擇版型4: <input type="radio" class="" name="template" id="template4">
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
