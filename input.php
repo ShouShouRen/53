@@ -97,7 +97,6 @@ if (!isset($_SESSION["AUTH"])) {
                         <input type="submit" class="btn btn-primary" value="送出">
                     </div>
                 </form>
-
             </div>
 
         </div>

@@ -146,16 +146,15 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        請選擇版型1: <input type="radio" class="" name="template" id="template1">
+                                        請選擇版型1: <input type="radio" name="template" id="template1">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-                                        請選擇版型2: <input type="radio" class="" name="template" id="template2">
+                                        請選擇版型2: <input type="radio" name="template" id="template2">
                                     </p>
                                 </div>
                             </div>
-
                             <div class="row pt-2">
                                 <div class="col-6 d-flex" style="min-height: 300px">
                                     <div class="col-6 h-100 bg-back p-3">
@@ -189,12 +188,12 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        請選擇版型3: <input type="radio" class="" name="template" id="template3">
+                                        請選擇版型3: <input type="radio" name="template" id="template3">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-                                        請選擇版型4: <input type="radio" class="" name="template" id="template4">
+                                        請選擇版型4: <input type="radio" name="template" id="template4">
                                     </p>
                                 </div>
                             </div>
@@ -202,18 +201,53 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maiores sint sed, illum adipisci ab, enim dolorem nobis ipsum, quas doloremque. Voluptatibus voluptatem atque ratione fuga repudiandae odio vero voluptate!</p>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-8">
+                                <form action="store.php" method="POST" enctype="multipart/form-data">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="text-center my-5">填寫資料</h4>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">商品標題:</label>
+                                            <input type="text" class="form-control w-75" name="product_name">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">商品描述:</label>
+                                            <textarea name="product_des" class="form-control w-75"></textarea>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">發布日期:</label>
+                                            <input type="datetime-local" class="form-control w-75" name="time">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">圖片:</label>
+                                            <input type="file" name="images">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">費用:</label>
+                                            <input type="text" class="form-control w-75" name="price">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">相關連結:</label>
+                                            <input type="text" class="form-control w-75" name="links">
+                                        </div>
+                                        <div class="text-right">
+                                            <input type="submit" class="btn btn-primary" value="送出">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
+                        sadl;jfld;osidfjoiasdofjoofjewofwe
                     </div>
                     <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
+                        <p>Lorem ipsum, dfawiojwoijiopejioawjfowejowaejiwae.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
