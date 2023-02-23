@@ -7,7 +7,7 @@ if (!isset($_SESSION["AUTH"])) {
 require_once("pdo.php");
 try {
     extract($_GET);
-    $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT * FROM `products`";
     $stmt = $pdo->prepare($sql);
     $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -69,28 +69,68 @@ try {
             </div>
     </nav>
     <div class="container">
-        <div class="row justify-content-between py-4">
-            <div class="col-4">
-                <?php foreach ($result as $row) { ?>
-                    <div class="card p-3" id="card-1" data-id="1">
-                        <!-- <div class="card-img-top w-100 bg-secondary h-200"></div> -->
-                        <img src="./images/<?php echo $row["images"] ?>" class="w-100 h-200" alt="">
-                        <div class="p-2">
-                            <h5 class="card-title product-name">商品名稱:<?php echo $row["product_name"] ?></h5>
-                            <p class="card-text product-description">商品描述:<?php echo $row["product_des"] ?></p>
-                            <div class="product-details">
-                                <p class="card-text"><small class="text-muted"><? echo $row["time"] ?></small></p>
-                                <p class="card-text"><small class="text-muted">價格:<?php echo $row["price"] ?> 元</small></p>
-                            </div>
-                            <div class="text-right">
-                                <a href="#" class="product-link ">相關連結：<?php echo $row["links"] ?></a>
-                            </div>
-                        </div>
+        <div class="row pt-2">
+            <?php foreach ($result as $row) { ?>
+                <div class="col-6 d-flex" style="min-height: 300px">
+                    <div class="col-6 h-100 bg-back p-3">
+                        <img src="./images/<?php echo $row["images"] ?>" class="w-100 h-75" alt="">
+                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結: <a href="<?php echo $row["links"] ?>"><?php echo $row["links"] ?></a></div>
                     </div>
-                <?php } ?>
+                    <div class="col-6 h-100 bg-back p-3">
+                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"] ?></div>
+                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"] ?></div>
+                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"] ?></div>
+                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"] ?> 元</div>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="col-6 d-flex" style="min-height: 300px">
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
+                    <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                        <p>圖片</p>
+                    </div>
+                </div>
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                    <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                    <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-6 d-flex" style="min-height: 300px">
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                    <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                    <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                </div>
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                        <p>圖片</p>
+                    </div>
+                    <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                </div>
+            </div>
+            <div class="col-6 d-flex" style="min-height: 300px">
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                    <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                    <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                    <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                </div>
+                <div class="col-6 h-100 bg-back p-3">
+                    <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結</div>
+                    <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                        <p>圖片</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
