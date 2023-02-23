@@ -209,36 +209,38 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
-                        <div class="d-center">
+                        <div class="d-flex justify-content-center">
                             <div class="col-6">
                                 <form action="store.php" method="POST" enctype="multipart/form-data">
                                     <div class="bg-white p-4 rounded-lg">
                                         <h4 class="text-center my-5">填寫資料</h4>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">商品標題:</label>
                                             <input type="text" class="form-control w-75" name="product_name">
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">商品描述:</label>
                                             <textarea name="product_des" class="form-control w-75"></textarea>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">發布日期:</label>
                                             <input type="datetime-local" class="form-control w-75" name="time">
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">圖片:</label>
                                             <input type="file" name="images">
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">費用:</label>
                                             <input type="text" class="form-control w-75" name="price">
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                        <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">相關連結:</label>
                                             <input type="text" class="form-control w-75" name="links">
                                         </div>
-                                        <input type="submit" class="btn btn-primary" value="送出">
+                                        <div class="text-right my-3">
+                                            <input type="submit" class="btn btn-primary" value="送出">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
