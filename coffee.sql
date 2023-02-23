@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2023-02-16 14:06:15
+-- 主機： localhost
+-- 產生時間： 2023 年 02 月 23 日 12:48
 -- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.2.0
+-- PHP 版本： 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `coffee`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `product_des` text NOT NULL,
+  `price` varchar(25) NOT NULL,
+  `links` varchar(100) NOT NULL,
+  `time` datetime NOT NULL,
+  `images` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `products`
+--
+
+INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `time`, `images`) VALUES
+(1, 'title', 'afefwew', '800', 'https://google.com', '2023-02-19 11:25:00', ''),
+(2, 'title', 'fasfewfwef', '200', 'afeewfwf', '2023-02-19 11:44:00', 'e8ef16a798793a96ad48a8377c6fa2a5.png');
 
 -- --------------------------------------------------------
 
@@ -42,15 +66,21 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user`, `user_name`, `pw`, `role`, `user_id`) VALUES
 (1, 'admin', '超級管理者', '1234', 0, '0000'),
-(2, 'coffee', 'coffee_users', '12345', 1, '0001'),
+(2, 'coffee', 'coffeessss', '12345', 1, '0001'),
 (3, 'peter', '陳暐仁', '1022', 0, '0002'),
-(4, 'user01', 'user01', '1234', 1, '0003'),
 (5, 'test01', '測試01', '1234', 1, '0004'),
-(7, 'test02', '測試02', '12343', 1, '0005');
+(7, 'test02', '測試02', '12343', 1, '0005'),
+(10, 'coffeesss', 'coffeess', '1234', 1, '0006');
 
 --
 -- 已傾印資料表的索引
 --
+
+--
+-- 資料表索引 `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 資料表索引 `users`
@@ -63,10 +93,16 @@ ALTER TABLE `users`
 --
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
