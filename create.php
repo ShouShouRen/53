@@ -254,8 +254,15 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                     <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
-                        <p>Lorem ipsum, dfawiojwoijiopejioawjfowejowaejiwae.</p>
+                        <div class="container my-3">
+                            <div class="row pt-2">
+                                <div class="text-right my-3">
+                                    <button class="btn btn-primary" id="submit-form">提交</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -263,5 +270,10 @@ if (!isset($_SESSION["AUTH"])) {
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/template.js"></script>
+<script>
+    document.getElementById('submit-form').addEventListener('click', function() {
+        document.querySelector('form').submit();
+    });
+</script>
 
 </html>

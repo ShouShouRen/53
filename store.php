@@ -23,4 +23,4 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-header("Location: preview.php");
+header("Location: index.php");

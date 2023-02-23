@@ -68,9 +68,9 @@ INSERT INTO `users` (`id`, `user`, `user_name`, `pw`, `role`, `user_id`) VALUES
 (1, 'admin', '超級管理者', '1234', 0, '0000'),
 (2, 'coffee', 'coffeessss', '12345', 1, '0001'),
 (3, 'peter', '陳暐仁', '1022', 0, '0002'),
-(5, 'test01', '測試01', '1234', 1, '0004'),
-(7, 'test02', '測試02', '12343', 1, '0005'),
-(10, 'coffeesss', 'coffeess', '1234', 1, '0006');
+(4, 'test01', '測試01', '1234', 1, '0004'),
+(5, 'test02', '測試02', '12343', 1, '0005'),
+(6, 'coffeesss', 'coffeess', '1234', 1, '0006');
 
 --
 -- 已傾印資料表的索引
@@ -102,7 +102,7 @@ ALTER TABLE `products`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
