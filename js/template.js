@@ -9,9 +9,9 @@ const template1HTML = `
 <div class="row pt-2 justify-content-center">
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
-            <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-            
-            </div>
+            <!-- <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"> 
+            </div>-->
+            {img}
             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
         </div>
         <div class="col-6 h-100 bg-back p-3">
@@ -131,7 +131,7 @@ submitBtn.addEventListener('click', (e) => {
                 .replace('商品簡介', product_des.value)
                 .replace('發布日期', time.value)
                 .replace('費用', price.value)
-                .replace('圖片', `<img src="${images.value}" alt="${product_name.value}" class="img-fluid">`)
+                .replace('{img}', `<img src="${images.value}" alt="${product_name.value}" class=" w-100 h-75">`)
                 .replace('相關連結', `<a href="${links.value}">${links.value}</a>`);
             preview.innerHTML = previewHTML;
         }
