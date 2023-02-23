@@ -10,7 +10,7 @@ body {
   height: 100vh;
 }
 
-.h-300{
+.h-300 {
   height: 300px;
 }
 
@@ -33,3 +33,41 @@ body {
   margin: 10px 0;
 }
 
+.logo {
+  max-width: 60px;
+}
+
+.tab-pane {
+  min-width: 1140px;
+}
+
+.h-20 {
+  height: 20%;
+}
+
+.h-30 {
+  height: 30%;
+}
+
+.bg-back {
+  background-color: #e2a391;
+}
+
+.bg-1 {
+  background-color: #261c24;
+}
+
+.bg-2 {
+  background-color: #a1838b;
+}
+
+.bg-3 {
+  background-color: #cf8d9b;
+}
+
+.d-center {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

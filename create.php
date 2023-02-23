@@ -60,14 +60,6 @@ if (!isset($_SESSION["AUTH"])) {
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
-        #imagePreview {
-            width: 200px;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            background-color: #f5f5f5;
-        }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
 </head>

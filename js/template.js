@@ -10,9 +10,8 @@ const template1HTML = `
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <!-- <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"> 
-            </div>-->
-            <!--{img}-->
-            <div id="imagePreview"></div>
+            </div> -->
+            {img}
             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
         </div>
         <div class="col-6 h-100 bg-back p-3">
@@ -29,8 +28,9 @@ const template2HTML = `
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
-                <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-                    <!-- <p>圖片</p> -->
+                <!-- <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"> 
+                </div> -->
+                {img}
             </div>
         </div>
         <div class="col-6 h-100 bg-back p-3">
@@ -53,8 +53,9 @@ const template3HTML = `
             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
         </div>
         <div class="col-6 h-100 bg-back p-3">
-            <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-            <!-- <p>圖片</p> -->
+            <!-- <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"> 
+            </div> -->
+            {img}
             </div>
             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
         </div>
@@ -74,9 +75,9 @@ const template4HTML = `
     </div>
     <div class="col-6 h-100 bg-back p-3">
         <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結</div>
-        <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-        <!-- <p>圖片</p> -->
-        </div>
+        <!-- <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"> 
+        </div> -->
+        {img}
     </div>
 </div>
 `;
@@ -137,7 +138,7 @@ submitBtn.addEventListener('click', (e) => {
                 .replace('商品簡介', product_des.value)
                 .replace('發布日期', time.value)
                 .replace('費用', price.value)
-                .replace('<div id="imagePreview"></div>', `<img src="${images.value}" alt="${product_name.value}" class=" w-100 h-75">`)
+                .replace('{img}', `<img src="${images.value}" alt="${product_name.value}" class=" w-100 h-75">`)
                 .replace('相關連結', `<a href="${links.value}">${links.value}</a>`);
             preview.innerHTML = previewHTML;
         }
