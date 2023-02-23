@@ -153,20 +153,14 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-<<<<<<< HEAD
-                                        請選擇版型1: <input type="radio" name="template" id="template1">
-=======
+                                        <!-- 請選擇版型1: <input type="radio" name="template" id="template1"> -->
                                         請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-<<<<<<< HEAD
-                                        請選擇版型2: <input type="radio" name="template" id="template2">
-=======
+                                        <!-- 請選擇版型2: <input type="radio" name="template" id="template2"> -->
                                         請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                                     </p>
                                 </div>
                             </div>
@@ -203,20 +197,17 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-<<<<<<< HEAD
-                                        請選擇版型3: <input type="radio" name="template" id="template3">
-=======
+                                        <!-- 請選擇版型3: <input type="radio" name="template" id="template3"> -->
+
                                         請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-<<<<<<< HEAD
-                                        請選擇版型4: <input type="radio" name="template" id="template4">
-=======
+
+                                        <!-- 請選擇版型4: <input type="radio" name="template" id="template4"> -->
+
                                         請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                                     </p>
                                 </div>
                             </div>
@@ -224,41 +215,8 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
-<<<<<<< HEAD
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-8">
-                                <form action="store.php" method="POST" enctype="multipart/form-data">
-                                    <div class="bg-white p-4 rounded-lg">
-                                        <h4 class="text-center my-5">填寫資料</h4>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">商品標題:</label>
-                                            <input type="text" class="form-control w-75" name="product_name">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">商品描述:</label>
-                                            <textarea name="product_des" class="form-control w-75"></textarea>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">發布日期:</label>
-                                            <input type="datetime-local" class="form-control w-75" name="time">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">圖片:</label>
-                                            <input type="file" name="images">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">費用:</label>
-                                            <input type="text" class="form-control w-75" name="price">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between my-2">
-                                            <label for="">相關連結:</label>
-                                            <input type="text" class="form-control w-75" name="links">
-                                        </div>
-                                        <div class="text-right">
-                                            <input type="submit" class="btn btn-primary" value="送出">
-=======
                         <div class="d-flex justify-content-center">
-                            <div class="col-6">
+                            <div class="col-8">
                                 <form action="store.php" method="POST" enctype="multipart/form-data">
                                     <div class="bg-white p-4 rounded-lg">
                                         <h4 class="text-center my-5">填寫資料</h4>
@@ -288,28 +246,19 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                         <div class="text-right my-3">
                                             <input type="submit" class="btn btn-primary" value="儲存">
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                     </div>
                     <!-- 預覽版型 -->
                     <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-<<<<<<< HEAD
-                        sadl;jfld;osidfjoiasdofjoofjewofwe
-=======
                         <div class="container my-3">
                             <div class="row pt-2">
 
                             </div>
                         </div>
->>>>>>> 3ccc15bbcc6401474afa8cab22dd06a25d01082f
                     </div>
                     <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
                         <p>Lorem ipsum, dfawiojwoijiopejioawjfowejowaejiwae.</p>
