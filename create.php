@@ -153,13 +153,11 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        <!-- 請選擇版型1: <input type="radio" name="template" id="template1"> -->
                                         請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-                                        <!-- 請選擇版型2: <input type="radio" name="template" id="template2"> -->
                                         請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                     </p>
                                 </div>
@@ -197,16 +195,11 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        <!-- 請選擇版型3: <input type="radio" name="template" id="template3"> -->
-
                                         請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-
-                                        <!-- 請選擇版型4: <input type="radio" name="template" id="template4"> -->
-
                                         請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
                                     </p>
                                 </div>
