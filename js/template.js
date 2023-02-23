@@ -10,7 +10,7 @@ const template1HTML = `
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-            <!-- <p>圖片</p> -->
+            
             </div>
             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
         </div>
