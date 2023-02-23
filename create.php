@@ -153,12 +153,12 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        請選擇版型1: <input type="radio" class="" name="template" id="template1">
+                                        請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-                                        請選擇版型2: <input type="radio" class="" name="template" id="template2">
+                                        請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                     </p>
                                 </div>
                             </div>
@@ -196,12 +196,12 @@ if (!isset($_SESSION["AUTH"])) {
                             <div class="d-flex">
                                 <div class="col-6">
                                     <p class="text-center m-0">
-                                        請選擇版型3: <input type="radio" class="" name="template" id="template3">
+                                        請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p for="" class="text-center m-0">
-                                        請選擇版型4: <input type="radio" class="" name="template" id="template4">
+                                        請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
                                     </p>
                                 </div>
                             </div>
@@ -247,8 +247,13 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
 
                     </div>
+                    <!-- 預覽版型 -->
                     <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
+                        <div class="container my-3">
+                            <div class="row pt-2">
+
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
@@ -260,5 +265,5 @@ if (!isset($_SESSION["AUTH"])) {
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
-
+<script src="./js/template.js"></script>
 </html>
