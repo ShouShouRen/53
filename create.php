@@ -53,6 +53,13 @@ if (!isset($_SESSION["AUTH"])) {
         .bg-3 {
             background-color: #CF8D9B;
         }
+
+        .d-center {
+            position: absolute;
+            top: 50vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
     <title>咖啡商品展示系統-上架商品</title>
 </head>
@@ -202,7 +209,41 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maiores sint sed, illum adipisci ab, enim dolorem nobis ipsum, quas doloremque. Voluptatibus voluptatem atque ratione fuga repudiandae odio vero voluptate!</p>
+                        <div class="d-center">
+                            <div class="col-6">
+                                <form action="store.php" method="POST" enctype="multipart/form-data">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="text-center my-5">填寫資料</h4>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">商品標題:</label>
+                                            <input type="text" class="form-control w-75" name="product_name">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">商品描述:</label>
+                                            <textarea name="product_des" class="form-control w-75"></textarea>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">發布日期:</label>
+                                            <input type="datetime-local" class="form-control w-75" name="time">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">圖片:</label>
+                                            <input type="file" name="images">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">費用:</label>
+                                            <input type="text" class="form-control w-75" name="price">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between my-2">
+                                            <label for="">相關連結:</label>
+                                            <input type="text" class="form-control w-75" name="links">
+                                        </div>
+                                        <input type="submit" class="btn btn-primary" value="送出">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis laudantium fugit commodi eius ut minus magnam. Minus labore praesentium nisi et facere. Molestiae enim ex amet illo ad, doloremque rem.</p>
