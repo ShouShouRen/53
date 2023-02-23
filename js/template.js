@@ -114,74 +114,6 @@ const price = document.querySelector('input[name="price"]');
 const links = document.querySelector('input[name="links"]');
 const submitBtn = document.querySelector('input[type="submit"]');
 
-// submitBtn.addEventListener('click', (e) => {
-//     e.preventDefault(); // 防止表單提交
-//     // 創建一個變量來儲存您選擇的模板
-//     let template = template1HTML;
-//     // 您可以根據需要更改模板
-//     // if (condition) {
-//     //   template = template2HTML;
-//     // }
-
-//     // 獲取表單元素中的值
-//     const product_name_val = product_name.value;
-//     const product_des_val = product_des.value;
-//     const time_val = time.value;
-//     const images_val = images.value;
-//     const price_val = price.value;
-//     const links_val = links.value;
-
-//     // 將值插入到選擇的模板中
-//     template = template.replace('商品名稱', product_name_val);
-//     template = template.replace('商品簡介', product_des_val);
-//     template = template.replace('發布日期', time_val);
-//     template = template.replace('圖片', images_val);
-//     template = template.replace('費用', price_val);
-//     template = template.replace('相關連結', links_val);
-
-//     // 在預覽區域顯示模板
-//     preview.innerHTML = template;
-// });
-
-// const nameInput = document.querySelector('#name');
-// const introInput = document.querySelector('#intro');
-// const dateInput = document.querySelector('#date');
-// const costInput = document.querySelector('#cost');
-// const imgInput = document.querySelector('#img');
-// const linkInput = document.querySelector('#link');
-
-// 定義模板和對應的 HTML 內容
-// const templates = [
-//     { element: template1, html: template1HTML },
-//     { element: template2, html: template2HTML },
-//     { element: template3, html: template3HTML },
-//     { element: template4, html: template4HTML }
-// ];
-
-// // 綁定點擊事件，更新預覽區域的內容
-// templates.forEach((template) => {
-//     template.element.addEventListener('click', (e) => {
-//         // 替換模板中的資料
-//         const previewHTML = template.html
-//             .replace('商品名稱', nameInput.value)
-//             .replace('商品簡介', introInput.value)
-//             .replace('發布日期', dateInput.value)
-//             .replace('費用', costInput.value)
-//             .replace('圖片', `<img src="${imgInput.value}" alt="${nameInput.value}">`)
-//             .replace('相關連結', `<a href="${linkInput.value}">${linkInput.value}</a>`);
-
-//         // 更新預覽區域的內容
-//         e.preventDefault(); // 防止表單提交
-
-//         preview.innerHTML = previewHTML;
-//     });
-// });
-
-// 假設使用者已經預先填寫了欄位，觸發預覽更新事件
-// template1.click();
-
-
-
 
 const templates = [
     { element: template1, html: template1HTML },
@@ -191,7 +123,7 @@ const templates = [
 ];
 
 submitBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // 防止表單提交
+    e.preventDefault();
     templates.forEach((template) => {
         if (template.element.checked) {
             const previewHTML = template.html
