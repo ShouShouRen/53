@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2023 年 02 月 23 日 12:48
+-- 主機： 127.0.0.1
+-- 產生時間： 2023-02-26 06:06:01
 -- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.0.25
+-- PHP 版本： 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,16 +34,18 @@ CREATE TABLE `products` (
   `price` varchar(25) NOT NULL,
   `links` varchar(100) NOT NULL,
   `time` datetime NOT NULL,
-  `images` varchar(100) NOT NULL
+  `images` varchar(100) NOT NULL,
+  `template` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `products`
 --
 
-INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `time`, `images`) VALUES
-(1, 'title', 'afefwew', '800', 'https://google.com', '2023-02-19 11:25:00', ''),
-(2, 'title', 'fasfewfwef', '200', 'afeewfwf', '2023-02-19 11:44:00', 'e8ef16a798793a96ad48a8377c6fa2a5.png');
+INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `time`, `images`, `template`) VALUES
+(1, 'title', 'afefwew', '800', 'https://google.com', '2023-02-19 11:25:00', '0f650a5b156d40ec60860ed0a017235a.png', '3'),
+(2, 'title', 'fasfewfwef', '200', 'https://facebook.com', '2023-02-19 11:44:00', 'e8ef16a798793a96ad48a8377c6fa2a5.png', '4'),
+(3, 'test', 'fsdsfadsfadfsda', '100', 'https://yahoo.com.tw', '2023-02-23 21:50:00', 'cd238e9b1308de373ee6dc267b0c6efb.png', '1');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,7 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
