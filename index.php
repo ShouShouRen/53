@@ -25,11 +25,6 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/index.css">
-    <style>
-        .logo {
-            max-width: 60px;
-        }
-    </style>
     <title>商店首頁</title>
 </head>
 
@@ -109,7 +104,7 @@ try {
                         <div class="col-6 h-100 bg-back p-3">
                             <img src="./images/<?php echo $row["images"]
                                                 ?>" class="w-100 h-75" alt="">
-                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"] ;?>"><?php echo $row["links"]; ?></a></div>
+                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]; ?>"><?php echo $row["links"]; ?></a></div>
                         </div>
                     </div>
                 <?php } else if ($row["template"] == 4) { ?>
