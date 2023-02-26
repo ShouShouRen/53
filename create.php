@@ -71,40 +71,42 @@ if (!isset($_SESSION["AUTH"])) {
                         <a class="nav-link" id="submit-tab" data-toggle="tab" href="#submit" role="tab" aria-controls="submit" aria-selected="false">確定</a>
                     </li>
                 </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
-                        <div class="container my-3">
-                            <div class="row pt-2">
-                                <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-                                            <p>圖片</p>
+                <form action="store.php" method="POST" enctype="multipart/form-data">
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
+                            <div class="container my-3">
+                                <div class="row pt-2">
+                                    <div class="col-6 d-flex" style="min-height: 300px">
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                <p>圖片</p>
+                                            </div>
+                                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                         </div>
-                                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
-                                    </div>
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
-                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
-                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
-                                    </div>
-                                </div>
-                                <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
-                                        <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-                                            <p>圖片</p>
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                         </div>
                                     </div>
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
-                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
-                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                                    <div class="col-6 d-flex" style="min-height: 300px">
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
+                                            <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                <p>圖片</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <form class="d-flex" action="store.php" method="post">
+                                <div class="d-flex" action="store.php" method="post">
                                 <div class="col-6">
                                     <p class="text-center m-0">
                                         請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
@@ -115,55 +117,54 @@ if (!isset($_SESSION["AUTH"])) {
                                         請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                     </p>
                                 </div>
-                            </form>
-                            <div class="row pt-2">
-                                <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
-                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
-                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
-                                    </div>
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-                                            <p>圖片</p>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col-6 d-flex" style="min-height: 300px">
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                         </div>
-                                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                <p>圖片</p>
+                                            </div>
+                                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 d-flex" style="min-height: 300px">
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
+                                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
+                                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
+                                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                        </div>
+                                        <div class="col-6 h-100 bg-back p-3">
+                                            <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結</div>
+                                            <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                <p>圖片</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-6 d-flex" style="min-height: 300px">
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
-                                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
-                                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
-                                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
+                                <div class="d-flex">
+                                    <div class="col-6">
+                                        <p class="text-center m-0">
+                                            請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
+                                        </p>
                                     </div>
-                                    <div class="col-6 h-100 bg-back p-3">
-                                        <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結</div>
-                                        <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
-                                            <p>圖片</p>
-                                        </div>
+                                    <div class="col-6">
+                                        <p for="" class="text-center m-0">
+                                            請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <form class="d-flex" action="store.php" method="post">
-                                <div class="col-6">
-                                    <p class="text-center m-0">
-                                        請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
-                                    </p>
-                                </div>
-                                <div class="col-6">
-                                    <p for="" class="text-center m-0">
-                                        請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
-                                    </p>
-                                </div>
-                            </form>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-8">
-                                <form action="store.php" method="POST" enctype="multipart/form-data">
+                        <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
+                            <div class="d-flex justify-content-center">
+                                <div class="col-8">
                                     <div class="bg-white p-4 rounded-lg">
                                         <h4 class="text-center my-5">填寫資料</h4>
                                         <div class="d-flex align-items-center justify-content-between my-3">
@@ -194,28 +195,29 @@ if (!isset($_SESSION["AUTH"])) {
                                             <input type="submit" class="btn btn-primary" value="儲存">
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- 預覽版型 -->
-                    <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-                        <div class="container my-3">
-                            <div class="row pt-2">
+                        <!-- 預覽版型 -->
+                        <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
+                            <div class="container my-3">
+                                <div class="row pt-2">
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
-                        <div class="container my-3">
-                            <div class="row pt-2">
-                                <div class="text-right my-3">
-                                    <button class="btn btn-primary" id="submit-form">提交</button>
+                        <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
+                            <div class="container my-3">
+                                <div class="row pt-2">
+                                    <div class="text-right my-3">
+                                        <button class="btn btn-primary" id="submit-form">提交</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
+
             </div>
         </div>
 </body>
