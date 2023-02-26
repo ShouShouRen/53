@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-26 06:06:01
+-- 產生時間： 2023-02-26 08:05:04
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.2.0
 
@@ -43,9 +43,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `time`, `images`, `template`) VALUES
-(1, 'title', 'afefwew', '800', 'https://google.com', '2023-02-19 11:25:00', '0f650a5b156d40ec60860ed0a017235a.png', '3'),
+(1, 'title', 'afefwew', '800', 'https://google.com', '2023-02-19 11:25:00', '0f650a5b156d40ec60860ed0a017235a.png', '2'),
 (2, 'title', 'fasfewfwef', '200', 'https://facebook.com', '2023-02-19 11:44:00', 'e8ef16a798793a96ad48a8377c6fa2a5.png', '4'),
-(3, 'test', 'fsdsfadsfadfsda', '100', 'https://yahoo.com.tw', '2023-02-23 21:50:00', 'cd238e9b1308de373ee6dc267b0c6efb.png', '1');
+(3, 'test', 'fsdsfadsfadfsda', '100', 'https://yahoo.com.tw', '2023-02-23 21:50:00', 'cd238e9b1308de373ee6dc267b0c6efb.png', '1'),
+(4, 'test', 'dsffdsadfsfsafd', '1000', 'google.com', '2023-02-26 14:36:00', '379d5c8efff3b37b2625f31379216472.png', '3'),
+(5, '版型三', '測試測試', '1500', 'https://youtube.com', '2023-02-26 14:45:00', '1a260de21e93dabfd12044a935454433.jpg', '3');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
