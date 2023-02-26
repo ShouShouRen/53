@@ -2,7 +2,7 @@
 try {
     require_once("pdo.php");
     extract($_POST);
-    var_dump($_FILES["images"]);
+    // var_dump($_FILES["images"]);
     $sql = "INSERT INTO products(product_name, product_des, price, links, time, images, template) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
     $ext = strtolower(pathinfo($_FILES["images"]["name"], PATHINFO_EXTENSION));
@@ -22,4 +22,4 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-// header("Location: index.php");
+header("Location: index.php");
