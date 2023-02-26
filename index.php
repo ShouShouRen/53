@@ -70,10 +70,10 @@ try {
             </div>
     </nav>
     <div class="container">
-        <div class="row pt-2 justify-content-center">
+        <div class="row pt-2 justify-content-start py-5">
             <?php foreach ($result as $row) { ?>
                 <?php if ($row["template"] == 1) { ?>
-                    <div class="col-6 d-flex" style="min-height: 300px">
+                    <div class="col-6 d-flex mt-4" style="min-height: 300px">
                         <div class="col-6 h-100 bg-back p-3">
                             <img src="./images/<?php echo $row["images"]
                                                 ?>" class="w-100 h-75" alt="">
@@ -93,7 +93,7 @@ try {
                         </div>
                     </div>
                 <?php } else if ($row["template"] == 2) { ?>
-                    <div class="col-6 d-flex" style="min-height: 300px">
+                    <div class="col-6 d-flex mt-4" style="min-height: 300px">
                         <div class="col-6 h-100 bg-back p-3">
                             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
                                                                                                 ?></div>
@@ -113,7 +113,7 @@ try {
                         </div>
                     </div>
                 <?php } else if ($row["template"] == 3) { ?>
-                    <div class="col-6 d-flex" style="min-height: 300px">
+                    <div class="col-6 d-flex mt-4" style="min-height: 300px">
                         <div class="col-6 h-100 bg-back p-3">
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
                                                                                                 ?></div>
@@ -133,7 +133,7 @@ try {
                         </div>
                     </div>
                 <?php } else if ($row["template"] == 4) { ?>
-                    <div class="col-6 d-flex" style="min-height: 300px">
+                    <div class="col-6 d-flex mt-4" style="min-height: 300px">
                         <div class="col-6 h-100 bg-back p-3">
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]
                                                                                                 ?> 元</div>
