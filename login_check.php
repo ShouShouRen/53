@@ -44,11 +44,6 @@ try {
     } else {
         $_SESSION["AUTH"] = $row;
         header("Location:login_check-2.php");
-        // if ($row["role"] == '1') {
-        //     header("Location:coffee-user.php");
-        // } else {
-        //     header("Location:coffee-admin.php");
-        // }
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
