@@ -15,52 +15,6 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/create.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .logo {
-            max-width: 60px;
-        }
-
-        .tab-pane {
-            min-width: 1140px;
-        }
-
-        .h-20 {
-            height: 20%;
-        }
-
-        .h-30 {
-            height: 30%;
-        }
-
-        .bg-back {
-            background-color: #E2A391;
-        }
-
-        .bg-1 {
-            background-color: #261C24;
-        }
-
-        .bg-2 {
-            background-color: #A1838B;
-        }
-
-        .bg-3 {
-            background-color: #CF8D9B;
-        }
-
-        .d-center {
-            position: absolute;
-            top: 50vh;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
     <title>咖啡商品展示系統-上架商品</title>
 </head>
 
@@ -150,7 +104,7 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex">
+                            <form class="d-flex" action="store.php" method="post">
                                 <div class="col-6">
                                     <p class="text-center m-0">
                                         請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
@@ -161,7 +115,7 @@ if (!isset($_SESSION["AUTH"])) {
                                         請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                     </p>
                                 </div>
-                            </div>
+                            </form>
                             <div class="row pt-2">
                                 <div class="col-6 d-flex" style="min-height: 300px">
                                     <div class="col-6 h-100 bg-back p-3">
@@ -192,7 +146,7 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex">
+                            <form class="d-flex" action="store.php" method="post">
                                 <div class="col-6">
                                     <p class="text-center m-0">
                                         請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
@@ -203,8 +157,7 @@ if (!isset($_SESSION["AUTH"])) {
                                         請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
                                     </p>
                                 </div>
-                            </div>
-
+                            </form>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="input" role="tabpanel" aria-labelledby="input-tab">
@@ -262,7 +215,6 @@ if (!isset($_SESSION["AUTH"])) {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

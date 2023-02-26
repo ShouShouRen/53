@@ -7,6 +7,7 @@ if (!isset($_SESSION["AUTH"])) {
 require_once("pdo.php");
 try {
     extract($_GET);
+    extract($_POST);
     $sql = "SELECT * FROM `products`";
     $stmt = $pdo->prepare($sql);
     $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -69,22 +70,116 @@ try {
             </div>
     </nav>
     <div class="container">
-        <div class="row pt-2">
+        <div class="row pt-2 justify-content-center">
             <?php foreach ($result as $row) { ?>
+                <?php if ($row["template"] == 1) { ?>
+                    <div class="col-6 d-flex" style="min-height: 300px">
+                        <div class="col-6 h-100 bg-back p-3">
+                            <img src="./images/<?php echo $row["images"]
+                                                ?>" class="w-100 h-75" alt="">
+                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]
+                                                                                                        ?>"><?php echo $row["links"]
+                                                                                                            ?></a></div>
+                        </div>
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
+                                                                                                ?></div>
+                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]
+                                                                                                ?></div>
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"]
+                                                                                                ?></div>
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]
+                                                                                                ?> 元</div>
+                        </div>
+                    </div>
+                <?php } else if ($row["template"] == 2) { ?>
+                    <div class="col-6 d-flex" style="min-height: 300px">
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
+                                                                                                ?></div>
+                            <img src="./images/<?php echo $row["images"]
+                                                ?>" class="w-100 h-75" alt="">
+                        </div>
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]
+                                                                                                ?> 元</div>
+                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]
+                                                                                                ?></div>
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"]
+                                                                                                ?></div>
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]
+                                                                                                        ?>"><?php echo $row["links"]
+                                                                                                            ?></a></div>
+                        </div>
+                    </div>
+                <?php } else if ($row["template"] == 3) { ?>
+                    <div class="col-6 d-flex" style="min-height: 300px">
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
+                                                                                                ?></div>
+                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]
+                                                                                                ?></div>
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"]
+                                                                                                ?></div>
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]
+                                                                                                ?> 元</div>
+                        </div>
+                        <div class="col-6 h-100 bg-back p-3">
+                            <img src="./images/<?php echo $row["images"]
+                                                ?>" class="w-100 h-75" alt="">
+                            <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]
+                                                                                                        ?>"><?php echo $row["links"]
+                                                                                                            ?></a></div>
+                        </div>
+                    </div>
+                <?php } else if ($row["template"] == 4) { ?>
+                    <div class="col-6 d-flex" style="min-height: 300px">
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]
+                                                                                                ?> 元</div>
+                            <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]
+                                                                                                ?></div>
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"]
+                                                                                                ?></div>
+                            <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]
+                                                                                                ?></div>
+                        </div>
+                        <div class="col-6 h-100 bg-back p-3">
+                            <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]
+                                                                                                        ?>"><?php echo $row["links"]
+                                                                                                            ?></a></div>
+                            <img src="./images/<?php echo $row["images"]
+                                                ?>" class="w-100 h-75" alt="">
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+
+            <div class="row pt-2">
+                <!-- <?php # foreach ($result as $row) { 
+                        ?>
                 <div class="col-6 d-flex" style="min-height: 300px">
                     <div class="col-6 h-100 bg-back p-3">
-                        <img src="./images/<?php echo $row["images"] ?>" class="w-100 h-75" alt="">
-                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結: <a href="<?php echo $row["links"] ?>"><?php echo $row["links"] ?></a></div>
+                        <img src="./images/<?php #echo $row["images"] 
+                                            ?>" class="w-100 h-75" alt="">
+                        <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結: <a href="<?php #echo $row["links"] 
+                                                                                                        ?>"><?php #echo $row["links"] 
+                                                                                                            ?></a></div>
                     </div>
                     <div class="col-6 h-100 bg-back p-3">
-                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"] ?></div>
-                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"] ?></div>
-                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? echo $row["time"] ?></div>
-                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"] ?> 元</div>
+                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php #echo $row["product_name"] 
+                                                                                            ?></div>
+                        <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php #echo $row["product_des"] 
+                                                                                            ?></div>
+                        <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期:<? #echo $row["time"] 
+                                                                                            ?></div>
+                        <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php #echo $row["price"] 
+                                                                                            ?> 元</div>
                     </div>
                 </div>
-            <?php } ?>
-            <div class="col-6 d-flex" style="min-height: 300px">
+            <?php #} 
+            ?> -->
+                <!-- <div class="col-6 d-flex" style="min-height: 300px">
                 <div class="col-6 h-100 bg-back p-3">
                     <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
                     <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
@@ -97,9 +192,9 @@ try {
                     <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</div>
                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                 </div>
+            </div>-->
             </div>
-        </div>
-        <div class="row pt-2">
+            <!-- <div class="row pt-2">
             <div class="col-6 d-flex" style="min-height: 300px">
                 <div class="col-6 h-100 bg-back p-3">
                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
@@ -127,9 +222,9 @@ try {
                         <p>圖片</p>
                     </div>
                 </div>
-            </div>
+            </div> 
+        </div> -->
         </div>
-    </div>
 
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
