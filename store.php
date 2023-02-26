@@ -1,13 +1,11 @@
 <?php
 try {
     require_once("pdo.php");
-    extract($_REQUEST);
-    echo $template;
-    extract($_FILES["images"]);
-    // echo $tmp_name;
-    $sql = "INSERT INTO products(product_name, product_des, price, links ,time,images,template) VALUES (?,?,?,?,?,?,?)";
+    extract($_POST);
+    var_dump($_FILES["images"]);
+    $sql = "INSERT INTO products(product_name, product_des, price, links, time, images, template) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    $ext = strtolower(pathinfo($_FILES["images"]["name"], PATHINFO_EXTENSION));
     if ($ext != "jpg" && $ext != "jpeg" && $ext != "png" && $ext != "gif") {
         return;
     }
@@ -17,9 +15,9 @@ try {
     if (!is_dir("images")) {
         mkdir("images");
     }
-    if (move_uploaded_file($tmp_name, $target)) {
+    if (move_uploaded_file($_FILES["images"]["tmp_name"], $target)) {
         echo "上傳成功";
-        $stmt->execute([$product_name,$product_des,$price,$links,$time,$image_name,$template]);
+        $stmt->execute([$product_name, $product_des, $price, $links, $time, $image_name, $template]);
     }
 } catch (PDOException $e) {
     echo $e->getMessage();

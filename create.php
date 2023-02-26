@@ -104,7 +104,7 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                             </div>
-                            <form class="d-flex" action="store.php" method="post">
+                            <form class="d-flex" action="store.php" method="post" enctype="multipart/form-data">
                                 <div class="col-6">
                                     <p class="text-center m-0">
                                         請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
@@ -146,7 +146,7 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                             </div>
-                            <form class="d-flex" action="store.php" method="post">
+                            <form class="d-flex" action="store.php" method="post" enctype="multipart/form-data">
                                 <div class="col-6">
                                     <p class="text-center m-0">
                                         請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
