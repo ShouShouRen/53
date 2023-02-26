@@ -19,7 +19,7 @@ if (!isset($_SESSION["AUTH"])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="./logos.png" class="logo mx-3" alt="">
@@ -54,7 +54,7 @@ if (!isset($_SESSION["AUTH"])) {
                 </ul>
             </div>
     </nav>
-    <div class="container py-3">
+    <div class="container py-3" style="margin-top: 86px;">
         <div class="row">
             <div class="bg-white p-3 rounded-lg shadow-lg" style="min-height: 780px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -72,7 +72,6 @@ if (!isset($_SESSION["AUTH"])) {
                     </li>
                 </ul>
                 <form action="store.php" method="POST" enctype="multipart/form-data">
-
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
                             <div class="container my-3">

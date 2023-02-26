@@ -34,7 +34,7 @@ try {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="./logos.png" class="logo mx-3" alt="">
@@ -69,8 +69,8 @@ try {
                 </ul>
             </div>
     </nav>
-    <div class="container">
-        <div class="row pt-2 justify-content-start py-5">
+    <div class="container" style="margin-top: 86px;">
+        <div class="row pt-2 justify-content-start pt-3 pb-5">
             <?php foreach ($result as $row) { ?>
                 <?php if ($row["template"] == 1) { ?>
                     <div class="col-6 d-flex mt-4" style="min-height: 300px">
