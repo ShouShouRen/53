@@ -23,14 +23,14 @@ if (!isset($_SESSION["AUTH"])) {
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="./logos.png" class="logo mx-3" alt="">
-                <span>咖啡商品展示系統</span>
+                <span>咖啡商品展示系統-上架商品</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <?php
                         if ($_SESSION["AUTH"]["role"] == 0) {
                             echo '<a class="nav-link" href="create.php">上架商品</a>';
@@ -50,6 +50,9 @@ if (!isset($_SESSION["AUTH"])) {
                             echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
                         }
                         ?>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link btn btn-outline-warning">離開</a>
                     </li>
                 </ul>
             </div>
@@ -199,7 +202,7 @@ if (!isset($_SESSION["AUTH"])) {
                         </div>
                         <!-- 預覽版型 -->
                         <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-                            
+
                         </div>
                         <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
                             <div class="container my-3">
