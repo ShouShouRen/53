@@ -68,7 +68,7 @@ if (!isset($_SESSION["AUTH"])) {
                         <a class="nav-link" id="preview-tab" data-toggle="tab" href="#preview" role="tab" aria-controls="preview" aria-selected="false">預覽</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="submit-tab" data-toggle="tab" href="#submit" role="tab" aria-controls="submit" aria-selected="false">確定</a>
+                        <a class="nav-link" id="submit-tab" data-toggle="tab" href="#submit" role="tab" aria-controls="submit" aria-selected="false">確認送出</a>
                     </li>
                 </ul>
                 <form action="store.php" method="POST" enctype="multipart/form-data">
@@ -190,26 +190,22 @@ if (!isset($_SESSION["AUTH"])) {
                                             <label for="">相關連結:</label>
                                             <input type="text" class="form-control w-75" name="links">
                                         </div>
-                                        <div class="text-right my-3">
+                                        <!-- <div class="text-right my-3">
                                             <input type="submit" class="btn btn-primary" value="儲存">
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- 預覽版型 -->
                         <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
-                            <div class="container my-3">
-                                <div class="row pt-2">
-
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
                             <div class="container my-3">
                                 <div class="row pt-2">
                                     <div class="text-right my-3">
-                                        <button class="btn btn-primary" id="submit-form">提交</button>
+                                        <button class="btn btn-primary d-center" id="submit-form">確認送出</button>
                                     </div>
                                 </div>
                             </div>

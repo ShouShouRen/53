@@ -5,7 +5,7 @@ const template4 = document.querySelector('#template4');
 const preview = document.querySelector('#preview');
 
 const template1HTML = `
-<div class="row pt-2 justify-content-center">
+<div class="row pt-5 mt-5 justify-content-center">
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"></div>
@@ -21,7 +21,7 @@ const template1HTML = `
 </div>
 `;
 const template2HTML = `
-<div class="row pt-2 justify-content-center">
+<div class="row pt-5 mt-5 justify-content-center">
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
@@ -38,7 +38,7 @@ const template2HTML = `
 `;
 
 const template3HTML = `
-<div class="row pt-2 justify-content-center">
+<div class="row pt-5 mt-5 justify-content-center">
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
@@ -55,7 +55,7 @@ const template3HTML = `
 `;
 
 const template4HTML = `
-<div class="row pt-2 justify-content-center">
+<div class="row pt-5 mt-5 justify-content-center">
     <div class="col-6 d-flex" style="min-height: 300px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
@@ -103,7 +103,8 @@ const time = document.querySelector('input[name="time"]');
 const images = document.querySelector('input[name="images"]');
 const price = document.querySelector('input[name="price"]');
 const links = document.querySelector('input[name="links"]');
-const submitBtn = document.querySelector('input[type="submit"]');
+// const submitBtn = document.querySelector('input[type="submit"]');
+const previewtab = document.querySelector('#preview-tab');
 
 
 const templates = [
@@ -114,7 +115,7 @@ const templates = [
 ];
 
 
-submitBtn.addEventListener('click', (e) => {
+previewtab.addEventListener('click', (e) => {
     e.preventDefault();
     const file = images.files[0];
     const reader = new FileReader();
