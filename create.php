@@ -30,27 +30,6 @@ if (!isset($_SESSION["AUTH"])) {
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
-                    <!-- <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="create.php">上架商品</a>';
-                        }
-                        ?>
-                    </li>
-                    <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
-                        }
-                        ?>
-                    </li>
-                    <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION["AUTH"])) {
-                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
-                        }
-                        ?>
-                    </li> -->
                     <li class="nav-item">
                         <a href="index.php" class="nav-link btn btn-outline-warning">離開</a>
                     </li>
@@ -109,16 +88,16 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                                 <div class="d-flex" action="store.php" method="post">
-                                <div class="col-6">
-                                    <p class="text-center m-0">
-                                        請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
-                                    </p>
-                                </div>
-                                <div class="col-6">
-                                    <p for="" class="text-center m-0">
-                                        請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
-                                    </p>
-                                </div>
+                                    <div class="col-6">
+                                        <p class="text-center m-0">
+                                            請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p for="" class="text-center m-0">
+                                            請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="row pt-2">
                                     <div class="col-6 d-flex" style="min-height: 300px">
@@ -179,7 +158,11 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">發布日期:</label>
-                                            <input type="datetime-local" class="form-control w-75" name="time">
+                                            <?php
+                                            $default_time = new DateTime('now', new DateTimeZone('Asia/Taipei'));
+                                            $default_time_str = $default_time->format('Y-m-d\TH:i:s');
+                                            ?>
+                                            <input type="datetime-local" class="form-control w-75" name="time" value="<?php echo $default_time_str ?>">
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">圖片:</label>

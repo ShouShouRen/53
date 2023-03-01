@@ -30,7 +30,7 @@ try {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="./logos.png" class="logo mx-3" alt="">咖啡商品展示系統
                 <?php
@@ -88,8 +88,9 @@ try {
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="wrapper">
+    <div class="container" style="margin-top: 86px;">
+        <div class="pt-3 pb-5">
+
             <div class="row align-items-center justify-content-between">
                 <h5 class="font-weight-bolder text-center text-white border-start">會員管理</h5>
                 <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
@@ -152,7 +153,7 @@ try {
                                         ?></td> -->
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
-                            <td><?php echo $row["pw"]?></td>
+                            <td><?php echo $row["pw"] ?></td>
                             <td><?php echo $row["user_name"]; ?></td>
                             <td><?php
                                 switch ($row["role"]) {
@@ -218,6 +219,7 @@ try {
                     <?php } ?>
                 </table>
             </div>
+
         </div>
     </div>
 </body>
