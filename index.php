@@ -66,10 +66,19 @@ try {
     </nav>
     <div class="container" style="margin-top: 86px;">
         <div class="row pt-3 pb-5 justify-content-end">
-            <div class="d-flex align-items-center">
+            <!-- <div class="d-flex align-items-center">
                 <input type="search" name="search" id="" class="form-control w-75 mr-2">
                 <button class="btn btn-secondary">查詢</button>
-            </div>
+            </div> -->
+            <form id="search-form" class="d-flex" action="search.php" method="post">
+                <input type="search" name="search" id="search-input" class="form-control w-50 mr-2">
+                <input type="number" name="min_price" id="min-price-input" class="form-control w-25 mr-2" placeholder="最低價格">
+                <input type="number" name="max_price" id="max-price-input" class="form-control w-25 mr-2" placeholder="最高價格">
+                <button type="submit" class="btn btn-secondary">查詢</button>
+            </form>
+
+            <div id="result"></div>
+
             <div class="row justify-content-start">
                 <?php foreach ($result as $row) { ?>
                     <?php if ($row["template"] == 1) { ?>
@@ -134,5 +143,5 @@ try {
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
-
+<script src="./js/search.js"></script>
 </html>
