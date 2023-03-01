@@ -8,7 +8,7 @@ require_once("pdo.php");
 try {
     extract($_GET);
     extract($_POST);
-    $sql = "SELECT * FROM `products`";
+    $sql = "SELECT * FROM `products` ORDER BY id DESC";
     $stmt = $pdo->prepare($sql);
     $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
