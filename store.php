@@ -18,8 +18,10 @@ try {
     if (move_uploaded_file($_FILES["images"]["tmp_name"], $target)) {
         echo "上傳成功";
         $stmt->execute([$product_name, $product_des, $price, $links, $time, $image_name, $template]);
+    }else{
+        echo "上傳失敗";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-// header("Location: index.php");
+header("Location: index.php");

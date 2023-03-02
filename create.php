@@ -163,6 +163,7 @@ if (!isset($_SESSION["AUTH"])) {
                                             $default_time_str = $default_time->format('Y-m-d\TH:i:s');
                                             ?>
                                             <input type="datetime-local" class="form-control w-75" name="time" value="<?php echo $default_time_str ?>">
+                                            <!-- <input type="datetime-local" class="form-control w-75" name="time"> -->
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between my-3">
                                             <label for="">圖片:</label>
