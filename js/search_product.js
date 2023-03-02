@@ -6,7 +6,7 @@ $(document).ready(function () {
         let maxPrice = $('#max-price-input').val();
 
         $.ajax({
-            url: 'search.php',
+            url: 'search_product.php',
             type: 'post',
             data: {
                 search: search,
