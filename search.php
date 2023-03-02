@@ -21,21 +21,17 @@ if (isset($_POST['search'])) {
                 // }
                 if (!empty($min_price) && !empty($max_price)) {
                     if ($row["price"] >= $min_price && $row["price"] <= $max_price) {
-                        // 如果價格介於最低和最高範圍內，則將產品加入篩選結果中
                         array_push($filtered_result, $row);
                     }
                 } else if (!empty($min_price) && empty($max_price)) {
                     if ($row["price"] >= $min_price) {
-                        // 如果價格高於最低價格，則將產品加入篩選結果中
                         array_push($filtered_result, $row);
                     }
                 } else if (empty($min_price) && !empty($max_price)) {
                     if ($row["price"] <= $max_price) {
-                        // 如果價格低於最高價格，則將產品加入篩選結果中
                         array_push($filtered_result, $row);
                     }
                 } else {
-                    // 如果沒有設定價格範圍，則將所有產品加入篩選結果中
                     array_push($filtered_result, $row);
                 }
             }
