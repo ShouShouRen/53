@@ -20,7 +20,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 // 在網頁上顯示查詢結果
-                $('#result').html(response);
+                $('#search-results').html(response);
             }
         });
     });
