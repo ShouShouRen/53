@@ -20,7 +20,8 @@ $(document).ready(function () {
                 if (search_res.children().length == 1) {
                     search_res.children().addClass('col-12');
                     search_res.children().removeClass('col-6');
-                } else if (search_res.children().length == 0) {
+                } 
+                else if (search_res.children().length == 0) {
                     search_res.append("<div class='d-center text-center text-white h1'>查無資料</div>");
                     setTimeout(function () { window.location.reload(); }, 2500);
                 }
