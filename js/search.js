@@ -1,15 +1,10 @@
-$(document).ready(function() {
-    // 當表單提交時
-    $('#search-form').submit(function(event) {
-        // 防止表單的預設提交行為
+$(document).ready(function () {
+    $('#search-form').submit(function (event) {
         event.preventDefault();
-        
-        // 獲取用戶輸入的關鍵字和價格範圍
-        var search = $('#search-input').val();
-        var minPrice = $('#min-price-input').val();
-        var maxPrice = $('#max-price-input').val();
-        
-        // 發送 Ajax 請求
+        let search = $('#search-input').val();
+        let minPrice = $('#min-price-input').val();
+        let maxPrice = $('#max-price-input').val();
+
         $.ajax({
             url: 'search.php',
             type: 'post',
@@ -18,9 +13,16 @@ $(document).ready(function() {
                 min_price: minPrice,
                 max_price: maxPrice
             },
-            success: function(response) {
-                // 在網頁上顯示查詢結果
-                $('#search-results').html(response);
+            success: function (response) {
+                let search_res = $('#search-results');
+                search_res.html(response);
+                if (search_res.children().length == 1) {
+                    search_res.children().addClass('col-12');
+                    search_res.children().removeClass('col-6');
+                } else {
+                    search_res.append("<div class='d-center text-center text-white h1'>查無資料</div>");
+                    setTimeout(function () { window.location.reload(); }, 2500);
+                }
             }
         });
     });

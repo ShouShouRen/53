@@ -6,11 +6,38 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['search'])) {
     $keyword = $_POST['search'];
+    $min_price = $_POST['min_price'];
+    $max_price = $_POST['max_price'];
     if (!empty($keyword)) {
         $filtered_result = array();
         foreach ($result as $row) {
             if (strpos($row['product_name'], $keyword) !== false) {
-                array_push($filtered_result, $row);
+                // if (!empty($min_price) && !empty($max_price)) {
+                //     if ($row["price"] >= $min_price && $row["price"] <= $max_price) {
+                //         array_push($filtered_result, $row);
+                //     }
+                // } else {
+                //     array_push($filtered_result, $row);
+                // }
+                if (!empty($min_price) && !empty($max_price)) {
+                    if ($row["price"] >= $min_price && $row["price"] <= $max_price) {
+                        // 如果價格介於最低和最高範圍內，則將產品加入篩選結果中
+                        array_push($filtered_result, $row);
+                    }
+                } else if (!empty($min_price) && empty($max_price)) {
+                    if ($row["price"] >= $min_price) {
+                        // 如果價格高於最低價格，則將產品加入篩選結果中
+                        array_push($filtered_result, $row);
+                    }
+                } else if (empty($min_price) && !empty($max_price)) {
+                    if ($row["price"] <= $max_price) {
+                        // 如果價格低於最高價格，則將產品加入篩選結果中
+                        array_push($filtered_result, $row);
+                    }
+                } else {
+                    // 如果沒有設定價格範圍，則將所有產品加入篩選結果中
+                    array_push($filtered_result, $row);
+                }
             }
         }
         $html = "";
@@ -73,6 +100,6 @@ if (isset($_POST['search'])) {
         echo $html;
     } else {
         echo "<div class='d-center text-center text-white h1'>查無資料</div>";
-        echo "<script> setTimeout(function(){window.location.reload();}, 3000); </script>";
+        echo "<script> setTimeout(function(){window.location.reload();}, 2500); </script>";
     }
 }
