@@ -14,6 +14,7 @@ $(document).ready(function () {
                 max_price: maxPrice
             },
             success: function (response) {
+                console.log(response);
                 let search_res = $('#search-results');
                 search_res.html(response);
                 if (search_res.children().length == 1) {

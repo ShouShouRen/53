@@ -2,6 +2,7 @@
 require_once("pdo.php");
 $sql = "SELECT * FROM products";
 $stmt = $pdo->prepare($sql);
+$stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['search'])) {
@@ -33,7 +34,7 @@ if (isset($_POST['search'])) {
                     }
                 } else {
                     array_push($filtered_result, $row);
-                }
+                }  
             }
         }
         $html = "";

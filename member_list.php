@@ -83,7 +83,7 @@ try {
                     ?>
                     <form id="search-member" class="d-flex align-items-center" action="search_member.php">
                         <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料" class="form-control w-75 mr-2">
-                        <button type="submit" class="btn btn-secondary" id="search-member">查詢</button>
+                        <button type="submit" class="btn btn-secondary">查詢</button>
                     </form>
 
                 </div>
@@ -96,6 +96,9 @@ try {
                         <th>使用者權限</th>
                         <th>操作</th>
                     </tr>
+                    <tbody id="search_result">
+
+                    </tbody>
                     <!-- Modal -->
                     <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -128,9 +131,9 @@ try {
                             </div>
                         </div>
                     </div>
-                    <div id="search_result"></div>
                     <?php while ($row = $stmt->fetch()) { ?>
-                        <tr>
+
+                        <tr class="show-all">
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
                             <td><?php echo $row["pw"] ?></td>
@@ -199,6 +202,7 @@ try {
                     <?php } ?>
                 </table>
             </div>
+            <!-- <table id="search_result"></table> -->
 
         </div>
     </div>
