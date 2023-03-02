@@ -66,7 +66,7 @@ try {
     </nav>
     <div class="container" style="margin-top: 86px;">
         <div class="row pt-3 pb-5 justify-content-end">
-            <form id="search-form" class="d-flex justify-content-end align-items-center" action="search.php" method="post">
+            <form id="search-product" class="d-flex justify-content-end align-items-center" action="search_product.php" method="post">
                 <input type="search" name="search" id="search-input" class="form-control w-25 mx-1" placeholder="請輸入商品名稱">
                 <input type="number" name="min_price" id="min-price-input" class="form-control w-25 mx-1" placeholder="最低價格">
                 <input type="number" name="max_price" id="max-price-input" class="form-control w-25 mx-1" placeholder="最高價格">

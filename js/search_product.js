@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#search-form').submit(function (event) {
+    $('#search-product').submit(function (event) {
         event.preventDefault();
         let search = $('#search-input').val();
         let minPrice = $('#min-price-input').val();

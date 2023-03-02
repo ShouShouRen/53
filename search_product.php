@@ -1,7 +1,7 @@
 <?php
 require_once("pdo.php");
 $sql = "SELECT * FROM products";
-$stmt = $pdo->query($sql);
+$stmt = $pdo->prepare($sql);
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['search'])) {
@@ -92,7 +92,6 @@ if (isset($_POST['search'])) {
                 </div>';
             }
         }
-
         echo $html;
     }
 }

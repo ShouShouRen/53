@@ -65,7 +65,6 @@ try {
     </nav>
     <div class="container" style="margin-top: 86px;">
         <div class="pt-3 pb-5">
-
             <div class="row align-items-center justify-content-between">
                 <h5 class="font-weight-bolder text-center text-white border-start">會員管理</h5>
                 <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
@@ -77,15 +76,16 @@ try {
             </div>
             <div class="p-4 bg-white rounded-lg t-shadow">
                 <div class="row justify-content-between align-items-center mb-3">
-                <?php
-                if ($_SESSION["AUTH"]["role"] == 0) {
-                    echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer" >新增使用者</button>';
-                }
-                ?>
-                <div class="d-flex align-items-center">
-                    <input type="search" name="search" id="" class="form-control w-75 mr-2">
-                    <button class="btn btn-secondary">查詢</button>
-                </div>
+                    <?php
+                    if ($_SESSION["AUTH"]["role"] == 0) {
+                        echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer">新增使用者</button>';
+                    }
+                    ?>
+                    <form id="search-member" class="d-flex align-items-center" action="search_member.php">
+                        <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料" class="form-control w-75 mr-2">
+                        <button type="submit" class="btn btn-secondary" id="search-member">查詢</button>
+                    </form>
+
                 </div>
                 <table class="table">
                     <tr>
@@ -128,10 +128,9 @@ try {
                             </div>
                         </div>
                     </div>
+                    <div id="search_result"></div>
                     <?php while ($row = $stmt->fetch()) { ?>
                         <tr>
-                            <!-- <td><?php #echo $row["id"]; 
-                                        ?></td> -->
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
                             <td><?php echo $row["pw"] ?></td>
@@ -204,7 +203,9 @@ try {
         </div>
     </div>
 </body>
+<script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
+<script src="./js/search_member.js"></script>
 <script>
     var timeleft = 60;
     var timer;
