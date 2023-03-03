@@ -140,7 +140,6 @@ try {
                         </div>
                     </div>
                     <?php while ($row = $stmt->fetch()) { ?>
-
                         <tr class="show-all" >
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
