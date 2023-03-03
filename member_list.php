@@ -82,14 +82,14 @@ try {
                     }
                     ?>
                     <form id="search-member" class="d-flex align-items-center" action="search_member.php">
-                        <div class="d-flex w-25">
+                        <!-- <div class="d-flex">
                             <label for="">升冪</label>
                             <input type="radio" name="use" id="" value="up">
                         </div>
-                        <div class="d-flex w-25">
+                        <div class="d-flex w-20">
                             <label for="">降冪</label>
                             <input type="radio" name="use" id="" value="down">
-                        </div>
+                        </div> -->
                         <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料" class="form-control w-75 mr-2">
                         <button type="submit" class="btn btn-secondary">查詢</button>
                     </form>
