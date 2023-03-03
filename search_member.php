@@ -14,6 +14,10 @@ if (isset($_POST['search'])) {
         foreach ($result as $row) {
             if (strpos($row['user'], $keyword) !== false) {
                 array_push($filtered_result, $row);
+            } else if (strpos($row['user_id'], $keyword) !== false) {
+                array_push($filtered_result, $row);
+            }else if(strpos($row['user_name'],$keyword) !== false){
+                array_push($filtered_result,$row);
             }
         }
         $html = "";
