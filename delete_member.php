@@ -5,4 +5,3 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     header("Location:member_list.php");
-?>

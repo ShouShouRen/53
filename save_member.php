@@ -9,12 +9,6 @@ $user_name = $input["user_name"];
 $pw = $input["pw"];
 $id = $input["id"];
 
-$sql = "UPDATE users SET user = :user, user_name = :user_name, pw = :pw WHERE id = :id";
+$sql = "UPDATE users SET user = '$user', user_name = '$user_name', pw = '$pw' WHERE id = '$id'";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(":user", $user);
-$stmt->bindParam(":user_name", $user_name);
-$stmt->bindParam(":pw", $pw);
-$stmt->bindParam(":id", $id);
 $stmt->execute();
-
-?>
