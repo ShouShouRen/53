@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-tw">
 
 <head>
     <meta charset="UTF-8">
@@ -43,7 +43,6 @@ session_start();
 
                         </div>
                         <div class="row justify-content-between mx-1 my-4">
-                            <!-- <input type="reset" class="btn btn-outline-dark" value="清除"> -->
                             <div class="btn btn-outline-light" onclick="recaptcha()">重新產生</div>
                             <input type="submit" class="btn btn-light" value="確認登入">
                         </div>

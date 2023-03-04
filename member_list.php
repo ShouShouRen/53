@@ -13,7 +13,7 @@ try {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-tw">
 
 <head>
     <meta charset="UTF-8">

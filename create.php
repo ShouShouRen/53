@@ -7,7 +7,7 @@ if (!isset($_SESSION["AUTH"])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-tw">
 
 <head>
     <meta charset="UTF-8">
