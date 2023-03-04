@@ -137,7 +137,7 @@ try {
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
-<!-- <script src="./js/search_product.js"></script> -->
 <script src="./js/function.js"></script>
+<!-- <script src="./js/search_product.js"></script> -->
 
 </html>
