@@ -22,10 +22,6 @@ try {
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>會員管理後台管理模組</title>
-    <script src="./js/jquery-3.6.3.min.js"></script>
-
-    <script src="./js/member.js"></script>
-
 </head>
 
 <body>
@@ -139,7 +135,7 @@ try {
                         </div>
                     </div>
                     <?php while ($row = $stmt->fetch()) { ?>
-                        <tr class="show-all" >
+                        <tr class="show-all">
                             <td><?php echo $row["user_id"]; ?></td>
                             <td><?php echo $row["user"]; ?></td>
                             <td><?php echo $row["pw"] ?></td>
@@ -208,13 +204,12 @@ try {
                     <?php } ?>
                 </table>
             </div>
-            <!-- <table id="search_result"></table> -->
-
         </div>
     </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
+<script src="./js/function.js"></script>
 <script src="./js/search_member.js"></script>
 <script>
     var timeleft = 60;

@@ -4,14 +4,14 @@ session_start();
 if (!isset($_SESSION["AUTH"])) {
     header("Location: login.php");
 }
-require_once("pdo.php");
 try {
     extract($_GET);
     extract($_POST);
     // $sql = "SELECT * FROM `products` ORDER BY id DESC";
     $sql = "SELECT * FROM `products` ORDER BY `products`.`time` DESC";
     $stmt = $pdo->prepare($sql);
-    $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
