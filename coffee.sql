@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2023-03-02 17:31:37
+-- 主機： localhost
+-- 產生時間： 2023 年 03 月 04 日 10:22
 -- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.2.0
+-- PHP 版本： 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,7 +48,11 @@ INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `
 (3, 'test', 'fsdsfadsfadfsda', '100', 'https://yahoo.com.tw', '2023-02-23 21:50:00', 'cd238e9b1308de373ee6dc267b0c6efb.jpg', '1'),
 (4, 'test', 'dsffdsadfsfsafd', '1000', 'google.com', '2023-02-26 14:36:00', '379d5c8efff3b37b2625f31379216472.jpg', '3'),
 (5, '版型三', '測試測試', '1500', 'https://youtube.com', '2023-02-26 14:45:00', '1a260de21e93dabfd12044a935454433.jpg', '3'),
-(6, '測試標題2', '版型二', '600', 'google.com', '2023-02-26 15:17:00', '5a0f303d4f54bc4ac393aa44e175efb9.jpg', '2');
+(6, '測試標題2', '版型二', '600', 'google.com', '2023-02-26 15:17:00', '5a0f303d4f54bc4ac393aa44e175efb9.jpg', '2'),
+(7, 'title', 'sdfafsadfs', '1300', 'google.com', '2023-03-03 00:47:00', '9f81bf1df19a8868d3dd40a2ec5b24a2.jpg', '3'),
+(8, '咖啡', '好喝的咖啡', '300', 'google.com', '2023-03-03 00:59:05', '5c978e8547ea1a06ea636e82e36c74f3.jpg', '4'),
+(9, '咖啡商品', '好好喝的咖啡', '500', 'coffee.com', '2023-03-03 09:57:56', '586d20331102ab9260e28021a1cda497.jpg', '3'),
+(10, 'fewwfwef', 'ewfwefwefwefsfe', '500', 'ewfewfwefewf', '2023-03-03 10:21:32', '32c9be6f7804ef708cf0d4b3eb89f078.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -71,9 +75,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user`, `user_name`, `pw`, `role`, `user_id`) VALUES
 (1, 'admin', '超級管理者', '1234', 0, '0000'),
-(2, 'coffee', 'coffeessss', '12345', 1, '0001'),
-(3, 'peter', '陳暐仁', '1022', 0, '0002'),
-(4, 'test01', '測試01', '1234', 1, '0003'),
+(2, 'coffees', 'coffeess', '12345', 1, '0001'),
+(3, 'peter', '陳暐仁', '1022', 1, '0002'),
+(4, 'test001', '測試01', '12341', 1, '0003'),
 (5, 'test02', '測試02', '12343', 1, '0004'),
 (6, 'coffeesss', 'coffeess', '1234', 1, '0005');
 
@@ -101,7 +105,7 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
