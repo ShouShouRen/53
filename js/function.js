@@ -183,48 +183,5 @@ $(function () {
         });
     });
 
-    let timeleft = 60;
-    let timer;
-
-    function setTime() {
-        timeleft = parseInt(document.getElementById("timeInput").value);
-        clearInterval(timer);
-        timer = setInterval(function () {
-            document.getElementById("countdown").innerHTML = timeleft + " 秒";
-            timeleft -= 1;
-            if (timeleft < 0) {
-                clearInterval(timer);
-                if (confirm("是否繼續操作？")) {
-                    timeleft = parseInt(document.getElementById("timeInput").value);
-                    timer = setInterval(function () {
-                        document.getElementById("countdown").innerHTML = timeleft + " 秒";
-                        timeleft -= 1;
-                        if (timeleft < 0) {
-                            clearInterval(timer);
-                            alert("已自動登出系統");
-                            window.location.href = "logout.php";
-                        }
-                    }, 1000);
-                } else {
-                    alert("已自動登出系統");
-                    window.location.href = "logout.php";
-                }
-            }
-        }, 1000);
-    }
-
-    function resetTime() {
-        clearInterval(timer);
-        timeleft = parseInt(document.getElementById("timeInput").value);
-        timer = setInterval(function () {
-            document.getElementById("countdown").innerHTML = timeleft + " 秒";
-            timeleft -= 1;
-            if (timeleft < 0) {
-                clearInterval(timer);
-                alert("已自動登出系統");
-                window.location.href = "logout.php";
-            }
-        }, 1000);
-    }
-    setTime();
+   
 });

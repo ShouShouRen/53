@@ -64,9 +64,9 @@ try {
                 <h5 class="font-weight-bolder text-center text-white border-start">會員管理</h5>
                 <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
                     <input type="number" id="timeInput" value="60" class="form-control w-25">
-                    <button onclick="setTime()" class="btn btn-sm btn-md-lg btn-outline-light">設定</button>
+                    <button id="setTimeBtn" class="btn btn-sm btn-md-lg btn-outline-light">設定</button>
                     <span id="countdown">60 秒</span>
-                    <button onclick="resetTime()" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
+                    <button id="resetTimeBtn" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
                 </div>
             </div>
             <div class="p-4 bg-white rounded-lg t-shadow">
@@ -211,7 +211,92 @@ try {
 <script src="./js/bootstrap.js"></script>
 <script src="./js/function.js"></script>
 <script>
+    // let timeleft = 60;
+    // let timer;
 
+    // function setTime() {
+    //     timeleft = parseInt(document.getElementById("timeInput").value);
+    //     clearInterval(timer);
+    //     timer = setInterval(function() {
+    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //         timeleft -= 1;
+    //         if (timeleft < 0) {
+    //             clearInterval(timer);
+    //             if (confirm("是否繼續操作？")) {
+    //                 timeleft = parseInt(document.getElementById("timeInput").value);
+    //                 timer = setInterval(function() {
+    //                     document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //                     timeleft -= 1;
+    //                     if (timeleft < 0) {
+    //                         clearInterval(timer);
+    //                         alert("已自動登出系統");
+    //                         window.location.href = "logout.php";
+    //                     }
+    //                 }, 1000);
+    //             } else {
+    //                 alert("已自動登出系統");
+    //                 window.location.href = "logout.php";
+    //             }
+    //         }
+    //     }, 1000);
+    // }
+
+    // function resetTime() {
+    //     clearInterval(timer);
+    //     timeleft = parseInt(document.getElementById("timeInput").value);
+    //     timer = setInterval(function() {
+    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
+    //         timeleft -= 1;
+    //         if (timeleft < 0) {
+    //             clearInterval(timer);
+    //             alert("已自動登出系統");
+    //             window.location.href = "logout.php";
+    //         }
+    //     }, 1000);
+    // }
+
+    // document.getElementById("setTimeBtn").addEventListener("click", setTime);
+    // document.getElementById("resetTimeBtn").addEventListener("click", resetTime);
+
+
+    let timeleft = 60;
+    let timer;
+
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(function() {
+            document.getElementById("countdown").innerHTML = timeleft + " 秒";
+            timeleft -= 1;
+            if (timeleft < 0) {
+                clearInterval(timer);
+                if (confirm("是否繼續操作？")) {
+                    timeleft = parseInt(document.getElementById("timeInput").value);
+                    startTimer();
+                } else {
+                    alert("已自動登出系統");
+                    window.location.href = "logout.php";
+                }
+
+            }
+        }, 1000);
+    }
+
+
+    function setTime() {
+        timeleft = parseInt(document.getElementById("timeInput").value);
+        startTimer();
+    }
+
+    function resetTime() {
+        clearInterval(timer);
+        timeleft = parseInt(document.getElementById("timeInput").value);
+        startTimer();
+    }
+
+    document.getElementById("setTimeBtn").addEventListener("click", setTime);
+    document.getElementById("resetTimeBtn").addEventListener("click", resetTime);
+
+    setTime();
 </script>
 
 </html>
