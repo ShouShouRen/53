@@ -78,7 +78,7 @@ try {
                 <?php foreach ($result as $row) { ?>
                     <?php if ($row["template"] == 1) { ?>
                         <div class="col-6" style="height:400px">
-                            <div class="d-flex text-center bg-white px-2 py-3 flex-wrap">
+                            <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                                 <div class="col-6">
                                     <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px" alt="">
                                     <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]; ?>"><?php echo $row["links"]; ?></a></div>
@@ -96,7 +96,7 @@ try {
                         </div>
                     <?php } else if ($row["template"] == 2) { ?>
                         <div class="col-6" style="height:400px">
-                            <div class="d-flex text-center bg-white px-2 py-3 flex-wrap">
+                            <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                                 <div class="col-6">
                                     <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]; ?></div>
                                     <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px" alt="">
@@ -114,7 +114,7 @@ try {
                         </div>
                     <?php } else if ($row["template"] == 3) { ?>
                         <div class="col-6" style="height:400px">
-                            <div class="d-flex text-center bg-white px-2 py-3 flex-wrap">
+                            <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                                 <div class="col-6">
                                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱:<?php echo $row["product_name"]; ?></div>
                                     <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]; ?></div>
@@ -133,7 +133,7 @@ try {
                         </div>
                     <?php } else if ($row["template"] == 4) { ?>
                         <div class="col-6" style="height:400px">
-                            <div class="d-flex text-center bg-white px-2 py-3 flex-wrap">
+                            <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                                 <div class="col-6">
                                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]; ?> 元</div>
                                     <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介:<?php echo $row["product_des"]; ?></div>

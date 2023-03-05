@@ -15,6 +15,27 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #sortable1,
+        #sortable2 {
+            border: 1px solid #eee;
+            width: 142px;
+            min-height: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 5px 0 0 0;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #sortable1 li,
+        #sortable2 li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+        }
+    </style>
     <title>咖啡商品展示系統</title>
 </head>
 
@@ -37,9 +58,9 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
     </nav>
     <div class="container py-3" style="margin-top: 86px;">
-    <div class="row py-3 align-items-center justify-content-start">
-        <h5 class="font-weight-bolder text-center text-white border-start">上架管理</h5>
-    </div>
+        <div class="row py-3 align-items-center justify-content-start">
+            <h5 class="font-weight-bolder text-center text-white border-start">上架管理</h5>
+        </div>
         <div class="row">
             <div class="bg-white p-3 rounded-lg shadow-lg" style="min-height: 780px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -60,8 +81,51 @@ if (!isset($_SESSION["AUTH"])) {
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
                             <div class="container my-3">
+                                <div class="text-right">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createtemModal">
+                                        新增版型
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="createtemModal" tabindex="-1" aria-labelledby="createtemModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="createtemModalLabel">版型管理</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex p-4" style="height: 380px">
+                                                            <ul id="sortable1" class="col-6 h-100 p-3">
+                                                                <li class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                                    <p>圖片</p>
+                                                                </li>
+                                                                <li class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</li>
+                                                                <!-- </ul> -->
+                                                                <!-- <div class="col-6 h-100 p-3"> -->
+                                                                    <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
+                                                                    <li class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
+                                                                    <li class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
+                                                                    <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
+                                                                <!-- </div> -->
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row pt-2">
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                                 <p>圖片</p>
@@ -75,7 +139,7 @@ if (!isset($_SESSION["AUTH"])) {
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
                                             <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
@@ -103,7 +167,7 @@ if (!isset($_SESSION["AUTH"])) {
                                     </div>
                                 </div>
                                 <div class="row pt-2">
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
                                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
@@ -117,7 +181,7 @@ if (!isset($_SESSION["AUTH"])) {
                                             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
@@ -213,6 +277,12 @@ if (!isset($_SESSION["AUTH"])) {
     document.getElementById('submit-form').addEventListener('click', function() {
         document.querySelector('form').submit();
     });
+    $(function() {
+        $("#sortable1,#sortable2").sortable({
+            connectWith: ".connectedSortable"
+        }).disableSelection();
+    });
 </script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </html>
