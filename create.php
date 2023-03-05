@@ -256,6 +256,7 @@ if (!isset($_SESSION["AUTH"])) {
         </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/template.js"></script>
 <script>
@@ -267,8 +268,7 @@ if (!isset($_SESSION["AUTH"])) {
             connectWith: ".connectedSortable"
         }).disableSelection();
     });
-    $("#draggable4").draggable({ containment: "#containment-wrapper", scroll: false });
+    $("#sortable,#sortable").draggable({ containment: "#containment-wrapper", scroll: false });
 </script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </html>
