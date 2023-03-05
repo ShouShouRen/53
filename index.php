@@ -145,7 +145,7 @@ try {
                                     <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px" alt="">
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <button class="btn btn-secondary btn-sm edit-product" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
+                                <button class="btn btn-secondary btn-sm edit-product" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,11 @@ try {
                                 <div class="text-right my-3">
                                     <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
                                 </div>
-                                <input type="hidden" name="id" id="id">
+                                <!-- <input type="hidden" name="id" id="id"> -->
+
+
+<input type="hidden" name="id" id="id" value="<?php echo $row["id"] ?>">
+
                             </form>
                         </div>
                     </div>

@@ -10,7 +10,11 @@ $product_des = $input["product_des"];
 $price = $input["price"];
 $links = $input["links"];
 $id = $input["id"];
+$now = date('Y-m-d h:i:s A');
 
-$sql = "UPDATE products SET product_name = '$product_name', product_des = '$product_des', time = '$now',price='$price',links='$links' WHERE id = '$id'";
+// $sql = "UPDATE products SET product_name = '$product_name', product_des = '$product_des', time = '$now',price='$price',links='$links' WHERE id = '$id'";
+
+$sql = "UPDATE products SET product_name = '$product_name', product_des = '$product_des', time = '$now', price='$price', links='$links' WHERE id = '$id'";
+
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
