@@ -85,7 +85,7 @@ if (!isset($_SESSION["AUTH"])) {
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
-                                                        <div class="col-12 d-flex p-4" style="height: 380px">
+                                                        <div class="col-12 d-flex p-4" id="containment-wrapper" style="height: 380px">
                                                             <ul id="sortable" class="col-6 h-100 p-3 connectedSortable">
                                                                 <li class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light mt-1">
                                                                     <p>圖片</p>
@@ -267,6 +267,7 @@ if (!isset($_SESSION["AUTH"])) {
             connectWith: ".connectedSortable"
         }).disableSelection();
     });
+    $("#draggable4").draggable({ containment: "#containment-wrapper", scroll: false });
 </script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
