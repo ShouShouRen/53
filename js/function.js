@@ -183,5 +183,53 @@ $(function () {
         });
     });
 
-   
+
+    $(".edit-product").click(function () {
+        let product_id = $(this).data('id');
+        console.log(product_id);
+        console.log('aaa');
+        $.ajax({
+            url: 'get_product.php',
+            type: 'get',
+            data: {
+                id: product_id
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                $("#product_name").val(response[0].product_name);
+                $("#product_des").val(response[0].product_des);
+                $("#time").val(response[0].time);
+                // $("#images").val(response[0].images);
+                $("#price").val(response[0].price);
+                $("#links").val(response[0].links);
+            }
+        });
+    });
+
+    $("#save").click(function () {
+        let user = $("#user").val();
+        let user_name = $("#user_name").val();
+        let pw = $("#pw").val();
+        let id = $("#id").val();
+
+        let data = {
+            user: user,
+            user_name: user_name,
+            pw: pw,
+            id: id
+        };
+        $.ajax({
+            url: "save_member.php",
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (response) {
+                // console.log('Success: ' + response);
+                alert('儲存成功');
+                window.location.reload();
+            }
+        });
+    });
+
 });

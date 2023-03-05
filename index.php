@@ -90,7 +90,7 @@ try {
                                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用:<?php echo $row["price"]; ?> 元</div>
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <button class="btn btn-secondary btn-sm">編輯</button>
+                                    <button class="btn btn-secondary btn-sm edit-product" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ try {
                                     <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]; ?>"><?php echo $row["links"]; ?></a></div>
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <button class="btn btn-secondary btn-sm">編輯</button>
+                                    <button class="btn btn-secondary btn-sm" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ try {
                                     <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a href="<?php echo $row["links"]; ?>"><?php echo $row["links"]; ?></a></div>
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <button class="btn btn-secondary btn-sm">編輯</button>
+                                    <button class="btn btn-secondary btn-sm" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
@@ -145,18 +145,65 @@ try {
                                     <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px" alt="">
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <button class="btn btn-secondary btn-sm">編輯</button>
+                                    <button class="btn btn-secondary btn-sm" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
                 <?php } ?>
             </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="edit-product" tabindex="-1" aria-labelledby="edit-productLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-productLabel">修改商品內容</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="edit_product.php" method="POST">
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">商品標題:</label>
+                                    <input type="text" class="form-control w-75" name="product_name" id="product_name">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">商品描述:</label>
+                                    <textarea class="form-control w-75" name="product_des" id="product_des"></textarea>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">發布日期:</label>
+                                    <?php
+                                    $default_time = new DateTime('now', new DateTimeZone('Asia/Taipei'));
+                                    $default_time_str = $default_time->format('Y-m-d\TH:i:s');
+                                    ?>
+                                    <input type="datetime-local" class="form-control w-75" name="time" id="time" value="<?php echo $default_time_str ?>">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">圖片:</label>
+                                    <input type="file" name="images" id="images">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">費用:</label>
+                                    <input type="text" class="form-control w-75" id="price" name="price">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">相關連結:</label>
+                                    <input type="text" class="form-control w-75" id="links" name="links">
+                                </div>
+                                <div class="text-right my-3">
+                                    <input type="submit" class="btn btn-primary" value="儲存">
+                                </div>
+                                <input type="hidden" name="id" id="id">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    </div>
-
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
