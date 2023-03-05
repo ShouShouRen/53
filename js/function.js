@@ -197,7 +197,7 @@ $(function () {
                 console.log(response);
                 $("#product_name").val(response[0].product_name);
                 $("#product_des").val(response[0].product_des);
-                $("#time").val(response[0].time);
+                // $("#time").val(response[0].time);
                 // $("#images").val(response[0].images);
                 $("#price").val(response[0].price);
                 $("#links").val(response[0].links);
@@ -205,27 +205,31 @@ $(function () {
         });
     });
 
-    $("#save").click(function () {
-        let user = $("#user").val();
-        let user_name = $("#user_name").val();
-        let pw = $("#pw").val();
+    $("#save-product").click(function () {
+        let product_name = $("#product_name").val();
+        let product_des = $("#product_des").val();
+        let time = $("#time").val();
+        let price = $("#price").val();
+        let links = $("#links").val();
         let id = $("#id").val();
 
         let data = {
-            user: user,
-            user_name: user_name,
-            pw: pw,
+            product_name: product_name,
+            product_des: product_des,
+            time: time,
+            price: price,
+            links: links,
             id: id
         };
         $.ajax({
-            url: "save_member.php",
+            url: "save_product.php",
             type: "POST",
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function (response) {
-                // console.log('Success: ' + response);
+                console.log('Success: ' + response);
                 alert('儲存成功');
-                window.location.reload();
+                // window.location.reload();
             }
         });
     });

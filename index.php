@@ -164,7 +164,7 @@ try {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="edit_product.php" method="POST">
+                            <form>
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">商品標題:</label>
                                     <input type="text" class="form-control w-75" name="product_name" id="product_name">
@@ -194,7 +194,7 @@ try {
                                     <input type="text" class="form-control w-75" id="links" name="links">
                                 </div>
                                 <div class="text-right my-3">
-                                    <input type="submit" class="btn btn-primary" value="儲存">
+                                    <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
                                 </div>
                                 <input type="hidden" name="id" id="id">
                             </form>
