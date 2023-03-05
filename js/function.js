@@ -221,6 +221,7 @@ $(function () {
             links: links,
             id: id
         };
+        
         $.ajax({
             url: "save_product.php",
             type: "POST",

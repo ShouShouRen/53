@@ -145,7 +145,7 @@ try {
                                     <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px" alt="">
                                 </div>
                                 <div class="col-12 mt-2">
-                                <button class="btn btn-secondary btn-sm edit-product" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
+                                    <button class="btn btn-secondary btn-sm edit-product" data-toggle="modal" data-id="<?php echo $row["id"] ?>" data-target="#edit-product">編輯</button>
                                 </div>
                             </div>
                         </div>
@@ -181,10 +181,10 @@ try {
                                     ?>
                                     <input type="datetime-local" class="form-control w-75" name="time" id="time" value="<?php echo $default_time_str ?>">
                                 </div>
-                                <!-- <div class="d-flex align-items-center justify-content-between my-3">
+                                <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">圖片:</label>
                                     <input type="file" name="images" id="images">
-                                </div> -->
+                                </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">費用:</label>
                                     <input type="text" class="form-control w-75" id="price" name="price">
@@ -196,11 +196,7 @@ try {
                                 <div class="text-right my-3">
                                     <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
                                 </div>
-                                <!-- <input type="hidden" name="id" id="id"> -->
-
-
-<input type="hidden" name="id" id="id" value="<?php echo $row["id"] ?>">
-
+                                <input type="hidden" name="id" value="<?php echo $row["id"]?>" id="id">
                             </form>
                         </div>
                     </div>
