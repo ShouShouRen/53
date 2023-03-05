@@ -16,24 +16,11 @@ if (!isset($_SESSION["AUTH"])) {
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        #sortable1,
-        #sortable2 {
-            border: 1px solid #eee;
-            width: 142px;
-            min-height: 20px;
+        #sortable {
             list-style-type: none;
             margin: 0;
-            padding: 5px 0 0 0;
-            float: left;
-            margin-right: 10px;
-        }
-
-        #sortable1 li,
-        #sortable2 li {
-            margin: 0 5px 5px 5px;
-            padding: 5px;
-            font-size: 1.2em;
-            width: 120px;
+            padding: 0;
+            width: 450px;
         }
     </style>
     <title>咖啡商品展示系統</title>
@@ -99,22 +86,20 @@ if (!isset($_SESSION["AUTH"])) {
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-12 d-flex p-4" style="height: 380px">
-                                                            <ul id="sortable1" class="col-6 h-100 p-3">
-                                                                <li class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
+                                                            <ul id="sortable" class="col-6 h-100 p-3 connectedSortable">
+                                                                <li class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light mt-1">
                                                                     <p>圖片</p>
                                                                 </li>
                                                                 <li class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</li>
-                                                                <!-- </ul> -->
-                                                                <!-- <div class="col-6 h-100 p-3"> -->
-                                                                    <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
-                                                                    <li class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
-                                                                    <li class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
-                                                                    <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
-                                                                <!-- </div> -->
+                                                            </ul>
+                                                            <ul id="sortable" class="col-6 h-100 p-3 connectedSortable">
+                                                                <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
+                                                                <li class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
+                                                                <li class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
+                                                                <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
                                                             </ul>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -278,7 +263,7 @@ if (!isset($_SESSION["AUTH"])) {
         document.querySelector('form').submit();
     });
     $(function() {
-        $("#sortable1,#sortable2").sortable({
+        $("#sortable, #sortable").sortable({
             connectWith: ".connectedSortable"
         }).disableSelection();
     });
