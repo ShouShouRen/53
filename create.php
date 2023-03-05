@@ -15,7 +15,7 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>咖啡商品展示系統-上架商品</title>
+    <title>咖啡商品展示系統</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@ if (!isset($_SESSION["AUTH"])) {
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="./logos.png" class="logo mx-3" alt="">
-                <span>咖啡商品展示系統-上架商品</span>
+                <span>咖啡商品展示系統</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,6 +37,9 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
     </nav>
     <div class="container py-3" style="margin-top: 86px;">
+    <div class="row py-3 align-items-center justify-content-start">
+        <h5 class="font-weight-bolder text-center text-white border-start">上架管理</h5>
+    </div>
         <div class="row">
             <div class="bg-white p-3 rounded-lg shadow-lg" style="min-height: 780px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -90,12 +93,12 @@ if (!isset($_SESSION["AUTH"])) {
                                 <div class="d-flex" action="store.php" method="post">
                                     <div class="col-6">
                                         <p class="text-center m-0">
-                                            請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
+                                            商品版型1: <input type="radio" class="" name="template" id="template1" value="1">
                                         </p>
                                     </div>
                                     <div class="col-6">
                                         <p for="" class="text-center m-0">
-                                            請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
+                                            商品版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                         </p>
                                     </div>
                                 </div>
@@ -132,12 +135,12 @@ if (!isset($_SESSION["AUTH"])) {
                                 <div class="d-flex">
                                     <div class="col-6">
                                         <p class="text-center m-0">
-                                            請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
+                                            商品版型3: <input type="radio" class="" name="template" id="template3" value="3">
                                         </p>
                                     </div>
                                     <div class="col-6">
                                         <p for="" class="text-center m-0">
-                                            請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
+                                            商品版型4: <input type="radio" class="" name="template" id="template4" value="4">
                                         </p>
                                     </div>
                                 </div>

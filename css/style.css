@@ -85,3 +85,6 @@ td.selected {
 .tab-pane {
   min-width: 1140px;
 }
+.nav-tabs .nav-item a {
+  color: #cf8d9b;
+}
