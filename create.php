@@ -90,9 +90,9 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex" action="store.php" method="post">
+                                <div class="d-flex mb-2" action="store.php" method="post">
                                     <div class="col-6">
-                                        <p class="text-center m-0">
+                                        <p class="text-center">
                                             商品版型1: <input type="radio" class="" name="template" id="template1" value="1">
                                         </p>
                                     </div>
@@ -132,7 +132,7 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex mb-3">
                                     <div class="col-6">
                                         <p class="text-center m-0">
                                             商品版型3: <input type="radio" class="" name="template" id="template3" value="3">
