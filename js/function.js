@@ -186,8 +186,6 @@ $(function () {
 
     $(".edit-product").click(function () {
         let product_id = $(this).data('id');
-        console.log(product_id);
-        console.log('aaa');
         $.ajax({
             url: 'get_product.php',
             type: 'get',
