@@ -133,7 +133,6 @@ try {
                     <tbody id="search_result">
 
                     </tbody>
-<<<<<<< HEAD
 
                     <?php while ($row = $stmt->fetch()) { ?>
                         <tr class="show-all">
@@ -146,112 +145,73 @@ try {
                                     case 0:
                                         echo "管理員";
                                         break;
-=======
-                    <!-- Modal -->
-                    <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="adduerLabel">新增使用者</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="register_store.php" method="POST">
-                                        <label for="">帳號</label>
-                                        <input type="text" name="user" class="form-control my-2" require>
-                                        <label for="">使用者姓名</label>
-                                        <input type="text" name="user_name" class="form-control my-2" require>
-                                        <label for="">密碼</label>
-                                        <input type="password" name="pw" class="form-control my-2" require>
-                                        <div class="d-flex justify-content-end">
-                                            <input type="submit" class="btn btn-success" value="註冊">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <?php while ($row = $stmt->fetch()) { ?>
-                <tr class="show-all">
-                    <td><?php echo $row["user_id"]; ?></td>
-                    <td><?php echo $row["user"]; ?></td>
-                    <td><?php echo $row["pw"] ?></td>
-                    <td><?php echo $row["user_name"]; ?></td>
-                    <td><?php
-                        switch ($row["role"]) {
-                            case 0:
-                                echo "管理員";
-                                break;
->>>>>>> 19f5271fe51863fd57901c4ba5539fc4a5ea6fe4
 
-                            case 1:
-                                echo "一般使用者";
-                                break;
-                        }
-                        ?>
-                    </td>
-                    <td>
-                        <?php if ($row["id"] == 1) { ?>
-                            <!-- 隱藏切換權限的連結 -->
-                        <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
-                            <span class="text-secondary">切換權限</span>
-                        <?php } else { ?>
-                            <a class="btn btn-outline-secondary" href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
-                        <?php } ?>
-                        <?php if ($row["id"] == 1) { ?>
-                            <!-- 隱藏修改的連結 -->
-                        <?php } else { ?>
-                            <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
-                            <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
-                            <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="py-2">
-                                                    <label for="name">使用者帳號</label>
-                                                    <input class="form-control w-50" type="text" id="user" name="user">
+                                    case 1:
+                                        echo "一般使用者";
+                                        break;
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php if ($row["id"] == 1) { ?>
+                                    <!-- 隱藏切換權限的連結 -->
+                                <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
+                                    <span class="text-secondary">切換權限</span>
+                                <?php } else { ?>
+                                    <a class="btn btn-outline-secondary" href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
+                                <?php } ?>
+                                <?php if ($row["id"] == 1) { ?>
+                                    <!-- 隱藏修改的連結 -->
+                                <?php } else { ?>
+                                    <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
+                                    <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
+                                    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
-                                                <div class="py-2">
-                                                    <label for="user_name">使用者名稱</label>
-                                                    <input class="form-control w-50" type="text" id="user_name" name="user_name">
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="py-2">
+                                                            <label for="name">使用者帳號</label>
+                                                            <input class="form-control w-50" type="text" id="user" name="user">
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <label for="user_name">使用者名稱</label>
+                                                            <input class="form-control w-50" type="text" id="user_name" name="user_name">
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <label for="pw">使用者密碼</label>
+                                                            <input class="form-control w-50" type="text" id="pw" name="pw">
+                                                        </div>
+                                                        <input type="hidden" name="id" id="id">
+                                                    </form>
                                                 </div>
-                                                <div class="py-2">
-                                                    <label for="pw">使用者密碼</label>
-                                                    <input class="form-control w-50" type="text" id="pw" name="pw">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                                    <button type="button" class="btn btn-primary" id="save">儲存修改</button>
                                                 </div>
-                                                <input type="hidden" name="id" id="id">
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                                            <button type="button" class="btn btn-primary" id="save">儲存修改</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </td>
-                </tr>
-            <?php } ?>
-            </table>
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/function.js"></script>
 <script>
+
     let timeleft = 60;
     let timer;
 
