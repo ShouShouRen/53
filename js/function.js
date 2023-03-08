@@ -1,26 +1,16 @@
 $(function () {
     function check() {
-        // 儲存目前選擇的兩個單元格的索引
         let selectedCells = [null, null];
-
-        // 綁定 td 元素的 click 事件
         $("td").click(function () {
-            // 取得被點擊單元格的索引
             let index = $(this).data("id") - 1;
-            // console.log(index);
-            // 判斷是否為第一個選擇的單元格
             if (selectedCells[0] === null) {
-                // 將該單元格的索引存入 selectedCells 陣列中，並且加上 .selected 樣式
                 selectedCells[0] = index;
                 $(this).addClass("selected");
             }
-            // 判斷是否為第二個選擇的單元格
             else if (selectedCells[1] === null && index !== selectedCells[0]) {
-                // 將該單元格的索引存入 selectedCells 陣列中，並且加上 .selected 樣式
                 selectedCells[1] = index;
                 $(this).addClass("selected");
             }
-            // 如果已經選擇了兩個單元格，且現在點擊的單元格已經被選擇過，則取消該選擇
             else {
                 let selectedCellIndex = selectedCells.indexOf(index);
                 if (selectedCellIndex !== -1) {
@@ -29,20 +19,18 @@ $(function () {
                 }
             }
         });
-
-        // 綁定驗證按鈕的 click 事件
         $("#validate").click(function () {
             let selectedCell1 = selectedCells[0];
             let selectedCell2 = selectedCells[1];
             if (selectedCell1 !== null && selectedCell2 !== null) {
-                // 計算兩個選擇的單元格所在的列、行位置
+            
                 let row1 = Math.floor(selectedCell1 / 2);
                 console.log(row1);
                 let col1 = selectedCell1 % 2;
                 console.log(col1);
                 let row2 = Math.floor(selectedCell2 / 2);
                 let col2 = selectedCell2 % 2;
-                // 判斷兩個選擇的單元格是否相鄰
+            
                 if (
                     (row1 === row2 && Math.abs(col1 - col2) === 1) ||
                     (col1 === col2 && Math.abs(row1 - row2) === 1)
@@ -59,7 +47,6 @@ $(function () {
         });
     }
     check();
-
     function recaptcha() {
         $.getJSON("make_pic.php", (captcha) => {
             $("#pics").html("");
@@ -87,7 +74,6 @@ $(function () {
         })
     }
     recaptcha();
-
     $(".btn-edit").click(function () {
         let member_id = $(this).data('id');
         $.ajax({

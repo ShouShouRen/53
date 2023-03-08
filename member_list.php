@@ -28,7 +28,8 @@ try {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="./logos.png" class="logo mx-3" alt="">咖啡商品展示系統</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
@@ -116,7 +117,8 @@ try {
                             <label for="">降冪</label>
                             <input type="radio" name="use" id="" value="down">
                         </div> -->
-                        <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料" class="form-control w-75 mr-2">
+                        <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料"
+                            class="form-control w-75 mr-2">
                         <button type="submit" class="btn btn-secondary">查詢</button>
                     </form>
 
@@ -135,12 +137,12 @@ try {
                     </tbody>
 
                     <?php while ($row = $stmt->fetch()) { ?>
-                        <tr class="show-all">
-                            <td><?php echo $row["user_id"]; ?></td>
-                            <td><?php echo $row["user"]; ?></td>
-                            <td><?php echo $row["pw"] ?></td>
-                            <td><?php echo $row["user_name"]; ?></td>
-                            <td><?php
+                    <tr class="show-all">
+                        <td><?php echo $row["user_id"]; ?></td>
+                        <td><?php echo $row["user"]; ?></td>
+                        <td><?php echo $row["pw"] ?></td>
+                        <td><?php echo $row["user_name"]; ?></td>
+                        <td><?php
                                 switch ($row["role"]) {
                                     case 0:
                                         echo "管理員";
@@ -151,58 +153,83 @@ try {
                                         break;
                                 }
                                 ?>
-                            </td>
-                            <td>
-                                <?php if ($row["id"] == 1) { ?>
-                                    <!-- 隱藏切換權限的連結 -->
-                                <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
-                                    <span class="text-secondary">切換權限</span>
-                                <?php } else { ?>
-                                    <a class="btn btn-outline-secondary" href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
-                                <?php } ?>
-                                <?php if ($row["id"] == 1) { ?>
-                                    <!-- 隱藏修改的連結 -->
-                                <?php } else { ?>
-                                    <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>" data-toggle="modal" data-target="#edit">修改</button>
-                                    <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>" onclick="return confirm('確定要刪除?')">刪除</a>
-                                    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                        </td>
+                        <td>
+                            <?php if ($row["id"] == 1) { ?>
+                            <!-- 隱藏切換權限的連結 -->
+                            <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
+                            <span class="text-secondary">切換權限</span>
+                            <?php } else { ?>
+                            <a class="btn btn-outline-secondary"
+                                href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
+                            <?php } ?>
+                            <?php if ($row["id"] == 1) { ?>
+                            <!-- 隱藏修改的連結 -->
+                            <?php } else { ?>
+                            <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>"
+                                data-toggle="modal" data-target="#edit">修改</button>
+                            <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>"
+                                onclick="return confirm('確定要刪除?')">刪除</a>
+                            <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="py-2">
+                                                    <label for="name">使用者帳號</label>
+                                                    <input class="form-control w-50" type="text" id="user" name="user">
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="py-2">
-                                                            <label for="name">使用者帳號</label>
-                                                            <input class="form-control w-50" type="text" id="user" name="user">
-                                                        </div>
-                                                        <div class="py-2">
-                                                            <label for="user_name">使用者名稱</label>
-                                                            <input class="form-control w-50" type="text" id="user_name" name="user_name">
-                                                        </div>
-                                                        <div class="py-2">
-                                                            <label for="pw">使用者密碼</label>
-                                                            <input class="form-control w-50" type="text" id="pw" name="pw">
-                                                        </div>
-                                                        <input type="hidden" name="id" id="id">
-                                                    </form>
+                                                <div class="py-2">
+                                                    <label for="user_name">使用者名稱</label>
+                                                    <input class="form-control w-50" type="text" id="user_name"
+                                                        name="user_name">
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                                                    <button type="button" class="btn btn-primary" id="save">儲存修改</button>
+                                                <div class="py-2">
+                                                    <label for="pw">使用者密碼</label>
+                                                    <input class="form-control w-50" type="text" id="pw" name="pw">
                                                 </div>
-                                            </div>
+                                                <input type="hidden" name="id" id="id">
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">取消</button>
+                                            <button type="button" class="btn btn-primary" id="save">儲存修改</button>
                                         </div>
                                     </div>
-                                <?php } ?>
-                            </td>
-                        </tr>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </td>
+                    </tr>
                     <?php } ?>
                 </table>
+                <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmModalLabel">系統提示</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                您的操作時間已到，系統將在 <span id="countdownModal">5</span> 秒後自動登出。請問您是否要繼續操作？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary" id="confirmBtn">確定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -211,48 +238,55 @@ try {
 <script src="./js/bootstrap.js"></script>
 <script src="./js/function.js"></script>
 <script>
+let timeleft = 60;
+let timer;
 
-    let timeleft = 60;
-    let timer;
+const startTimer = () => {
+    clearInterval(timer);
+    timer = setInterval(() => {
+        $('#countdown').html(`${timeleft--} 秒`);
+        if (timeleft < 0) {
+            clearInterval(timer);
+            $('#confirmModal').modal('show');
+            let count = 5;
+            const counter = setInterval(() => {
+                $('#countdownModal').text(count--);
+                if (count < 0) window.location.href = 'logout.php';
+            }, 1000);
+        }
+    }, 1000);
+};
 
-    function startTimer() {
-        clearInterval(timer);
-        timer = setInterval(function() {
-            document.getElementById("countdown").innerHTML = timeleft + " 秒";
-            timeleft -= 1;
-            if (timeleft < 0) {
-                clearInterval(timer);
-                if (confirm("是否繼續操作？")) {
-                    timeleft = parseInt(document.getElementById("timeInput").value);
-                    startTimer();
-                } else {
-                    alert("已自動登出系統");
-                    window.location.href = "logout.php";
-                }
+const setTime = () => {
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
+};
 
-            }
-        }, 1000);
-    }
+const resetTime = () => {
+    clearInterval(timer);
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
+};
 
+$('#setTimeBtn').on('click', setTime);
+$('#resetTimeBtn').on('click', resetTime);
 
-    function setTime() {
-        timeleft = parseInt(document.getElementById("timeInput").value);
-
-
-        
-        startTimer();
-    }
-
-    function resetTime() {
-        clearInterval(timer);
-        timeleft = parseInt(document.getElementById("timeInput").value);
-        startTimer();
-    }
-
-    document.getElementById("setTimeBtn").addEventListener("click", setTime);
-    document.getElementById("resetTimeBtn").addEventListener("click", resetTime);
-
+$('#timerModal').on('show.bs.modal', () => {
+    clearInterval(timer);
     setTime();
+});
+
+$('#timerModal').on('hide.bs.modal', () => clearInterval(timer));
+
+$('#confirmBtn').on('click', () => {
+    clearInterval(timer);
+    $('#confirmModal').modal('hide');
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
+});
+
+setTime();
+
 </script>
 
 </html>
