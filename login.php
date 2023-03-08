@@ -35,15 +35,8 @@ session_start();
                         <div class="my-2">
                             <label for="">驗證碼:</label>
                         </div>
-                        <div class="ml-5">
-                            <div class="d-inline-block">
-                                <div id="pics"></div>
-                                <div id="captcha" class="my-2"></div>
-                            </div>
-
-                        </div>
                         <div class="row justify-content-between mx-1 my-4">
-                            <div class="btn btn-outline-light" onclick="recaptcha()">重新產生</div>
+                            <div class="btn btn-outline-light">重新產生</div>
                             <input type="submit" class="btn btn-light" value="確認登入">
                         </div>
                     </form>

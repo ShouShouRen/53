@@ -33,26 +33,6 @@ img{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.ans-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 42px;
-  height: 42px;
-}
-#pics {
-  display: inline-block;
-}
-#captcha {
-  display: flex;
-  width: 170px;
-  height: 44px;
-  font-family: "Arial";
-  font-size: 30px;
-  color: #e1e1e1;
-  background-color: #fff;
-  border: 1px solid gray;
-}
 .h-20 {
   height: 20%;
 }
