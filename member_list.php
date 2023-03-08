@@ -76,6 +76,37 @@ try {
                         echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer">新增使用者</button>';
                     }
                     ?>
+                    <!-- Modal -->
+                    <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="adduerLabel">新增使用者</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-sm">
+                                        <div class="wrapper px-5 py-4">
+                                            <form action="register_store.php" method="POST">
+                                                <label for="">帳號</label>
+                                                <input type="text" name="user" class="form-control my-2" require>
+                                                <label for="">使用者姓名</label>
+                                                <input type="text" name="user_name" class="form-control my-2" require>
+                                                <label for="">密碼</label>
+                                                <input type="password" name="pw" class="form-control my-2" require>
+                                                <div class="d-flex justify-content-end">
+                                                    <input type="submit" class="btn btn-success" value="註冊">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <form id="search-member" class="d-flex align-items-center" action="search_member.php">
                         <!-- <div class="d-flex">
                             <label for="">升冪</label>
@@ -102,38 +133,7 @@ try {
                     <tbody id="search_result">
 
                     </tbody>
-                    <!-- Modal -->
-                    <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="adduerLabel">新增使用者</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-sm">
-                                        <div class="d-center">
-                                            <div class="wrapper px-5 py-4">
-                                                <form action="register_store.php" method="POST">
-                                                    <label for="">帳號</label>
-                                                    <input type="text" name="user" class="form-control my-2" require>
-                                                    <label for="">使用者姓名</label>
-                                                    <input type="text" name="user_name" class="form-control my-2" require>
-                                                    <label for="">密碼</label>
-                                                    <input type="password" name="pw" class="form-control my-2" require>
-                                                    <div class="d-flex justify-content-end">
-                                                        <input type="submit" class="btn btn-success" value="註冊">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <?php while ($row = $stmt->fetch()) { ?>
                         <tr class="show-all">
                             <td><?php echo $row["user_id"]; ?></td>
@@ -211,54 +211,6 @@ try {
 <script src="./js/bootstrap.js"></script>
 <script src="./js/function.js"></script>
 <script>
-    // let timeleft = 60;
-    // let timer;
-
-    // function setTime() {
-    //     timeleft = parseInt(document.getElementById("timeInput").value);
-    //     clearInterval(timer);
-    //     timer = setInterval(function() {
-    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //         timeleft -= 1;
-    //         if (timeleft < 0) {
-    //             clearInterval(timer);
-    //             if (confirm("是否繼續操作？")) {
-    //                 timeleft = parseInt(document.getElementById("timeInput").value);
-    //                 timer = setInterval(function() {
-    //                     document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //                     timeleft -= 1;
-    //                     if (timeleft < 0) {
-    //                         clearInterval(timer);
-    //                         alert("已自動登出系統");
-    //                         window.location.href = "logout.php";
-    //                     }
-    //                 }, 1000);
-    //             } else {
-    //                 alert("已自動登出系統");
-    //                 window.location.href = "logout.php";
-    //             }
-    //         }
-    //     }, 1000);
-    // }
-
-    // function resetTime() {
-    //     clearInterval(timer);
-    //     timeleft = parseInt(document.getElementById("timeInput").value);
-    //     timer = setInterval(function() {
-    //         document.getElementById("countdown").innerHTML = timeleft + " 秒";
-    //         timeleft -= 1;
-    //         if (timeleft < 0) {
-    //             clearInterval(timer);
-    //             alert("已自動登出系統");
-    //             window.location.href = "logout.php";
-    //         }
-    //     }, 1000);
-    // }
-
-    // document.getElementById("setTimeBtn").addEventListener("click", setTime);
-    // document.getElementById("resetTimeBtn").addEventListener("click", resetTime);
-
-
     let timeleft = 60;
     let timer;
 
@@ -284,6 +236,9 @@ try {
 
     function setTime() {
         timeleft = parseInt(document.getElementById("timeInput").value);
+
+
+        
         startTimer();
     }
 
