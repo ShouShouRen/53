@@ -15,7 +15,15 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>咖啡商品展示系統-上架商品</title>
+    <style>
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 450px;
+        }
+    </style>
+    <title>咖啡商品展示系統</title>
 </head>
 
 <body>
@@ -23,7 +31,7 @@ if (!isset($_SESSION["AUTH"])) {
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="./logos.png" class="logo mx-3" alt="">
-                <span>咖啡商品展示系統-上架商品</span>
+                <span>咖啡商品展示系統</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,6 +45,9 @@ if (!isset($_SESSION["AUTH"])) {
             </div>
     </nav>
     <div class="container py-3" style="margin-top: 86px;">
+        <div class="row py-3 align-items-center justify-content-start">
+            <h5 class="font-weight-bolder text-center text-white border-start">上架管理</h5>
+        </div>
         <div class="row">
             <div class="bg-white p-3 rounded-lg shadow-lg" style="min-height: 780px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -57,8 +68,49 @@ if (!isset($_SESSION["AUTH"])) {
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="chose" role="tabpanel" aria-labelledby="chose-tab">
                             <div class="container my-3">
+                                <div class="text-right">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createtemModal">
+                                        新增版型
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="createtemModal" tabindex="-1" aria-labelledby="createtemModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="createtemModalLabel">版型管理</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex p-4" id="containment-wrapper" style="height: 380px">
+                                                            <ul class="col-6 h-100 p-3 connectedSortable">
+                                                                <li id="sortable" class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light mt-1">
+                                                                    <p>圖片</p>
+                                                                </li>
+                                                                <li class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</li>
+                                                            </ul>
+                                                            <ul class="col-6 h-100 p-3 connectedSortable">
+                                                                <li id="sortable" class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
+                                                                <li id="sortable" class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
+                                                                <li id="sortable" class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
+                                                                <li id="sortable" class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row pt-2">
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light">
                                                 <p>圖片</p>
@@ -72,7 +124,7 @@ if (!isset($_SESSION["AUTH"])) {
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
                                             <div class="bg-2 w-100 h-75 d-flex align-items-center justify-content-center text-light">
@@ -87,20 +139,20 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex" action="store.php" method="post">
+                                <div class="d-flex mb-2" action="store.php" method="post">
                                     <div class="col-6">
-                                        <p class="text-center m-0">
-                                            請選擇版型1: <input type="radio" class="" name="template" id="template1" value="1">
+                                        <p class="text-center">
+                                            商品版型1: <input type="radio" class="" name="template" id="template1" value="1">
                                         </p>
                                     </div>
                                     <div class="col-6">
                                         <p for="" class="text-center m-0">
-                                            請選擇版型2: <input type="radio" class="" name="template" id="template2" value="2">
+                                            商品版型2: <input type="radio" class="" name="template" id="template2" value="2">
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row pt-2">
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
                                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
@@ -114,7 +166,7 @@ if (!isset($_SESSION["AUTH"])) {
                                             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex" style="height: 377.5px">
+                                    <div class="col-6 d-flex" style="height: 380px">
                                         <div class="col-6 h-100 bg-back p-3">
                                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
                                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
@@ -129,15 +181,15 @@ if (!isset($_SESSION["AUTH"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex mb-3">
                                     <div class="col-6">
                                         <p class="text-center m-0">
-                                            請選擇版型3: <input type="radio" class="" name="template" id="template3" value="3">
+                                            商品版型3: <input type="radio" class="" name="template" id="template3" value="3">
                                         </p>
                                     </div>
                                     <div class="col-6">
                                         <p for="" class="text-center m-0">
-                                            請選擇版型4: <input type="radio" class="" name="template" id="template4" value="4">
+                                            商品版型4: <input type="radio" class="" name="template" id="template4" value="4">
                                         </p>
                                     </div>
                                 </div>
@@ -204,11 +256,21 @@ if (!isset($_SESSION["AUTH"])) {
         </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/template.js"></script>
 <script>
     document.getElementById('submit-form').addEventListener('click', function() {
         document.querySelector('form').submit();
+    });
+    $(function() {
+        $("#sortable, #sortable").sortable({
+            connectWith: ".connectedSortable"
+        }).disableSelection();
+    });
+    $("#sortable,#sortable").draggable({
+        containment: "#containment-wrapper",
+        scroll: false
     });
 </script>
 
