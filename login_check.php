@@ -1,5 +1,14 @@
 <?php
 session_start();
+$max_attempts = 3;
+if (!isset($_SESSION['attempts'])) {
+    $_SESSION['attempts'] = 0;
+}
+if ($_SESSION['attempts'] === $max_attempts) {
+    $_SESSION['attempts'] = 0;
+    header("Location: login_failed.php");
+    exit;
+}
 try {
     require_once("pdo.php");
     extract($_POST);
@@ -7,44 +16,31 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$user]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    function login_attempts()
-    {
-        if (!isset($_SESSION["login_attempts"])) {
-            $_SESSION['login_attempts'] = 0;
-        }
-        $_SESSION["login_attempts"]++;
-        if ($_SESSION["login_attempts"] > 3) {
-            echo "連續誤錯 3 次";
-            unset($_SESSION["login_attempts"]);
-            header("Location: error.php");
-            return;
-        }
-    }
     if (!$row) {
-        if ($user == "" or $pw == "") {
-            login_attempts();
-            echo "帳號密碼不能為空";
-            header("Refresh:1;url=login.php");
-        } else {
-            login_attempts();
-            echo "帳號密碼錯誤";
-            header("Refresh:1;url=login.php");
-        }
-        return;
-    }
-
-    if ($row["user"] != $user) {
-        login_attempts();
-        echo "帳號錯誤";
-        header("Refresh:1;url=login.php");
-    } else if ($row["pw"] != $pw) {
-        login_attempts();
-        echo "密碼錯誤";
-        header("Refresh:1;url=login.php");
+        $_SESSION['attempts']++;
+        $_SESSION['error'] = 'account';
+        header("Location: login.php");
+        exit;
     } else {
-        $_SESSION["AUTH"] = $row;
-        header("Location:login_check-2.php");
+        if ($pw != $row['pw']) {
+            $_SESSION['attempts']++;
+            $_SESSION['error'] = 'password';
+            header("Location: login.php");
+            exit;
+        } else {
+            if ($_POST['captcha'] !== $_SESSION['captcha']) {
+                $_SESSION['attempts']++;
+                $_SESSION['error'] = 'captcha';
+                header("Location: login.php");
+                exit;
+            }
+            unset($_SESSION['attempts']);
+            $_SESSION["AUTH"] = $row;
+            header("Location: login_check_2.php");
+            exit;
+        }
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+?>
