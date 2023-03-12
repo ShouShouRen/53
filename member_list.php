@@ -240,53 +240,81 @@ try {
 <script src="./js/function.js"></script>
 <script>
 let timeleft = 60;
-let timer;
+let timer, confirmTimer;
+
+const startConfirmTimer = () => {
+  $('#countdownModal').html(`5`);
+  confirmTimer = setTimeout(() => {
+    let count = 4;
+    const counter = setInterval(() => {
+      $('#countdownModal').text(count--);
+      if (count < 0) {
+        window.location.href = 'logout.php';
+        clearInterval(counter);
+      }
+    }, 1000);
+  }, 1000);
+};
+
+const stopConfirmTimer = () => {
+  clearTimeout(confirmTimer);
+};
 
 const startTimer = () => {
-    clearInterval(timer);
-    timer = setInterval(() => {
-        $('#countdown').html(`${timeleft--} 秒`);
-        if (timeleft < 0) {
-            clearInterval(timer);
-            $('#confirmModal').modal('show');
-            let count = 5;
-            const counter = setInterval(() => {
-                $('#countdownModal').text(count--);
-                if (count < 0) window.location.href = 'logout.php';
-            }, 1000);
-        }
-    }, 1000);
+  clearInterval(timer);
+  timer = setInterval(() => {
+    $('#countdown').html(`${timeleft--} 秒`);
+    if (timeleft < 0) {
+      clearInterval(timer);
+      $('#confirmModal').modal('show');
+      startConfirmTimer();
+    }
+  }, 1000);
+};
+
+const resetConfirmTimer = () => {
+  stopConfirmTimer();
+  $('#confirmModal').modal('hide');
+  clearInterval(confirmCounter);
+  timeleft = parseInt($('#timeInput').val());
+  startTimer();
 };
 
 const setTime = () => {
-    timeleft = parseInt($('#timeInput').val());
-    startTimer();
+  timeleft = parseInt($('#timeInput').val());
+  startTimer();
 };
 
 const resetTime = () => {
-    clearInterval(timer);
-    timeleft = parseInt($('#timeInput').val());
-    startTimer();
+  clearInterval(timer);
+  timeleft = parseInt($('#timeInput').val());
+  startTimer();
 };
 
 $('#setTimeBtn').on('click', setTime);
 $('#resetTimeBtn').on('click', resetTime);
 
 $('#timerModal').on('show.bs.modal', () => {
-    clearInterval(timer);
-    setTime();
+  clearInterval(timer);
+  setTime();
 });
 
 $('#timerModal').on('hide.bs.modal', () => clearInterval(timer));
 
-$('#confirmBtn').on('click', () => {
-    clearInterval(timer);
-    $('#confirmModal').modal('hide');
-    timeleft = parseInt($('#timeInput').val());
-    startTimer();
+$('#continueBtn').on('click', () => {
+  stopConfirmTimer();
+  resetConfirmTimer();
+  $('#confirmModal').modal('hide');
+  resetTime();
+});
+
+$('#cancelBtn').on('click', () => {
+  window.location.href = 'logout.php';
 });
 
 setTime();
+
+
 </script>
 
 </html>
