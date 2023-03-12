@@ -102,10 +102,10 @@ try {
                         </div>
                         <div class="col-12 mt-2">
                             <?php
-                                if ($_SESSION["AUTH"]["role"] == 0) {
-                                    echo "<button class='btn btn-secondary btn-sm edit-product' data-toggle='modal' data-id='" . $row['id'] . "' data-target='#edit-product'>編輯</button>";
-                                }
-                            ?>
+                                    if ($_SESSION["AUTH"]["role"] == 0) {
+                                        echo "<button class='btn btn-secondary btn-sm edit-product' data-toggle='modal' data-id='" . $row['id'] . "' data-target='#edit-product'>編輯</button>";
+                                    }
+                                ?>
                         </div>
                     </div>
                 </div>
