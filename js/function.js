@@ -156,7 +156,7 @@ $(function () {
                 console.log(response);
                 $("#product_name").val(response[0].product_name);
                 $("#product_des").val(response[0].product_des);
-                // $("#time").val(response[0].time);
+                $("#time").val(response[0].time);
                 // $("#images").val(response[0].images);
                 $("#price").val(response[0].price);
                 $("#links").val(response[0].links);

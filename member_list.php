@@ -224,8 +224,9 @@ try {
                                 您的操作時間已到，系統將在 <span id="countdownModal">5</span> 秒後自動登出。請問您是否要繼續操作？
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                                <button type="button" class="btn btn-primary" id="confirmBtn">確定</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="cancelBtn">取消</button>
+                                <button type="button" class="btn btn-primary" id="continueBtn">繼續操作</button>
                             </div>
                         </div>
                     </div>
@@ -286,7 +287,6 @@ $('#confirmBtn').on('click', () => {
 });
 
 setTime();
-
 </script>
 
 </html>

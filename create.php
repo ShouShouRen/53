@@ -15,14 +15,6 @@ if (!isset($_SESSION["AUTH"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        #sortable {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 450px;
-        }
-    </style>
     <title>咖啡商品展示系統</title>
 </head>
 
@@ -256,22 +248,6 @@ if (!isset($_SESSION["AUTH"])) {
         </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/template.js"></script>
-<script>
-    document.getElementById('submit-form').addEventListener('click', function() {
-        document.querySelector('form').submit();
-    });
-    $(function() {
-        $("#sortable, #sortable").sortable({
-            connectWith: ".connectedSortable"
-        }).disableSelection();
-    });
-    $("#sortable,#sortable").draggable({
-        containment: "#containment-wrapper",
-        scroll: false
-    });
-</script>
-
 </html>
