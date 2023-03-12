@@ -195,14 +195,14 @@ try {
                     </tr>
                     <?php } ?>
                 </table>
-                <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
+                <div class="modal fade" id="confirmModal">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="confirmModalLabel">系統提示</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times</span>
+                                </button>
                             </div>
                             <div class="modal-body">
                                 您的操作時間已到，系統將在 <span id="countdownModal">5</span> 秒後自動登出。請問您是否要繼續操作？
