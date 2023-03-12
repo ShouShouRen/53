@@ -46,16 +46,16 @@ img{
   height: 160px;
 }
 .bg-back {
-  background-color: #cab2b8;
+  background-color: #EDD5D7;
 }
 .bg-1 {
   background-color: #adaaaa;
 }
 .bg-2 {
-  background-color: #a1838b;
+  background-color: #C19FA1;
 }
 .bg-3 {
-  background-color: #e9967a;
+  background-color: #7B5356;
 }
 .table {
   background: #fff;
@@ -69,8 +69,8 @@ img{
   min-width: 1140px;
 }
 .nav-tabs .nav-item a {
-  color: #ccc;
+  color: #bebebe;
 }
 .nav-tabs .nav-link.active{
-  color: #cf8d9b;
+  color: #7B5356;
 }
