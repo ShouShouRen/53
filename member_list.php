@@ -8,6 +8,7 @@ try {
     $sql = "SELECT * FROM users";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
@@ -27,79 +28,71 @@ try {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="./logos.png" class="logo mx-3" alt="">咖啡商品展示系統</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <a href="index.php" class="navbar-brand">
+                <img src="logos.png" class="logo mx-3" alt="">
+                <span>咖啡商品展示系統</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height:100px">
                     <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="create.php">上架商品</a>';
-                        }
-                        ?>
+                        <?php if($_SESSION["AUTH"]["role"]==0){echo '<a class="nav-link" href="create.php">上架商品</a>';} ?>
                     </li>
                     <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
-                        }
-                        ?>
+                        <?php if($_SESSION["AUTH"]["role"]==0){echo '<a class="nav-link" href="member_list.php">會員管理</a>';} ?>
                     </li>
                     <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION["AUTH"])) {
-                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
-                        }
-                        ?>
+                        <?php if(isset($_SESSION["AUTH"])){echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';} ?>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container" style="margin-top: 86px;">
+    <div class="container" style="margin-top:86px;">
         <div class="pt-3 pb-5">
-            <div class="row align-items-center justify-content-between">
-                <h5 class="font-weight-bolder text-center text-white border-start">會員管理</h5>
-                <div class="d-flex text-white py-3 w-25 align-items-center justify-content-around">
-                    <input type="number" id="timeInput" value="60" class="form-control w-25">
-                    <button id="setTimeBtn" class="btn btn-sm btn-md-lg btn-outline-light">設定</button>
-                    <span id="countdown">60 秒</span>
-                    <button id="resetTimeBtn" class="btn btn-sm btn-md-lg btn-outline-light">重新計時</button>
+            <div class="row justify-content-between align-items-center">
+                <h5 class="text-center text-white border-start font-weight-bolder">會員管理</h5>
+                <div class="d-flex justify-content-around align-items-center text-white py-3 w-25">
+                    <input type="number" value="60" id="timeInput" class="form-control w-25">
+                    <button id="setTimeBtn" class="btn btn-sm btn-outline-light">設定</button>
+                    <span id="countdown">60秒</span>
+                    <button id="resetTimeBtn" class="btn btn-sm btn-outline-light">重新計時</button>
                 </div>
             </div>
-            <div class="p-4 bg-white rounded-lg t-shadow">
+            <div class="p-4 bg-white rounded-lg shadow-lg">
                 <div class="row justify-content-between align-items-center mb-3">
-                    <?php
-                    if ($_SESSION["AUTH"]["role"] == 0) {
-                        echo '<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduer">新增使用者</button>';
-                    }
-                    ?>
-                    <!-- Modal -->
-                    <div class="modal fade" id="adduer" tabindex="-1" aria-labelledby="adduerLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="adduerLabel">新增使用者</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-sm">
-                                        <div class="wrapper px-5 py-4">
-                                            <form action="register_store.php" method="POST">
-                                                <label for="">帳號</label>
-                                                <input type="text" name="user" class="form-control my-2" require>
-                                                <label for="">使用者姓名</label>
-                                                <input type="text" name="user_name" class="form-control my-2" require>
-                                                <label for="">密碼</label>
-                                                <input type="password" name="pw" class="form-control my-2" require>
-                                                <div class="d-flex justify-content-end">
-                                                    <input type="submit" class="btn btn-success" value="註冊">
+                    <div class="col-6">
+                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduser">新增使用者</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="adduser">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="adduserLabel">新增使用者</h5>
+                                        <button class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">&times</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-sm px-5 py-4">
+                                            <form action="register_store.php" method="post">
+                                                <div class="py-2">
+                                                    <label for="">使用者帳號</label>
+                                                    <input type="text" name="user" class="form-control my-2" require>
                                                 </div>
+                                                <div class="py-2">
+                                                    <label for="">使用者姓名</label>
+                                                    <input type="text" name="user_name" class="form-control my-2"
+                                                        require>
+                                                </div>
+                                                <div class="py-2">
+                                                    <label for="">使用者密碼</label>
+                                                    <input type="password" name="pw" class="form-control" require>
+                                                </div>
+                                                <div class="text-right"><input type="submit" value="註冊"
+                                                        class="btn btn-success"></div>
                                             </form>
                                         </div>
                                     </div>
@@ -107,21 +100,22 @@ try {
                             </div>
                         </div>
                     </div>
-
-                    <form id="search-member" class="d-flex align-items-center" action="search_member.php">
-                        <!-- <div class="d-flex">
-                            <label for="">升冪</label>
-                            <input type="radio" name="use" id="" value="up">
-                        </div>
-                        <div class="d-flex w-20">
-                            <label for="">降冪</label>
-                            <input type="radio" name="use" id="" value="down">
-                        </div> -->
-                        <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料"
-                            class="form-control w-75 mr-2">
-                        <button type="submit" class="btn btn-secondary">查詢</button>
-                    </form>
-
+                    <div class="col-6">
+                        <form action="search_member.php" id="search-member"
+                            class="d-flex justify-content-end align-items-center">
+                            <div class="d-flex px-2">
+                                <label for="">升冪</label>
+                                <input type="radio" name="use" id="" value="up">
+                            </div>
+                            <div class="d-flex px-2">
+                                <label for="">降冪</label>
+                                <input type="radio" name="use" id="" value="down">
+                            </div>
+                            <input type="search" name="search" id="search-input" placeholder="請輸入使用者資料"
+                                class="form-control w-50 mr-2">
+                            <button type="submit" class="btn btn-secondary">查詢</button>
+                        </form>
+                    </div>
                 </div>
                 <table class="table">
                     <tr>
@@ -135,77 +129,67 @@ try {
                     <tbody id="search_result">
 
                     </tbody>
-
-                    <?php while ($row = $stmt->fetch()) { ?>
+                    <?php foreach($result as $row) { ?>
                     <tr class="show-all">
-                        <td><?php echo $row["user_id"]; ?></td>
-                        <td><?php echo $row["user"]; ?></td>
-                        <td><?php echo $row["pw"] ?></td>
-                        <td><?php echo $row["user_name"]; ?></td>
-                        <td><?php
-                                switch ($row["role"]) {
-                                    case 0:
-                                        echo "管理員";
-                                        break;
-
-                                    case 1:
-                                        echo "一般使用者";
-                                        break;
-                                }
-                                ?>
+                        <td><?= $row["user_id"]; ?></td>
+                        <td><?= $row["user"]; ?></td>
+                        <td><?= $row["pw"]; ?></td>
+                        <td><?= $row["user_name"]; ?></td>
+                        <td><?php switch ($row["role"]) { case 0: echo "管理員"; break; case 1: echo "一般使用者"; break; } ?>
                         </td>
                         <td>
                             <?php if ($row["id"] == 1) { ?>
-                            <!-- 隱藏切換權限的連結 -->
                             <?php } elseif ($row["id"] == $_SESSION["AUTH"]["id"]) { ?>
-                            <span class="text-secondary">切換權限</span>
+                            <span class="text-secondary">權限修改</span>
                             <?php } else { ?>
                             <a class="btn btn-outline-secondary"
-                                href="switch_role.php?role=<?php echo $row["role"]; ?>&id=<?php echo $row["id"]; ?>">權限修改</a>
+                                href="switch_role.php?role=<?= $row["role"]; ?>&id=<?= $row["id"]; ?>">權限修改</a>
                             <?php } ?>
                             <?php if ($row["id"] == 1) { ?>
                             <!-- 隱藏修改的連結 -->
                             <?php } else { ?>
-                            <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row["id"] ?>"
+                            <button class="btn btn-outline-secondary btn-edit" data-id="<?= $row['id'];?>"
                                 data-toggle="modal" data-target="#edit">修改</button>
-                            <a class="btn btn-outline-danger" href="delete_member.php?id=<?php echo $row["id"] ?>"
-                                onclick="return confirm('確定要刪除?')">刪除</a>
-                            <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel"
-                                aria-hidden="true">
+                            <!-- Modal -->
+                            <div class="modal fade" id="edit">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="editLabel">修改使用者內容</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
+                                            <button class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">&times</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
-                                                <div class="py-2">
-                                                    <label for="name">使用者帳號</label>
-                                                    <input class="form-control w-50" type="text" id="user" name="user">
-                                                </div>
-                                                <div class="py-2">
-                                                    <label for="user_name">使用者名稱</label>
-                                                    <input class="form-control w-50" type="text" id="user_name"
-                                                        name="user_name">
-                                                </div>
-                                                <div class="py-2">
-                                                    <label for="pw">使用者密碼</label>
-                                                    <input class="form-control w-50" type="text" id="pw" name="pw">
-                                                </div>
-                                                <input type="hidden" name="id" id="id">
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">取消</button>
-                                            <button type="button" class="btn btn-primary" id="save">儲存修改</button>
+                                            <div class="container-sm px-5 py-4">
+                                                <form>
+                                                    <div class="py-2">
+                                                        <label for="">使用者帳號</label>
+                                                        <input type="text" id="user" name="user" class="form-control"
+                                                            require>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <label for="">使用者姓名</label>
+                                                        <input type="text" id="user_name" name="user_name"
+                                                            class="form-control" require>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <label for="">使用者密碼</label>
+                                                        <input type="password" id="pw" name="pw" class="form-control"
+                                                            require>
+                                                    </div>
+                                                    <input type="hidden" name="id" id="id">
+                                                </form>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">取消</button>
+                                                <button type="button" class="btn btn-success" id="save">儲存修改</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <a class="btn btn-outline-danger" href="delete_member.php?id=<?= $row["id"] ?>"
+                                onclick="return confirm('確定要刪除?')">刪除</a>
                             <?php } ?>
                         </td>
                     </tr>
@@ -243,78 +227,76 @@ let timeleft = 60;
 let timer, confirmTimer;
 
 const startConfirmTimer = () => {
-  $('#countdownModal').html(`5`);
-  confirmTimer = setTimeout(() => {
-    let count = 4;
-    const counter = setInterval(() => {
-      $('#countdownModal').text(count--);
-      if (count < 0) {
-        window.location.href = 'logout.php';
-        clearInterval(counter);
-      }
+    $('#countdownModal').html(`5`);
+    confirmTimer = setTimeout(() => {
+        let count = 4;
+        const counter = setInterval(() => {
+            $('#countdownModal').text(count--);
+            if (count < 0) {
+                window.location.href = 'logout.php';
+                clearInterval(counter);
+            }
+        }, 1000);
     }, 1000);
-  }, 1000);
 };
 
 const stopConfirmTimer = () => {
-  clearTimeout(confirmTimer);
+    clearTimeout(confirmTimer);
 };
 
 const startTimer = () => {
-  clearInterval(timer);
-  timer = setInterval(() => {
-    $('#countdown').html(`${timeleft--} 秒`);
-    if (timeleft < 0) {
-      clearInterval(timer);
-      $('#confirmModal').modal('show');
-      startConfirmTimer();
-    }
-  }, 1000);
+    clearInterval(timer);
+    timer = setInterval(() => {
+        $('#countdown').html(`${timeleft--} 秒`);
+        if (timeleft < 0) {
+            clearInterval(timer);
+            $('#confirmModal').modal('show');
+            startConfirmTimer();
+        }
+    }, 1000);
 };
 
 const resetConfirmTimer = () => {
-  stopConfirmTimer();
-  $('#confirmModal').modal('hide');
-  clearInterval(confirmCounter);
-  timeleft = parseInt($('#timeInput').val());
-  startTimer();
+    stopConfirmTimer();
+    $('#confirmModal').modal('hide');
+    clearInterval(confirmCounter);
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
 };
 
 const setTime = () => {
-  timeleft = parseInt($('#timeInput').val());
-  startTimer();
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
 };
 
 const resetTime = () => {
-  clearInterval(timer);
-  timeleft = parseInt($('#timeInput').val());
-  startTimer();
+    clearInterval(timer);
+    timeleft = parseInt($('#timeInput').val());
+    startTimer();
 };
 
 $('#setTimeBtn').on('click', setTime);
 $('#resetTimeBtn').on('click', resetTime);
 
 $('#timerModal').on('show.bs.modal', () => {
-  clearInterval(timer);
-  setTime();
+    clearInterval(timer);
+    setTime();
 });
 
 $('#timerModal').on('hide.bs.modal', () => clearInterval(timer));
 
 $('#continueBtn').on('click', () => {
-  stopConfirmTimer();
-  resetConfirmTimer();
-  $('#confirmModal').modal('hide');
-  resetTime();
+    stopConfirmTimer();
+    resetConfirmTimer();
+    $('#confirmModal').modal('hide');
+    resetTime();
 });
 
 $('#cancelBtn').on('click', () => {
-  window.location.href = 'logout.php';
+    window.location.href = 'logout.php';
 });
 
 setTime();
-
-
 </script>
 
 </html>
