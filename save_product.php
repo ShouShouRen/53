@@ -4,7 +4,7 @@ require_once("pdo.php");
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
 
-$product_name = $input["product_name"];
+$product_name = $input["product_name"];  
 $product_des = $input["product_des"];
 $time = $input["time"];
 $price = $input["price"];
