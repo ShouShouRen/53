@@ -210,7 +210,7 @@ try {
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                                     id="cancelBtn">取消</button>
-                                <button type="button" class="btn btn-primary continueBtn" id="continueBtn">繼續操作</button>
+                                <button type="button" class="btn btn-primary" id="continueBtn">繼續操作</button>
                             </div>
                         </div>
                     </div>
@@ -225,13 +225,6 @@ try {
 <script>
 let timeleft = 60;
 let timer, confirmTimer;
-$('.continueBtn').on('click', () => {
-    stopConfirmTimer();
-    resetConfirmTimer();
-    console.log('ddd');
-    $('#confirmModal').modal('hide');
-    resetTime();
-});
 
 const startConfirmTimer = () => {
     $('#countdownModal').html(`5`);
@@ -291,7 +284,12 @@ $('#timerModal').on('show.bs.modal', () => {
 
 $('#timerModal').on('hide.bs.modal', () => clearInterval(timer));
 
-
+$('#continueBtn').on('click', () => {
+    stopConfirmTimer();
+    resetConfirmTimer();
+    $('#confirmModal').modal('hide');
+    resetTime();
+});
 
 $('#cancelBtn').on('click', () => {
     window.location.href = 'logout.php';
