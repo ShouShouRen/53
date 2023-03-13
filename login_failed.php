@@ -12,7 +12,7 @@
 
 <body>
     <div class="d-center font-weight-bolder text-white">
-        <h1 style="font-size: 100px">連續誤錯 3 次</h1>
+        <h1 style="font-size: 100px">連續錯誤 3 次</h1>
     </div>
 </body>
 
