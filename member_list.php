@@ -227,7 +227,6 @@ let timeleft = 60;
 let timer, confirmTimer;
 
 const startConfirmTimer = () => {
-    $('#countdownModal').html(`5`);
     confirmTimer = setTimeout(() => {
         let count = 4;
         const counter = setInterval(() => {
