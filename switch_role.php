@@ -1,4 +1,3 @@
-
 <?php
 require_once("pdo.php");
 extract($_GET);
