@@ -126,7 +126,7 @@ try {
                                                 <?php foreach($result_log as $row){?>
                                                     <tr>
                                                         <td><?=$row["user"]?></td>
-                                                        <td><?=$row["time"]?></td>
+                                                        <td><?=$row["login_time"]?></td>
                                                         <td><?=$row["status"]?></td>
                                                     </tr>
                                                 <?php }?>
