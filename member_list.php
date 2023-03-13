@@ -9,6 +9,11 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    $sql_log = "SELECT * FROM login_log";
+    $stmt_log = $pdo->prepare($sql_log);
+    $stmt_log->execute();
+    $result_log = $stmt_log->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
@@ -65,6 +70,8 @@ try {
                 <div class="row justify-content-between align-items-center mb-3">
                     <div class="col-6">
                         <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduser">新增使用者</button>
+                        <button class="btn btn-sm btn-secondary" data-toggle="modal"
+                            data-target="#log">使用者登出入紀錄</button>
                         <!-- Modal -->
                         <div class="modal fade" id="adduser">
                             <div class="modal-dialog">
@@ -94,6 +101,36 @@ try {
                                                 <div class="text-right"><input type="submit" value="註冊"
                                                         class="btn btn-success"></div>
                                             </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="log">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="logLabel">使用者登出入紀錄</h5>
+                                        <button class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">&times</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-sm px-5 py-4">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>帳號</th>
+                                                    <th>時間</th>
+                                                    <th>狀態</th>
+                                                </tr>
+                                                <?php foreach($result_log as $row){?>
+                                                    <tr>
+                                                        <td><?=$row["user"]?></td>
+                                                        <td><?=$row["time"]?></td>
+                                                        <td><?=$row["status"]?></td>
+                                                    </tr>
+                                                <?php }?>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
