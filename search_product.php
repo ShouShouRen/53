@@ -13,13 +13,6 @@ if (isset($_POST['search'])) {
         $filtered_result = array();
         foreach ($result as $row) {
             if (strpos($row['product_name'], $keyword) !== false) {
-                // if (!empty($min_price) && !empty($max_price)) {
-                //     if ($row["price"] >= $min_price && $row["price"] <= $max_price) {
-                //         array_push($filtered_result, $row);
-                //     }
-                // } else {
-                //     array_push($filtered_result, $row);
-                // }
                 if (!empty($min_price) && !empty($max_price)) {
                     if ($row["price"] >= $min_price && $row["price"] <= $max_price) {
                         array_push($filtered_result, $row);
