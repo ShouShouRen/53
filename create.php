@@ -221,9 +221,6 @@ if (!isset($_SESSION["AUTH"])) {
                                             <label for="">相關連結:</label>
                                             <input type="text" class="form-control w-75" name="links">
                                         </div>
-                                        <!-- <div class="text-right my-3">
-                                            <input type="submit" class="btn btn-primary" value="儲存">
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
