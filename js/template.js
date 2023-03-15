@@ -6,7 +6,7 @@ const preview = document.querySelector('#preview');
 
 const template1HTML = `
 <div class="row pt-5 mt-5 justify-content-center">
-    <div class="col-6 d-flex" style="min-height: 300px">
+    <div class="col-6 d-flex" style="min-height: 380px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"></div>
             <div class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</div>
@@ -22,7 +22,7 @@ const template1HTML = `
 `;
 const template2HTML = `
 <div class="row pt-5 mt-5 justify-content-center">
-    <div class="col-6 d-flex" style="min-height: 300px">
+    <div class="col-6 d-flex" style="min-height: 380px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">商品名稱</div>
             <div class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light"></div>
@@ -39,7 +39,7 @@ const template2HTML = `
 
 const template3HTML = `
 <div class="row pt-5 mt-5 justify-content-center">
-    <div class="col-6 d-flex" style="min-height: 300px">
+    <div class="col-6 d-flex" style="min-height: 380px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</div>
             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>
@@ -56,7 +56,7 @@ const template3HTML = `
 
 const template4HTML = `
 <div class="row pt-5 mt-5 justify-content-center">
-    <div class="col-6 d-flex" style="min-height: 300px">
+    <div class="col-6 d-flex" style="min-height: 380px">
         <div class="col-6 h-100 bg-back p-3">
             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</div>
             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</div>

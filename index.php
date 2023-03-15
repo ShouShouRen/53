@@ -82,7 +82,7 @@ try {
             <div class="row justify-content-start mt-4" id="search-results">
                 <?php foreach ($result as $row) { ?>
                 <?php if ($row["template"] == 1) { ?>
-                <div class="col-6" style="height:400px">
+                <div class="col-6" style="height:380px">
                     <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                         <div class="col-6">
                             <img src="./images/<?php echo $row["images"]; ?>" class="w-100" style="height: 225px"
@@ -110,7 +110,7 @@ try {
                     </div>
                 </div>
                 <?php } else if ($row["template"] == 2) { ?>
-                <div class="col-6" style="height:400px">
+                <div class="col-6" style="height:380px">
                     <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                         <div class="col-6">
                             <div class="bg-1 w-100 h-20 mb-1 py-3 text-center text-light">
@@ -138,7 +138,7 @@ try {
                     </div>
                 </div>
                 <?php } else if ($row["template"] == 3) { ?>
-                <div class="col-6" style="height:400px">
+                <div class="col-6" style="height:380px">
                     <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                         <div class="col-6">
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">
@@ -166,7 +166,7 @@ try {
                     </div>
                 </div>
                 <?php } else if ($row["template"] == 4) { ?>
-                <div class="col-6" style="height:400px">
+                <div class="col-6" style="height:380px">
                     <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                         <div class="col-6">
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">
