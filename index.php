@@ -209,10 +209,10 @@ try {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form enctype="multipart/form-data">
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">商品標題:</label>
-                                    <input type="text" class="form-control w-75" name="product_name" id="product_name">
+                                    <input type="text"  class="form-control w-75" name="product_name" id="product_name">
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">商品描述:</label>
@@ -229,6 +229,7 @@ try {
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">圖片:</label>
+                                    <input type="hidden" name="images" id="images">
                                     <input type="file" name="images" id="images">
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
@@ -242,7 +243,7 @@ try {
                                 <div class="text-right my-3">
                                     <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
                                 </div>
-                                <input type="hidden" name="id" value="<?php echo $row["id"]?>" id="id">
+                                <input type="hidden" name="id" id="id">
                             </form>
                         </div>
                     </div>

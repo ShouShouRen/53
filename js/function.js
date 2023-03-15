@@ -154,10 +154,11 @@ $(function () {
             dataType: 'json',
             success: function (response) {
                 console.log(response);
+                $("#id").val(response[0].id);
                 $("#product_name").val(response[0].product_name);
                 $("#product_des").val(response[0].product_des);
                 $("#time").val(response[0].time);
-                // $("#images").val(response[0].images);
+                $("#images").val(response[0].images);
                 $("#price").val(response[0].price);
                 $("#links").val(response[0].links);
             }
@@ -170,6 +171,7 @@ $(function () {
         let time = $("#time").val();
         let price = $("#price").val();
         let links = $("#links").val();
+        let images = $("#images").val();
         let id = $("#id").val();
 
         let data = {
@@ -178,6 +180,7 @@ $(function () {
             time: time,
             price: price,
             links: links,
+            images: images,
             id: id
         };
         

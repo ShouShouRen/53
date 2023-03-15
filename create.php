@@ -77,18 +77,18 @@ if (!isset($_SESSION["AUTH"])) {
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
-                                                        <div class="col-12 d-flex p-4" id="containment-wrapper" style="height: 380px">
-                                                            <ul class="col-6 h-100 p-3 connectedSortable">
-                                                                <li id="sortable" class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light mt-1">
+                                                        <div class="col-12 d-flex p-4" style="height: 380px">
+                                                            <ul class="col-6 h-100 p-3 connectedSortable" id="sortable">
+                                                                <li  class="bg-1 w-100 h-75 d-flex align-items-center justify-content-center text-light mt-1">
                                                                     <p>圖片</p>
                                                                 </li>
                                                                 <li class="bg-2 w-100 h-20 mt-1 py-3 text-center text-light">相關連結</li>
                                                             </ul>
-                                                            <ul class="col-6 h-100 p-3 connectedSortable">
-                                                                <li id="sortable" class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
-                                                                <li id="sortable" class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
-                                                                <li id="sortable" class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
-                                                                <li id="sortable" class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
+                                                            <ul class="col-6 h-100 p-3 connectedSortable"  id="sortable">
+                                                                <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">商品名稱</li>
+                                                                <li class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">商品簡介</li>
+                                                                <li class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">發布日期</li>
+                                                                <li class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">費用</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -248,6 +248,14 @@ if (!isset($_SESSION["AUTH"])) {
         </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script>
+ $( function() {
+    $( "#sortable, #sortable" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  } );
+</script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/template.js"></script>
 </html>

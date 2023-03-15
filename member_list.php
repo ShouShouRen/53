@@ -124,11 +124,11 @@ try {
                                                     <th>狀態</th>
                                                 </tr>
                                                 <?php foreach($result_log as $row){?>
-                                                    <tr>
-                                                        <td><?=$row["user"]?></td>
-                                                        <td><?=$row["login_time"]?></td>
-                                                        <td><?=$row["status"]?></td>
-                                                    </tr>
+                                                <tr>
+                                                    <td><?=$row["user"]?></td>
+                                                    <td><?=$row["login_time"]?></td>
+                                                    <td><?=$row["status"]?></td>
+                                                </tr>
                                                 <?php }?>
                                             </table>
                                         </div>
@@ -262,11 +262,11 @@ try {
 <script>
 let timeleft = 60;
 let timer, confirmTimer;
-
+let counter;
 const startConfirmTimer = () => {
     confirmTimer = setTimeout(() => {
-        let count = 4;
-        const counter = setInterval(() => {
+        let count = 5;
+        counter = setInterval(() => {
             $('#countdownModal').text(count--);
             if (count < 0) {
                 window.location.href = 'logout.php';
@@ -325,6 +325,8 @@ $('#continueBtn').on('click', () => {
     resetConfirmTimer();
     $('#confirmModal').modal('hide');
     resetTime();
+    clearInterval(counter);
+    clearTimeout(confirmTimer);
 });
 
 $('#cancelBtn').on('click', () => {
