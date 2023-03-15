@@ -192,7 +192,7 @@ $(function () {
             success: function (response) {
                 console.log('Success: ' + response);
                 alert('儲存成功');
-                // window.location.reload();
+                window.location.reload();
             }
         });
     });
